@@ -47,6 +47,7 @@
         "@schematics/angular": "18.0.1",
         "core-js": "3.37.1",
         "firebase": "10.12.1",
+        "inquirer-autocomplete-prompt": "^3.0.1",
         "luxon": "3.4.4",
         "ngx-google-analytics": "14.0.1",
         "ngx-toastr": "18.0.0",

@@ -19,7 +19,7 @@ import {ToastrModule} from 'ngx-toastr';
 import {MessagesComponent} from '@modules/main/header/messages/messages.component';
 import {NotificationsComponent} from '@modules/main/header/notifications/notifications.component';
 
-import {CommonModule, registerLocaleData} from '@angular/common';
+import {CommonModule, HashLocationStrategy, LocationStrategy, registerLocaleData} from '@angular/common';
 import localeEn from '@angular/common/locales/en';
 import {UserComponent} from '@modules/main/header/user/user.component';
 import {ForgotPasswordComponent} from '@modules/forgot-password/forgot-password.component';
@@ -99,6 +99,6 @@ registerLocaleData(localeEn, 'en-EN');
         NgxGoogleAnalyticsModule.forRoot(environment.GA_ID),
         FontAwesomeModule
     ],
-    providers: [provideHttpClient(withInterceptorsFromDi())]
+    providers: [provideHttpClient(withInterceptorsFromDi()),{provide: LocationStrategy, useClass: HashLocationStrategy}]
 })
 export class AppModule {}
