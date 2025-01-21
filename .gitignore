@@ -55,3 +55,7 @@ ui-debug.log
 .firebase
 *-debug.log
 .runtimeconfig.json
+
+#ignore environment file
+./src/environments/envirinment.ts
+./src/environments/envirinment.prod.ts
