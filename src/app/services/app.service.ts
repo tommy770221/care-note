@@ -3,15 +3,10 @@ import {Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
 import {sleep} from '@/utils/helpers';
 
-import {createUserWithEmailAndPassword} from '@firebase/auth';
-import {
-    User,
-    onAuthStateChanged,
-    signInWithEmailAndPassword,
-    signInWithPopup
-} from 'firebase/auth';
-import {GoogleAuthProvider} from 'firebase/auth';
-import {firebaseAuth} from '@/firebase';
+;import {GoogleAuthProvider, User} from 'firebase/auth';
+import {environment} from "../../environments/environment";
+import {Auth, getAuth} from "@angular/fire/auth";
+import {AngularFireAuth} from "@angular/fire/compat/auth";
 
 const provider = new GoogleAuthProvider();
 
@@ -23,10 +18,10 @@ export class AppService {
 
     constructor(
         private router: Router,
-        private toastr: ToastrService
+        private toastr: ToastrService,
+        private auth : AngularFireAuth
     ) {
-        onAuthStateChanged(
-            firebaseAuth,
+        this.auth.onAuthStateChanged(
             (user) => {
                 if (user) {
                     this.user = user;
@@ -39,15 +34,17 @@ export class AppService {
             }
         );
     }
-
+    //todo i18n
+    //todo error check
+    //todo email verification
     async registerWithEmail(email: string, password: string) {
         try {
-            const result = await createUserWithEmailAndPassword(
-                firebaseAuth,
+            const result = await this.auth.createUserWithEmailAndPassword(
                 email,
                 password
             );
             this.user = result.user;
+            //this.auth.sendEmailVerification({url : ''});
             this.router.navigate(['/']);
             return result;
         } catch (error) {
@@ -57,14 +54,24 @@ export class AppService {
 
     async loginWithEmail(email: string, password: string) {
         try {
-            const result = await signInWithEmailAndPassword(
-                firebaseAuth,
+            const result = await this.auth.signInWithEmailAndPassword(
                 email,
                 password
             );
             this.user = result.user;
-            this.router.navigate(['/']);
-
+            if(this.user?.email===null){
+              this.toastr.error('Email is null');
+              return ;
+            }
+            if(this.user?.emailVerified===true){
+              this.loginSuccess();
+              this.router.navigate(['/']);
+            }else if(this.user?.emailVerified===false && environment.FIREBASE_CONFIG===null){
+              this.loginSuccess();
+              this.router.navigate(['/']);
+            }else{
+              this.toastr.error('Please verify your email');
+            }
             return result;
         } catch (error) {
             this.toastr.error(error.message);
@@ -73,10 +80,10 @@ export class AppService {
 
     async signInByGoogle() {
         try {
-            const result = await signInWithPopup(firebaseAuth, provider);
+            const result = await this.auth.signInWithPopup(provider);
             this.user = result.user;
             this.router.navigate(['/']);
-
+            this.loginSuccess();
             return result;
         } catch (error) {
             this.toastr.error(error.message);
@@ -84,23 +91,32 @@ export class AppService {
     }
 
     async getProfile() {
-        try {
             await sleep(500);
-            const user = firebaseAuth.currentUser;
-            if (user) {
-                this.user = user;
-            } else {
+            await this.auth.currentUser.then(
+              (user)=>{
+                if (user) {
+                  this.user = user;
+                } else {
+                  this.logout();
+                }
+              }
+            ).catch(
+              (error)=>{
                 this.logout();
-            }
-        } catch (error) {
-            this.logout();
-            this.toastr.error(error.message);
-        }
+                this.toastr.error(error.message);
+              }
+            );
+
     }
 
     async logout() {
-        await firebaseAuth.signOut();
+        await this.auth.signOut();
         this.user = null;
+        sessionStorage.removeItem('currentUser');
         this.router.navigate(['/login']);
+    }
+
+    loginSuccess(){
+      sessionStorage.setItem('currentUser',JSON.stringify(this.user))
     }
 }

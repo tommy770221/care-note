@@ -39,6 +39,11 @@ export const MENU = [
         path: ['/']
     },
     {
+    name: 'CarePlan',
+    iconClasses: 'fas fa-user-nurse',
+    path: ['/care-plan']
+    },
+    {
         name: 'Blank',
         iconClasses: 'fas fa-file',
         path: ['/blank']

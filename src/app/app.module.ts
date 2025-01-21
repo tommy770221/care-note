@@ -46,8 +46,21 @@ import {ContentHeaderComponent} from './components/content-header/content-header
 import {LoadingComponent} from './components/loading/loading.component';
 import {OverlayLoadingComponent} from './components/overlay-loading/overlay-loading.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { CarePlanComponent } from './pages/care-plan/care-plan/care-plan.component';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+import { getAnalytics, provideAnalytics, ScreenTrackingService, UserTrackingService } from '@angular/fire/analytics';
+import { initializeAppCheck, ReCaptchaEnterpriseProvider, provideAppCheck } from '@angular/fire/app-check';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { getDatabase, provideDatabase } from '@angular/fire/database';
+import { getFunctions, provideFunctions } from '@angular/fire/functions';
+import { getMessaging, provideMessaging } from '@angular/fire/messaging';
+import { getStorage, provideStorage } from '@angular/fire/storage';
+import {AppService} from "@services/app.service";
+import {AuthGuard} from "@guards/auth.guard";
+import {FIREBASE_OPTIONS} from "@angular/fire/compat";
 
-registerLocaleData(localeEn, 'en-EN');
+//registerLocaleData(localeEn, 'en-EN');
 
 @NgModule({
     declarations: [
@@ -80,7 +93,8 @@ registerLocaleData(localeEn, 'en-EN');
         SmallBoxComponent,
         ContentHeaderComponent,
         LoadingComponent,
-        OverlayLoadingComponent
+        OverlayLoadingComponent,
+        CarePlanComponent
     ],
     bootstrap: [AppComponent],
     imports: [
@@ -97,8 +111,37 @@ registerLocaleData(localeEn, 'en-EN');
             preventDuplicates: true
         }),
         NgxGoogleAnalyticsModule.forRoot(environment.GA_ID),
-        FontAwesomeModule
+        FontAwesomeModule,
     ],
-    providers: [provideHttpClient(withInterceptorsFromDi()),{provide: LocationStrategy, useClass: HashLocationStrategy}]
+    providers: [
+      AppService,
+      AuthGuard,
+      { provide: FIREBASE_OPTIONS, useValue: environment.FIREBASE_CONFIG },
+      provideHttpClient(withInterceptorsFromDi()),
+      {provide: LocationStrategy, useClass: HashLocationStrategy},
+      //provideFirebaseApp(() => {
+      //  return initializeApp(environment.FIREBASE_CONFIG)
+      //    }),
+      provideFirebaseApp(() => {
+        return initializeApp(environment.FIREBASE_CONFIG)
+      }),
+      provideAuth(() => {return getAuth()}),
+      provideAnalytics(() => getAnalytics()),
+      ScreenTrackingService,
+      UserTrackingService,
+      // provideAppCheck(() => {
+      //     // TODO get a reCAPTCHA Enterprise here https://console.cloud.google.com/security/recaptcha?project=_
+      //     const provider = new ReCaptchaEnterpriseProvider
+      //     (/* reCAPTCHA Enterprise site key */
+      //       '6LchwAoqAAAAAMfT_hY2nwI1WXJcBE20DGA_k-A3'
+      //     );
+      //     return initializeAppCheck(undefined,{ provider, isTokenAutoRefreshEnabled: true });
+      // }),
+      provideFirestore(() => getFirestore()),
+      provideDatabase(() => getDatabase()),
+      provideFunctions(() => getFunctions()),
+      provideMessaging(() => getMessaging()),
+      provideStorage(() => getStorage())
+    ]
 })
 export class AppModule {}
