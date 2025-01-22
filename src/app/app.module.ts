@@ -59,6 +59,10 @@ import { getStorage, provideStorage } from '@angular/fire/storage';
 import {AppService} from "@services/app.service";
 import {AuthGuard} from "@guards/auth.guard";
 import {FIREBASE_OPTIONS} from "@angular/fire/compat";
+import { ProfileAddComponent } from './pages/care-plan/care-plan/person/profile/profile-add/profile-add.component';
+import { ProfileShowComponent } from './pages/care-plan/care-plan/person/profile/profile-show/profile-show.component';
+import { CareDashboardComponent } from './pages/care-plan/care-plan/dashboard/care-dashboard/care-dashboard.component';
+
 
 //registerLocaleData(localeEn, 'en-EN');
 
@@ -94,7 +98,10 @@ import {FIREBASE_OPTIONS} from "@angular/fire/compat";
         ContentHeaderComponent,
         LoadingComponent,
         OverlayLoadingComponent,
-        CarePlanComponent
+        CarePlanComponent,
+        ProfileAddComponent,
+        ProfileShowComponent,
+        CareDashboardComponent,
     ],
     bootstrap: [AppComponent],
     imports: [

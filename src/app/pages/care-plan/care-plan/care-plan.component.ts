@@ -8,6 +8,7 @@ import {
   faChartPie
 } from '@fortawesome/free-solid-svg-icons';
 import {FireDatabaseService} from "@services/fire-database.service";
+import {FireStoreService} from "@services/fire-store.service";
 
 @Component({
   selector: 'app-care-plan',
@@ -21,11 +22,15 @@ export class CarePlanComponent implements OnInit{
   faCartShopping = faCartShopping;
   faUserPlus = faUserPlus;
   faChartPie = faChartPie;
-  constructor(private fireDatabaseService :FireDatabaseService) {
+  constructor(private fireDatabaseService :FireDatabaseService,
+              private fireStoreService: FireStoreService) {
 
   }
 
   ngOnInit(): void {
-    this.fireDatabaseService.save('testCare/',{name:'user',age:20});
+    //this.fireDatabaseService.save('testCares/',{name:'user2',age:20});
+    //this.fireDatabaseService.query('testCares/');
+    //this.fireStoreService.save('testCares/',{name:'user',age:50});
+    //this.fireStoreService.query('testCares/');
   }
 }

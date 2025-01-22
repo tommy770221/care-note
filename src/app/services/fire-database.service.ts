@@ -9,11 +9,21 @@ export class FireDatabaseService {
 
   constructor(private fireDatabase:AngularFireDatabase) { }
 
-  save(url:string,data: Object){
-    let testCaresRef =this.fireDatabase.database.ref(('testCares/'));
+  save(url:string,data: any){
+    let testCaresRef =this.fireDatabase.database.ref((url));
     let testCareRef=testCaresRef.push();
-    testCareRef.set({user:'test',age:20}).then((rep)=>{
+    data.createDate=new Date().getTime();
+    testCareRef.set(data).then((rep)=>{
       console.log(rep);
+    }).catch((error)=>{
+      console.log(error);
+    });
+  }
+
+  query(url:string){
+    let testCaresRef =this.fireDatabase.database.ref((url));
+    testCaresRef.equalTo('user').get().then((snapshot)=>{
+      console.log(snapshot.val());
     }).catch((error)=>{
       console.log(error);
     });
