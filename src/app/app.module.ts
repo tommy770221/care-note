@@ -62,6 +62,7 @@ import {FIREBASE_OPTIONS} from "@angular/fire/compat";
 import { ProfileAddComponent } from './pages/care-plan/care-plan/person/profile/profile-add/profile-add.component';
 import { ProfileShowComponent } from './pages/care-plan/care-plan/person/profile/profile-show/profile-show.component';
 import { CareDashboardComponent } from './pages/care-plan/care-plan/dashboard/care-dashboard/care-dashboard.component';
+import {BsDatepickerModule} from "ngx-bootstrap/datepicker";
 
 
 //registerLocaleData(localeEn, 'en-EN');
@@ -119,6 +120,7 @@ import { CareDashboardComponent } from './pages/care-plan/care-plan/dashboard/ca
         }),
         NgxGoogleAnalyticsModule.forRoot(environment.GA_ID),
         FontAwesomeModule,
+        BsDatepickerModule.forRoot()
     ],
     providers: [
       AppService,
