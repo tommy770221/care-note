@@ -1,5 +1,5 @@
 export const environment = {
-  host: 'http://localhost:4200/',
+  host: 'http://localhost:4200',
   NODE_ENV: null,
   GA_ID: null,
   FIREBASE_CONFIG: {
