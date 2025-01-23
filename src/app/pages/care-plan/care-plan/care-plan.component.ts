@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
 import {
   faBookmark,
   faEnvelope,
@@ -15,13 +15,21 @@ import {FireStoreService} from "@services/fire-store.service";
   templateUrl: './care-plan.component.html',
   styleUrl: './care-plan.component.scss'
 })
-export class CarePlanComponent implements OnInit{
+export class CarePlanComponent implements OnInit,OnDestroy{
   faBookmark = faBookmark;
   faEnvelope = faEnvelope;
   faChartSimple = faChartSimple;
   faCartShopping = faCartShopping;
   faUserPlus = faUserPlus;
   faChartPie = faChartPie;
+  @Output()
+  personId = new EventEmitter<String>();
+
+  createPersonID='';
+
+  setHide(){
+    this.personId.emit(this.createPersonID);
+  }
   constructor(private fireDatabaseService :FireDatabaseService,
               private fireStoreService: FireStoreService) {
 
@@ -32,5 +40,9 @@ export class CarePlanComponent implements OnInit{
     //this.fireDatabaseService.query('testCares/');
     //this.fireStoreService.save('testCares/',{name:'user',age:50});
     //this.fireStoreService.query('testCares/');
+  }
+
+  ngOnDestroy(): void {
+    console.log('destroy');
   }
 }

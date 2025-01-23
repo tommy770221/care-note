@@ -44,6 +44,16 @@ export const MENU = [
     path: ['/care-plan']
     },
     {
+      name: 'Kanban',
+      iconClasses: 'fas fa-clipboard-list',
+      path: ['/kanban']
+    },
+    {
+      name: 'Calendar',
+      iconClasses: 'fas fa-calendar-alt',
+      path: ['/calendar']
+    },
+    {
         name: 'Blank',
         iconClasses: 'fas fa-file',
         path: ['/blank']

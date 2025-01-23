@@ -92,18 +92,15 @@ export class AppService {
 
     async getProfile() {
             await sleep(500);
-            await this.auth.currentUser.then(
+            console.log("this.auth",this.auth);
+            this.auth.user.subscribe(
               (user)=>{
+                console.log("user",user);
                 if (user) {
                   this.user = user;
                 } else {
                   this.logout();
                 }
-              }
-            ).catch(
-              (error)=>{
-                this.logout();
-                this.toastr.error(error.message);
               }
             );
 

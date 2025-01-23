@@ -11,10 +11,13 @@ import {NonAuthGuard} from '@guards/non-auth.guard';
 import {ForgotPasswordComponent} from '@modules/forgot-password/forgot-password.component';
 import {RecoverPasswordComponent} from '@modules/recover-password/recover-password.component';
 import {SubMenuComponent} from '@pages/main-menu/sub-menu/sub-menu.component';
-import {CarePlanComponent} from "@pages/care-plan/care-plan/care-plan.component";
-import {ProfileAddComponent} from "@pages/care-plan/care-plan/person/profile/profile-add/profile-add.component";
-import {ProfileShowComponent} from "@pages/care-plan/care-plan/person/profile/profile-show/profile-show.component";
-import {CareDashboardComponent} from "@pages/care-plan/care-plan/dashboard/care-dashboard/care-dashboard.component";
+import {CarePlanComponent} from '@pages/care-plan/care-plan/care-plan.component';
+import {ProfileAddComponent} from '@pages/care-plan/care-plan/person/profile/profile-add/profile-add.component';
+import {ProfileShowComponent} from '@pages/care-plan/care-plan/person/profile/profile-show/profile-show.component';
+import {CareDashboardComponent} from '@pages/care-plan/care-plan/dashboard/care-dashboard/care-dashboard.component';
+import {CalendarComponent} from '@pages/calendar/calendar/calendar.component';
+import {KanbanComponent} from '@pages/kanban/kanban/kanban.component';
+import {KanbanMainComponent} from '@modules/main/kanban-main/kanban-main.component';
 
 const routes: Routes = [
     {
@@ -40,20 +43,33 @@ const routes: Routes = [
                 component: BlankComponent
             },
             {
-              path: 'care-plan',
-              component: CarePlanComponent,
-              children: [
-                { path: '', component:CareDashboardComponent},
-                { path: 'dashboad', component:CareDashboardComponent},
-                { path: 'person/profile', component: ProfileAddComponent },
-                { path: 'person/profile/:id', component: ProfileShowComponent }
-              ]
+                path: 'care-plan',
+                component: CarePlanComponent,
+                children: [
+                    {path: '', component: CareDashboardComponent},
+                    {path: 'dashboad', component: CareDashboardComponent},
+                    {path: 'person/profile', component: ProfileAddComponent},
+                    {
+                        path: 'person/profile/:id',
+                        component: ProfileShowComponent
+                    }
+                ]
+            },
+            {
+                path: 'calendar',
+                component: CalendarComponent
             },
             {
                 path: '',
                 component: DashboardComponent
             }
         ]
+    },
+    {
+        path: 'kanban',
+        component: KanbanMainComponent,
+        canActivate: [AuthGuard],
+        children: [{path: '', component: KanbanComponent}]
     },
     {
         path: 'login',
