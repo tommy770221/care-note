@@ -17,7 +17,6 @@ import {ProfileShowComponent} from '@pages/care-plan/care-plan/person/profile/pr
 import {CareDashboardComponent} from '@pages/care-plan/care-plan/dashboard/care-dashboard/care-dashboard.component';
 import {CalendarComponent} from '@pages/calendar/calendar/calendar.component';
 import {KanbanComponent} from '@pages/kanban/kanban/kanban.component';
-import {KanbanMainComponent} from '@modules/main/kanban-main/kanban-main.component';
 
 const routes: Routes = [
     {
@@ -67,7 +66,7 @@ const routes: Routes = [
     },
     {
         path: 'kanban',
-        component: KanbanMainComponent,
+        component: MainComponent,
         canActivate: [AuthGuard],
         children: [{path: '', component: KanbanComponent}]
     },

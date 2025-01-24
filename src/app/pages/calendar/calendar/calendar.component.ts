@@ -57,7 +57,7 @@ export class CalendarComponent implements OnInit, AfterViewInit {
                     start: new Date(2025,0,24, 19, 0),
                     end: new Date(2025,0,26, 22, 0),
                     allDay: false,
-                    //backgroundColor: '#F5A623'
+                    backgroundColor: '#2388f5'
                 }
             ],
 
