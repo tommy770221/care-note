@@ -28,6 +28,7 @@ export class NonAuthGuard implements CanActivate, CanActivateChild {
         | Promise<boolean | UrlTree>
         | boolean
         | UrlTree {
+        //console.log('NonAuthGuard');
         if (!this.appService.user) {
             return true;
         }

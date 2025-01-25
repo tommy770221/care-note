@@ -35,8 +35,12 @@ export class ForgotPasswordComponent implements OnInit, OnDestroy {
         });
     }
 
+    //todo: implement forgotPassword method i18n
     forgotPassword() {
+        console.log("forgotPasswordForm : ", this.forgotPasswordForm.value.email);
         if (this.forgotPasswordForm.valid) {
+          this.appService.sendPasswordResetEmail(this.forgotPasswordForm.value.email);
+          this.toastr.success('Password reset email sent!', 'Success!');
         } else {
             this.toastr.error('Hello world!', 'Toastr fun!');
         }
