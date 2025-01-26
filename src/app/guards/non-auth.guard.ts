@@ -28,11 +28,17 @@ export class NonAuthGuard implements CanActivate, CanActivateChild {
         | Promise<boolean | UrlTree>
         | boolean
         | UrlTree {
-        //console.log('NonAuthGuard');
+        console.log('NonAuthGuard');
         if (!this.appService.user) {
+            //this.router.navigate(['/login']);
             return true;
         }
-        this.router.navigate(['/']);
+
+        if(!this.appService.user?.emailVerified){
+            //this.router.navigate(['/login']);
+            return true;
+        }
+        //this.router.navigate(['/']);
         return false;
     }
     canActivateChild(

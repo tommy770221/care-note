@@ -27,7 +27,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
         | Promise<boolean | UrlTree>
         | boolean
         | UrlTree {
-       // console.log('AuthGuard');
+        console.log('AuthGuard');
         return this.getProfile();
     }
 
@@ -43,16 +43,22 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     }
 
     async getProfile() {
-        if (this.appService.user) {
+        if (this.appService.user && this.appService.user.emailVerified) {
+            console.log('AuthGuard: User is logged in');
             return true;
         }
         try {
             await this.appService.getProfile();
-            if(this.appService.user) {
+            if(this.appService.user && this.appService.user.emailVerified) {
+                console.log('AuthGuard: User is logged in');
                 return true;
             }
+            console.log('AuthGuard: User is not logged in');
+            //this.router.navigate(['/login']);
             return false;
         } catch (error) {
+            console.log(error);
+            //this.router.navigate(['/login']);
             return false;
         }
     }

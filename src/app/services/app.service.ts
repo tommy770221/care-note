@@ -5,10 +5,12 @@ import {sleep} from '@/utils/helpers';
 
 import {GoogleAuthProvider, User} from 'firebase/auth';
 import {environment} from '../../environments/environment';
-import {Auth, getAuth} from '@angular/fire/auth';
+import {Auth, getAuth, user} from '@angular/fire/auth';
 import {AngularFireAuth} from '@angular/fire/compat/auth';
 import {FireStoreService} from '@services/fire-store.service';
 import {delay, forkJoin, Observable} from "rxjs";
+import {CareGiverService} from "@services/firestore/care-giver.service";
+import {CareGiver} from "@/model/care-giver.model";
 
 const provider = new GoogleAuthProvider();
 
@@ -22,7 +24,8 @@ export class AppService {
         private router: Router,
         private toastr: ToastrService,
         private auth: AngularFireAuth,
-        private fireStoreService: FireStoreService
+        private fireStoreService: FireStoreService,
+        private careGiverService: CareGiverService
     ) {
         this.auth.onAuthStateChanged(
             (user) => {
@@ -52,16 +55,43 @@ export class AppService {
                 if (user) {
                     user.sendEmailVerification({url: environment.host});
                     //todo create user in firestore
-                    this.router.navigate(['/']);
-                    return result;
+                    this.createCareGiver(user);
                 } else {
-                    this.toastr.error('something went wrong');
+                    //this.toastr.error('something went wrong');
                     this.logout();
                 }
             });
         } catch (error) {
             this.toastr.error(error.message);
         }
+    }
+
+    createCareGiver(
+        user: any,
+    ) {
+        this.careGiverService
+            .queryByEmail('careGivers', user.email)
+            .then((resp) => {
+                const careGiver = new CareGiver();
+                careGiver.email = user.email;
+                careGiver.name = user.displayName;
+                careGiver.userID = user.uid;
+                console.log('resp : ', resp);
+                if (resp.size == 0) {
+                    this.careGiverService
+                        .save('careGivers', careGiver)
+                        .then((rep) => {
+                            console.log('rep', rep);
+                            if(!user?.emailVerified){
+                              this.toastr.error('Please verify your email');
+                            }
+                            this.router.navigate(['/login']);
+                        });
+                } else {
+                  console.log('User already exist');
+                  //this.toastr.error('User already exist');
+                }
+            });
     }
 
     async loginWithEmail(email: string, password: string) {
@@ -98,6 +128,7 @@ export class AppService {
             const result = await this.auth.signInWithPopup(provider);
             this.user = result.user;
             //todo create user in firestore
+            this.createCareGiver(this.user);
             this.loginSuccess();
             this.router.navigate(['/']);
             return result;
@@ -108,32 +139,22 @@ export class AppService {
 
     async getProfile() {
         await sleep(500);
-        console.log('this.auth', this.auth);
-        console.log('this.auth.user', this.auth.user);
-        this.auth.authState.subscribe((user) => {
-          console.log('user', user);
-          if (user) {
-            this.user = user;
-          } else {
-            this.logout();
-            this.router.navigate(['/login']);
-          }
-          return;
-        }, (error) => {
-          console.log('error', error);
-        });
-        /*this.auth.user.subscribe((user) => {
-            delay(1000);
-            console.log('user', user);
-            if (user) {
-                this.user = user;
-            } else {
-                this.logout();
-                this.router.navigate(['/login']);
+        //console.log('this.auth', this.auth);
+        this.auth.authState.subscribe(
+            (user) => {
+                console.log('user', user);
+                if (user) {
+                    this.user = user;
+                } else {
+                    this.logout();
+                    this.router.navigate(['/login']);
+                }
+                return;
+            },
+            (error) => {
+                console.log('error', error);
             }
-            return;
-        });*/
-
+        );
     }
 
     async sendPasswordResetEmail(email: string) {
