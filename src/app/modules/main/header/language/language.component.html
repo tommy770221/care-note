@@ -1,29 +1,29 @@
 <pf-dropdown [hideArrow]="true">
     <div slot="head">
         <a class="nav-link">
-            <i class="flag-icon flag-icon-tr"></i>
+            <i class="flag-icon flag-icon-tw"></i>
         </a>
     </div>
     <div slot="body">
-        <a href="#" class="dropdown-item active">
-            <i class="flag-icon flag-icon-tr mr-2"></i>
-            <span>Turkish</span>
-        </a>
-        <a href="#" class="dropdown-item">
+        <div  (click)="changeLan('zh-TW')" class="dropdown-item active">
+            <i class="flag-icon flag-icon-tw mr-2"></i>
+            <span>Taiwan</span>
+        </div>
+        <div  (click)="changeLan('en')" class="dropdown-item">
             <i class="flag-icon flag-icon-us mr-2"></i>
             <span>English</span>
-        </a>
-        <a href="#" class="dropdown-item">
-            <i class="flag-icon flag-icon-de mr-2"></i>
-            <span>German</span>
-        </a>
-        <a href="#" class="dropdown-item">
-            <i class="flag-icon flag-icon-fr mr-2"></i>
-            <span>French</span>
-        </a>
-        <a href="#" class="dropdown-item">
-            <i class="flag-icon flag-icon-es mr-2"></i>
-            <span>Spanish</span>
-        </a>
+        </div>
+        <div (click)="changeLan('ja')" class="dropdown-item">
+            <i class="flag-icon flag-icon-jp mr-2"></i>
+            <span>Japan</span>
+        </div>
+        <div (click)="changeLan('id')" class="dropdown-item">
+            <i class="flag-icon flag-icon-id mr-2"></i>
+            <span>ID</span>
+        </div>
+        <div (click)="changeLan('va')" class="dropdown-item">
+            <i class="flag-icon flag-icon-va mr-2"></i>
+            <span>Va</span>
+        </div>
     </div>
 </pf-dropdown>

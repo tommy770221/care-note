@@ -1,6 +1,10 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
+import {
+    HttpClient,
+    provideHttpClient,
+    withInterceptorsFromDi
+} from '@angular/common/http';
 
 import {AppRoutingModule} from '@/app-routing.module';
 import {AppComponent} from './app.component';
@@ -19,7 +23,12 @@ import {ToastrModule} from 'ngx-toastr';
 import {MessagesComponent} from '@modules/main/header/messages/messages.component';
 import {NotificationsComponent} from '@modules/main/header/notifications/notifications.component';
 
-import {CommonModule, HashLocationStrategy, LocationStrategy, registerLocaleData} from '@angular/common';
+import {
+    CommonModule,
+    HashLocationStrategy,
+    LocationStrategy,
+    registerLocaleData
+} from '@angular/common';
 import localeEn from '@angular/common/locales/en';
 import {UserComponent} from '@modules/main/header/user/user.component';
 import {ForgotPasswordComponent} from '@modules/forgot-password/forgot-password.component';
@@ -46,27 +55,37 @@ import {ContentHeaderComponent} from './components/content-header/content-header
 import {LoadingComponent} from './components/loading/loading.component';
 import {OverlayLoadingComponent} from './components/overlay-loading/overlay-loading.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import { CarePlanComponent } from './pages/care-plan/care-plan/care-plan.component';
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
-import { getAuth, provideAuth } from '@angular/fire/auth';
-import { getAnalytics, provideAnalytics, ScreenTrackingService, UserTrackingService } from '@angular/fire/analytics';
-import { initializeAppCheck, ReCaptchaEnterpriseProvider, provideAppCheck } from '@angular/fire/app-check';
-import { getFirestore, provideFirestore } from '@angular/fire/firestore';
-import { getDatabase, provideDatabase } from '@angular/fire/database';
-import { getFunctions, provideFunctions } from '@angular/fire/functions';
-import { getMessaging, provideMessaging } from '@angular/fire/messaging';
-import { getStorage, provideStorage } from '@angular/fire/storage';
-import {AppService} from "@services/app.service";
-import {AuthGuard} from "@guards/auth.guard";
-import {FIREBASE_OPTIONS} from "@angular/fire/compat";
-import { ProfileAddComponent } from './pages/care-plan/care-plan/person/profile/profile-add/profile-add.component';
-import { ProfileShowComponent } from './pages/care-plan/care-plan/person/profile/profile-show/profile-show.component';
-import { CareDashboardComponent } from './pages/care-plan/care-plan/dashboard/care-dashboard/care-dashboard.component';
-import {BsDatepickerModule} from "ngx-bootstrap/datepicker";
-import { CalendarComponent } from './pages/calendar/calendar/calendar.component';
-import { KanbanComponent } from './pages/kanban/kanban/kanban.component';
-import { ProfileAddOneComponent } from './pages/care-plan/care-plan/person/profile/profile-add-one/profile-add-one.component';
-
+import {CarePlanComponent} from './pages/care-plan/care-plan/care-plan.component';
+import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
+import {getAuth, provideAuth} from '@angular/fire/auth';
+import {
+    getAnalytics,
+    provideAnalytics,
+    ScreenTrackingService,
+    UserTrackingService
+} from '@angular/fire/analytics';
+import {
+    initializeAppCheck,
+    ReCaptchaEnterpriseProvider,
+    provideAppCheck
+} from '@angular/fire/app-check';
+import {getFirestore, provideFirestore} from '@angular/fire/firestore';
+import {getDatabase, provideDatabase} from '@angular/fire/database';
+import {getFunctions, provideFunctions} from '@angular/fire/functions';
+import {getMessaging, provideMessaging} from '@angular/fire/messaging';
+import {getStorage, provideStorage} from '@angular/fire/storage';
+import {AppService} from '@services/app.service';
+import {AuthGuard} from '@guards/auth.guard';
+import {FIREBASE_OPTIONS} from '@angular/fire/compat';
+import {ProfileAddComponent} from './pages/care-plan/care-plan/person/profile/profile-add/profile-add.component';
+import {ProfileShowComponent} from './pages/care-plan/care-plan/person/profile/profile-show/profile-show.component';
+import {CareDashboardComponent} from './pages/care-plan/care-plan/dashboard/care-dashboard/care-dashboard.component';
+import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
+import {CalendarComponent} from './pages/calendar/calendar/calendar.component';
+import {KanbanComponent} from './pages/kanban/kanban/kanban.component';
+import {ProfileAddOneComponent} from './pages/care-plan/care-plan/person/profile/profile-add-one/profile-add-one.component';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 
 //registerLocaleData(localeEn, 'en-EN');
 
@@ -108,8 +127,7 @@ import { ProfileAddOneComponent } from './pages/care-plan/care-plan/person/profi
         CareDashboardComponent,
         CalendarComponent,
         KanbanComponent,
-        ProfileAddOneComponent,
-
+        ProfileAddOneComponent
     ],
     bootstrap: [AppComponent],
     imports: [
@@ -127,37 +145,50 @@ import { ProfileAddOneComponent } from './pages/care-plan/care-plan/person/profi
         }),
         NgxGoogleAnalyticsModule.forRoot(environment.GA_ID),
         FontAwesomeModule,
-        BsDatepickerModule.forRoot()
+        BsDatepickerModule.forRoot(),
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        })
     ],
     providers: [
-      AppService,
-      AuthGuard,
-      { provide: FIREBASE_OPTIONS, useValue: environment.FIREBASE_CONFIG },
-      provideHttpClient(withInterceptorsFromDi()),
-      {provide: LocationStrategy, useClass: HashLocationStrategy},
-      //provideFirebaseApp(() => {
-      //  return initializeApp(environment.FIREBASE_CONFIG)
-      //    }),
-      provideFirebaseApp(() => {
-        return initializeApp(environment.FIREBASE_CONFIG)
-      }),
-      provideAuth(() => {return getAuth()}),
-      provideAnalytics(() => getAnalytics()),
-      ScreenTrackingService,
-      UserTrackingService,
-      // provideAppCheck(() => {
-      //     // TODO get a reCAPTCHA Enterprise here https://console.cloud.google.com/security/recaptcha?project=_
-      //     const provider = new ReCaptchaEnterpriseProvider
-      //     (/* reCAPTCHA Enterprise site key */
-      //       '6LchwAoqAAAAAMfT_hY2nwI1WXJcBE20DGA_k-A3'
-      //     );
-      //     return initializeAppCheck(undefined,{ provider, isTokenAutoRefreshEnabled: true });
-      // }),
-      provideFirestore(() => getFirestore()),
-      provideDatabase(() => getDatabase()),
-      provideFunctions(() => getFunctions()),
-      provideMessaging(() => getMessaging()),
-      provideStorage(() => getStorage())
+        AppService,
+        AuthGuard,
+        {provide: FIREBASE_OPTIONS, useValue: environment.FIREBASE_CONFIG},
+        provideHttpClient(withInterceptorsFromDi()),
+        {provide: LocationStrategy, useClass: HashLocationStrategy},
+        //provideFirebaseApp(() => {
+        //  return initializeApp(environment.FIREBASE_CONFIG)
+        //    }),
+        provideFirebaseApp(() => {
+            return initializeApp(environment.FIREBASE_CONFIG);
+        }),
+        provideAuth(() => {
+            return getAuth();
+        }),
+        provideAnalytics(() => getAnalytics()),
+        ScreenTrackingService,
+        UserTrackingService,
+        // provideAppCheck(() => {
+        //     // TODO get a reCAPTCHA Enterprise here https://console.cloud.google.com/security/recaptcha?project=_
+        //     const provider = new ReCaptchaEnterpriseProvider
+        //     (/* reCAPTCHA Enterprise site key */
+        //       '6LchwAoqAAAAAMfT_hY2nwI1WXJcBE20DGA_k-A3'
+        //     );
+        //     return initializeAppCheck(undefined,{ provider, isTokenAutoRefreshEnabled: true });
+        // }),
+        provideFirestore(() => getFirestore()),
+        provideDatabase(() => getDatabase()),
+        provideFunctions(() => getFunctions()),
+        provideMessaging(() => getMessaging()),
+        provideStorage(() => getStorage())
     ]
 })
 export class AppModule {}
+
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}

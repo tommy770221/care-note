@@ -1,0 +1,9 @@
+{
+  "welcomeMessage": "Thanks for joining, {{ firstName }}! It's great to have you!",
+  "login": {
+    "username": "Enter your user name",
+    "password": "Password here"
+  },
+  "signInTitle": "Care Note(id)",
+  "dashboardTitle": "Dashboard (id)"
+}
