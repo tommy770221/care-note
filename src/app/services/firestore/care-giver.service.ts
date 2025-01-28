@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {AngularFirestore, DocumentReference} from "@angular/fire/compat/firestore";
 import {CareGiver} from "@/model/care-giver.model";
+import {Timestamp} from "@firebase/firestore-types";
 
 @Injectable({
     providedIn: 'root'
@@ -9,7 +10,6 @@ export class CareGiverService {
     constructor(private angularFirestore: AngularFirestore) {}
 
     async save(url: string, data: CareGiver): Promise<DocumentReference|string> {
-        data.creatDate = new Date();
         try {
             const rep = await this.angularFirestore.collection(url).add({...data});
             console.log(rep);

@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "",
     "start": "ng serve --host 0.0.0.0 -o ",
-    "build": "node write-envs.cjs && ng build --configuration production",
+    "build": "ng build --configuration production",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",

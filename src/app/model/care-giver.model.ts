@@ -1,3 +1,4 @@
+import { Timestamp } from '@firebase/firestore';
 export class CareGiver {
     id: string;
     name: string;
@@ -5,5 +6,6 @@ export class CareGiver {
     email: string;
     userID: string;
     careTeams: string[];
-    creatDate: Date;
+    primaryCarePersonId:string;
+    creatDate: Timestamp;
 }

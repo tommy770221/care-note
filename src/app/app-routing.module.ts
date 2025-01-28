@@ -17,6 +17,9 @@ import {ProfileShowComponent} from '@pages/care-plan/care-plan/person/profile/pr
 import {CareDashboardComponent} from '@pages/care-plan/care-plan/dashboard/care-dashboard/care-dashboard.component';
 import {CalendarComponent} from '@pages/calendar/calendar/calendar.component';
 import {KanbanComponent} from '@pages/kanban/kanban/kanban.component';
+import {
+  ProfileAddOneComponent
+} from "@pages/care-plan/care-plan/person/profile/profile-add-one/profile-add-one.component";
 
 const routes: Routes = [
     {
@@ -48,6 +51,10 @@ const routes: Routes = [
                     {path: '', component: CareDashboardComponent},
                     {path: 'dashboad', component: CareDashboardComponent},
                     {path: 'person/profile', component: ProfileAddComponent},
+                    {
+                      path: 'person/profile/addOne',
+                      component: ProfileAddOneComponent
+                    },
                     {
                         path: 'person/profile/:id',
                         component: ProfileShowComponent

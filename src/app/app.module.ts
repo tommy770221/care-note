@@ -65,6 +65,7 @@ import { CareDashboardComponent } from './pages/care-plan/care-plan/dashboard/ca
 import {BsDatepickerModule} from "ngx-bootstrap/datepicker";
 import { CalendarComponent } from './pages/calendar/calendar/calendar.component';
 import { KanbanComponent } from './pages/kanban/kanban/kanban.component';
+import { ProfileAddOneComponent } from './pages/care-plan/care-plan/person/profile/profile-add-one/profile-add-one.component';
 
 
 //registerLocaleData(localeEn, 'en-EN');
@@ -107,6 +108,7 @@ import { KanbanComponent } from './pages/kanban/kanban/kanban.component';
         CareDashboardComponent,
         CalendarComponent,
         KanbanComponent,
+        ProfileAddOneComponent,
 
     ],
     bootstrap: [AppComponent],
