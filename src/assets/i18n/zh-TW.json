@@ -5,5 +5,6 @@
     "password": "請輸入密碼"
   },
   "signInTitle": "照顧筆記本",
-  "dashboardTitle": "儀表板"
+  "dashboardTitle": "儀表板",
+  "dashboard2Title": "儀表板２"
 }

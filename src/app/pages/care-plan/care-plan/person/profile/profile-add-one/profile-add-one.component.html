@@ -10,7 +10,7 @@
           <!-- text input -->
           <div class="form-group">
             <label>個案姓名</label>
-            <input type="text" class="form-control" placeholder="Enter ...">
+            <input type="text" [(ngModel)]="carePerson.name" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Enter ...">
           </div>
         </div>
       </div>
@@ -18,7 +18,7 @@
         <div class="col-sm-6">
           <div class="form-group">
             <label>個案年齡</label>
-            <input type="text" class="form-control" placeholder="Enter ...">
+            <input type="text" [(ngModel)]="carePerson.age" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Enter ...">
           </div>
         </div>
       </div>
@@ -26,12 +26,25 @@
         <div class="col-sm-6">
           <div class="form-group">
             <label>團隊名稱</label>
-            <input type="text" class="form-control" placeholder="Enter ...">
+            <input type="text" [(ngModel)]="careTeam.name" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Enter ...">
           </div>
         </div>
       </div>
 
-
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <button class="btn btn-success" (click)="addModel()">Submit</button>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <button class="btn btn-success" (click)="test()">Test</button>
+          </div>
+        </div>
+      </div>
     </form>
   </div>
 </div>

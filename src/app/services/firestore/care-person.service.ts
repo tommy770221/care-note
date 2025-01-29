@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import {AngularFirestore} from "@angular/fire/compat/firestore";
+import {AngularFirestore, DocumentReference} from "@angular/fire/compat/firestore";
+import {CareGiver} from "@/model/care-giver.model";
+import {CarePerson} from "@/model/care-person.model";
 
 @Injectable({
   providedIn: 'root'
@@ -7,4 +9,22 @@ import {AngularFirestore} from "@angular/fire/compat/firestore";
 export class CarePersonService {
 
   constructor(private angularFirestore: AngularFirestore) { }
+
+  async save(url: string, data: CarePerson): Promise<DocumentReference|string> {
+    try {
+      const rep = await this.angularFirestore.collection(url).add({...data});
+      return rep;
+    } catch (error) {
+      console.log(error);
+      return 'something went wrong';
+    }
+  }
+
+  saveOne(id: string, data: CarePerson) {
+    this.angularFirestore.doc('carePersons/'+id).set({...data})
+  }
+
+  updateOne(id: string, data: CarePerson){
+    this.angularFirestore.doc('carePersons/'+id).update({...data})
+  }
 }

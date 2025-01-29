@@ -80,15 +80,11 @@ export class AppService {
                 careGiver.creatDate=Timestamp.fromDate(new Date());
                 console.log('resp : ', resp);
                 if (resp.size == 0) {
-                    this.careGiverService
-                        .save('careGivers', careGiver)
-                        .then((rep) => {
-                            console.log('rep', rep);
-                            if(!user?.emailVerified){
-                              this.toastr.error('Please verify your email');
-                            }
-                            this.router.navigate(['/login']);
-                        });
+                    this.careGiverService.saveOne(user.uid, careGiver);
+                  if(!user?.emailVerified){
+                    this.toastr.error('Please verify your email');
+                  }
+                  this.router.navigate(['/login']);
                 } else {
                   console.log('User already exist');
                   //this.toastr.error('User already exist');

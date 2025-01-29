@@ -46,7 +46,7 @@ export class DashboardComponent implements OnInit{
               const time=careGiver.creatDate;
               console.log('date : ',time.toDate())
               if(!careGiver.primaryCarePersonId){
-                console.log();
+                console.log('not create care person yet');
                 //this.router.navigate(['/care-plan/person/profile/addOne'],{state:careGiver});
               }
             }

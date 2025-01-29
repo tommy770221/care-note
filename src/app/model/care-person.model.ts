@@ -6,6 +6,6 @@ export class CarePerson {
   id: string;
   name: string;
   age: number;
-  careTeamId: string;
+  primaryCareGiverId:string;
   creatDate: Timestamp;
 }
