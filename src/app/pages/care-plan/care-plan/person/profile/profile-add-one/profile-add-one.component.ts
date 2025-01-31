@@ -41,7 +41,7 @@ export class ProfileAddOneComponent implements OnInit{
     console.log(careGiver.userID);
     console.log(careGiver.email);
     if(!careGiver.userID){
-      this.toastr.success('Test Toast');
+      //this.toastr.success('Test Toast');
       this.careGiverService.queryOne(this.appService.user.uid).subscribe((resp)=>{
         console.log('resp : ',resp);
         careGiver=resp.data() as CareGiver;
@@ -60,7 +60,7 @@ export class ProfileAddOneComponent implements OnInit{
       console.log(this.careTeam.name);
       this.createPersonAndTeam(careGiver,uid,this.carePerson,this.careTeam);
     }
-
+      this.router.navigate(['/']);
   }
 
   //personId.equals(teamId)

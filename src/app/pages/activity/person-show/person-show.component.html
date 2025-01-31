@@ -1,0 +1,34 @@
+<div *ngFor="let careTeam of careTeams" >
+  {{careTeam.name}}
+</div>
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="card card-primary card-outline">
+          <div class="card-body box-profile">
+            <div class="text-center">
+              <pf-image
+                class="profile-image"
+                [rounded]="true"
+                fallbackSrc="assets/img/default-profile.png"
+                alt="User profile"
+                width="100"
+                height="100"
+              />
+            </div>
+            <h3 class="profile-username text-center">
+              {{ carePerson?.name }}
+            </h3>
+            <p class="text-muted text-center">主要疾病:高血壓</p>
+            <div class="row">
+              <div class="col-4 text-muted text-center border">身高：test</div>
+              <div class="col-4 text-muted text-center border">體重：test</div>
+              <div class="col-4 text-muted text-center border">年齡：test</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

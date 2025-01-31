@@ -86,6 +86,8 @@ import {KanbanComponent} from './pages/kanban/kanban/kanban.component';
 import {ProfileAddOneComponent} from './pages/care-plan/care-plan/person/profile/profile-add-one/profile-add-one.component';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import { TeamMemberAddComponent } from './pages/care-plan/care-plan/person/team/team-member-add/team-member-add.component';
+import { PersonShowComponent } from './pages/activity/person-show/person-show.component';
 
 //registerLocaleData(localeEn, 'en-EN');
 
@@ -127,7 +129,9 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
         CareDashboardComponent,
         CalendarComponent,
         KanbanComponent,
-        ProfileAddOneComponent
+        ProfileAddOneComponent,
+        TeamMemberAddComponent,
+        PersonShowComponent
     ],
     bootstrap: [AppComponent],
     imports: [

@@ -9,7 +9,7 @@
                     <app-small-box
                         [title]="'New Orders'"
                         [text]="'150'"
-                        [navigateTo]="'#'"
+                        [navigateTo]="'/care-plan'"
                         [variant]="'info'"
                         [icon]="{content: faCartShopping}"
                     ></app-small-box>
@@ -132,6 +132,46 @@
                     ></app-info-box>
                 </div>
             </div>
+          <div class="row">
+            <div class="col-lg-3 col-6">
+              <app-small-box
+                [title]="'New Orders'"
+                [text]="'150'"
+                [navigateTo]="'/care-plan'"
+                [variant]="'info'"
+                [icon]="{content: faCartShopping}"
+              ></app-small-box>
+            </div>
+            <div class="col-lg-3 col-6">
+              <app-small-box
+                [title]="'Bounce Rate'"
+                [text]="'53 %'"
+                [navigateTo]="'#'"
+                [variant]="'success'"
+                [icon]="{content: faChartSimple}"
+                [loading]="true"
+              ></app-small-box>
+            </div>
+            <div class="col-lg-3 col-6">
+              <app-small-box
+                [title]="'User Registrations'"
+                [text]="'44'"
+                [navigateTo]="'#'"
+                [variant]="'warning'"
+                [icon]="{content: faUserPlus}"
+                [loading]="'dark'"
+              ></app-small-box>
+            </div>
+            <div class="col-lg-3 col-6">
+              <app-small-box
+                [title]="'Unique Visitors'"
+                [text]="'65'"
+                [navigateTo]="'#'"
+                [variant]="'danger'"
+                [icon]="{content: faChartPie, variant: 'success'}"
+              ></app-small-box>
+            </div>
+          </div>
         </div>
     </section>
 </div>

@@ -35,22 +35,6 @@ export class DashboardComponent implements OnInit{
                 private router: Router) {
     }
     ngOnInit(): void {
-        this.user=this.appService.user;
-        if(this.user){
-          this.careGiverService.queryByEmail('careGivers',this.user.email).then(resp=>{
-            if(resp.size!=0){
-              console.log(resp.docs.at(0).data());
-              const careGiver=resp.docs.at(0).data() as CareGiver;
-              careGiver.id=resp.docs.at(0).id;
-              console.log('careGiver : ',careGiver);
-              const time=careGiver.creatDate;
-              console.log('date : ',time.toDate())
-              if(!careGiver.primaryCarePersonId){
-                console.log('not create care person yet');
-                //this.router.navigate(['/care-plan/person/profile/addOne'],{state:careGiver});
-              }
-            }
-          })
-        }
+
     }
 }

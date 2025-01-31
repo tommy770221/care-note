@@ -74,6 +74,7 @@ export class AppService {
             .queryByEmail('careGivers', user.email)
             .then((resp) => {
                 const careGiver = new CareGiver();
+                careGiver.id = user.uid;
                 careGiver.email = user.email;
                 careGiver.name = user.displayName;
                 careGiver.userID = user.uid;

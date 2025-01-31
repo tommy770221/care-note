@@ -6,6 +6,7 @@ export class CareGiver {
     email: string;
     userID: string;
     careTeams: string[];
+    tempCareTeams: string[];
     primaryCarePersonId:string;
     creatDate: Timestamp;
 }

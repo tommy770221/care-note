@@ -27,4 +27,8 @@ export class CareTeamService {
   updateOne(id: string, data: CareTeam){
     this.angularFirestore.doc('careTeams/'+id).update({...data})
   }
+
+  queryOne(id: string){
+    return this.angularFirestore.doc('careTeams/'+id).get();
+  }
 }

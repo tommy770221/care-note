@@ -20,6 +20,8 @@ import {KanbanComponent} from '@pages/kanban/kanban/kanban.component';
 import {
   ProfileAddOneComponent
 } from "@pages/care-plan/care-plan/person/profile/profile-add-one/profile-add-one.component";
+import {TeamMemberAddComponent} from "@pages/care-plan/care-plan/person/team/team-member-add/team-member-add.component";
+import {PersonShowComponent} from "@pages/activity/person-show/person-show.component";
 
 const routes: Routes = [
     {
@@ -56,6 +58,10 @@ const routes: Routes = [
                       component: ProfileAddOneComponent
                     },
                     {
+                      path: 'person/team/memberAdd',
+                      component: TeamMemberAddComponent
+                    },
+                    {
                         path: 'person/profile/:id',
                         component: ProfileShowComponent
                     }
@@ -66,8 +72,16 @@ const routes: Routes = [
                 component: CalendarComponent
             },
             {
+              path: 'activity',
+              component: PersonShowComponent
+            },
+            {
+              path: 'dashboard',
+              component: DashboardComponent
+            },
+            {
                 path: '',
-                component: DashboardComponent
+                component: PersonShowComponent
             }
         ]
     },
