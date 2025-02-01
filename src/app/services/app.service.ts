@@ -137,23 +137,24 @@ export class AppService {
     }
 
     async getProfile() {
-        await sleep(500);
         //console.log('this.auth', this.auth);
+      return await new Promise<string>(resolve => {
         this.auth.authState.subscribe(
-            (user) => {
-                console.log('user', user);
-                if (user) {
-                    this.user = user;
-                } else {
-                    this.logout();
-                    this.router.navigate(['/login']);
-                }
-                return;
-            },
-            (error) => {
-                console.log('error', error);
+          (user) => {
+            console.log('user', user);
+            if (user) {
+              this.user = user;
+            } else {
+              this.logout();
+              this.router.navigate(['/login']);
             }
+            resolve('OK');
+          },
+          (error) => {
+            console.log('error', error);
+          }
         );
+      });
     }
 
     async sendPasswordResetEmail(email: string) {
