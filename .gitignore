@@ -57,5 +57,5 @@ ui-debug.log
 .runtimeconfig.json
 
 #ignore environment file
-./src/environments/environment.ts
-./src/environments/environment.prod.ts
+/src/environments/environment.ts
+/src/environments/environment.prod.ts
