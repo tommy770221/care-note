@@ -1,3 +1,27 @@
+<div class="card card-default">
+  <div class="card-header">
+    <h3 class="card-title">自動帶入個案資料</h3>
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label>輸入個案ID識別碼帶入個案資料</label>
+          <input type="text" [(ngModel)]="carePersonId" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Enter ...">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <button class="btn btn-success" (click)="queryCarePerson()">帶入個案資料</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="card card-warning">
   <div class="card-header">
     <h3 class="card-title">使用系統前,請輸入個案資料</h3>
@@ -7,7 +31,6 @@
     <form>
       <div class="row">
         <div class="col-sm-6">
-          <!-- text input -->
           <div class="form-group">
             <label>個案姓名</label>
             <input type="text" [(ngModel)]="carePerson.name" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Enter ...">
@@ -17,8 +40,32 @@
       <div class="row">
         <div class="col-sm-6">
           <div class="form-group">
-            <label>個案年齡</label>
-            <input type="text" [(ngModel)]="carePerson.age" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Enter ...">
+            <label>身高</label>
+            <input type="text" [(ngModel)]="carePerson.height" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Enter ...">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label>體重</label>
+            <input type="text" [(ngModel)]="carePerson.weight" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Enter ...">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label>生日:</label>
+            <div class="input-group date" id="reservationdate" data-target-input="nearest">
+              <input type="text" bsDatepicker
+                     [bsValue]="birthday"
+                     [(ngModel)]="birthday" [ngModelOptions]="{standalone: true}"
+                     [bsConfig]="{ isAnimated: true, dateInputFormat: 'YYYY-MM-DD' }" class="form-control datetimepicker-input"/>
+              <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

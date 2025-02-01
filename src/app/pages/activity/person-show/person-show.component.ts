@@ -37,7 +37,8 @@ export class PersonShowComponent implements OnInit{
           this.careGiver=resp.docs.at(0).data() as CareGiver;
           console.log('careGiver : ',this.careGiver);
           const time=this.careGiver.creatDate;
-          console.log('date : ',time.toDate());
+          console.log('date : ',time);
+          //console.log('date : ',time.toDate());
           if(!this.careGiver?.primaryCarePersonId){
             console.log('not create care person yet');
             this.router.navigate(['/care-plan/person/profile/addOne'],{state:this.careGiver});
