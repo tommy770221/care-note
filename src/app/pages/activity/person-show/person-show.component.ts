@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Renderer2} from '@angular/core';
 import {CareGiver} from "@/model/care-giver.model";
 import {AppService} from "@services/app.service";
 import {CareGiverService} from "@services/firestore/care-giver.service";
@@ -9,6 +9,9 @@ import {CareTeam} from "@/model/care-team.model";
 import {CareTeamService} from "@services/firestore/care-team.service";
 import {CarePerson} from "@/model/care-person.model";
 import {CarePersonService} from "@services/firestore/care-person.service";
+import {faCartShopping, faHeartbeat} from "@fortawesome/free-solid-svg-icons";
+import {faFile, faIdCard} from "@fortawesome/free-regular-svg-icons";
+import {document} from "ngx-bootstrap/utils";
 
 @Component({
   selector: 'app-person-show',
@@ -20,13 +23,15 @@ export class PersonShowComponent implements OnInit{
   careGiver:CareGiver=new CareGiver();
   careTeams:Array<CareTeam>=[];
   carePerson:CarePerson=new CarePerson();
+  readonly dateYearNow=new Date().getFullYear();
+  activeTab:string='activity';
 
   constructor(private appService: AppService,
               private careGiverService:CareGiverService,
               private router: Router,
               private toastr: ToastrService,
               private careTeamService : CareTeamService,
-              private carePersonService: CarePersonService) {
+              private carePersonService: CarePersonService,) {
   }
   ngOnInit(): void {
     this.user=this.appService.user;
@@ -75,4 +80,13 @@ export class PersonShowComponent implements OnInit{
     }
   }
 
+  showTab(str:string){
+    this.activeTab=str;
+  }
+
+
+  protected readonly faCartShopping = faCartShopping;
+  protected readonly faHeartbeat = faHeartbeat;
+  protected readonly faFile = faFile;
+  protected readonly faIdCard = faIdCard;
 }
