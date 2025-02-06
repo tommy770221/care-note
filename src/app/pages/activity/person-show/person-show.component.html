@@ -47,10 +47,14 @@
           <div class="card-body">
             <div class="tab-content">
               <div class="tab-pane" [ngClass]="{ 'active':activeTab==='activity'}" id="activity">
-                activity
+                <app-activity></app-activity>
               </div>
-              <div class="tab-pane" [ngClass]="{ 'active':activeTab==='timeline'}" id="timeline">time</div>
-              <div class="tab-pane" [ngClass]="{ 'active':activeTab==='settings'}" id="settings">test settings</div>
+              <div class="tab-pane" [ngClass]="{ 'active':activeTab==='timeline'}" id="timeline">
+                <app-timeline></app-timeline>
+              </div>
+              <div class="tab-pane" [ngClass]="{ 'active':activeTab==='settings'}" id="settings">
+                <app-settings></app-settings>
+              </div>
 
             </div>
           </div>

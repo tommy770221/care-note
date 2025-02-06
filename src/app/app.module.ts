@@ -88,6 +88,9 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import { TeamMemberAddComponent } from './pages/care-plan/care-plan/person/team/team-member-add/team-member-add.component';
 import { PersonShowComponent } from './pages/activity/person-show/person-show.component';
+import { ActivityComponent } from './pages/activity/person-show/component/activity/activity.component';
+import { TimelineComponent } from './pages/activity/person-show/component/timeline/timeline.component';
+import { SettingsComponent } from './pages/activity/person-show/component/settings/settings.component';
 
 //registerLocaleData(localeEn, 'en-EN');
 
@@ -131,7 +134,10 @@ import { PersonShowComponent } from './pages/activity/person-show/person-show.co
         KanbanComponent,
         ProfileAddOneComponent,
         TeamMemberAddComponent,
-        PersonShowComponent
+        PersonShowComponent,
+        ActivityComponent,
+        TimelineComponent,
+        SettingsComponent
     ],
     bootstrap: [AppComponent],
     imports: [
