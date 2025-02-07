@@ -1,11 +1,24 @@
-<div *ngFor="let careTeam of careTeams" >
-  {{careTeam.name}}
-</div>
 <section class="content">
   <div class="container-fluid">
     <div class="row">
       <div class="col-12">
         <div class="card card-primary card-outline">
+          <div class="card-header">
+            <div class="row">
+              <div class="col-2">
+                <a routerLink="/activity/addOne"><span style='font-size:36px' class="fa fa-user-plus"></span></a>
+              </div>
+              <div class="col-10 form-group" [formGroup]="myGroup">
+                <label>{{ 'Activity.SHOW.careThePerson' |translate }}</label>
+                <select class="form-control" formControlName="selectCareTeam" #careTeamSelected
+                        (change)="onChange(careTeamSelected.value)">
+                    <option *ngFor="let careTeam of careTeams"  [value]="careTeam.id"
+                            [selected]="careTeam.id===carePerson.id">{{careTeam.name}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <!--card header -->
           <div class="card-body box-profile">
             <div class="text-center">
               <pf-image
@@ -20,13 +33,13 @@
             <h3 class="profile-username text-center">
               {{ carePerson?.name }}
             </h3>
-            <p class="text-muted text-center">{{ carePerson?.id }} (病患ID加入團隊用)</p>
-            <p class="text-muted text-center">主要疾病:高血壓</p>
+            <p class="text-lg text-center">{{ carePerson?.id }} {{ 'Activity.SHOW.idJoin' | translate }}</p>
+            <p class="text-lg text-center">主要疾病:高血壓</p>
             <div class="row">
-              <div class="col-4 text-muted text-center border">身高：{{ carePerson?.height }}</div>
-              <div class="col-4 text-muted text-center border">體重：{{ carePerson?.weight }}</div>
-              <div *ngIf="carePerson?.birthday" class="col-4 text-muted text-center border">年齡： {{ (dateYearNow-carePerson?.birthday?.toDate().getFullYear()) }}</div>
-              <div *ngIf="!carePerson?.birthday" class="col-4 text-muted text-center border">年齡：空值</div>
+              <div class="col-md-4 text-lg text-center border">{{'Activity.SHOW.height' |translate}} {{ carePerson?.height }}</div>
+              <div class="col-md-4 text-lg text-center border">{{'Activity.SHOW.weight' |translate}} {{ carePerson?.weight }}</div>
+              <div *ngIf="carePerson?.birthday" class="col-md-4 text-lg text-center border">{{'Activity.SHOW.age' |translate}} {{ (dateYearNow-carePerson?.birthday?.toDate().getFullYear()) }}</div>
+              <div *ngIf="!carePerson?.birthday" class="col-md-4 text-lg text-center border">{{'Activity.SHOW.age' |translate}} {{'Activity.SHOW.ageNull' |translate}}</div>
             </div>
           </div>
         </div>
@@ -35,13 +48,79 @@
     </div>
    <!-- row end-->
     <div class="row">
+      <div class="col-sm-3">
+        <app-small-box
+          [title]="'Activity.SHOW.eat'|translate"
+          [text]="'1500 cal'"
+          [navigateTo]="'#'"
+          [variant]="'info'"
+          [icon]="{content: faBowlRice}"
+          [buttonInfo]="'Activity.SHOW.record'|translate"
+        ></app-small-box>
+      </div>
+      <div class="col-sm-3">
+        <app-small-box
+          [title]="'Activity.SHOW.water' |translate"
+          [text]="waterIn"
+          [navigateTo]="'#'"
+          [variant]="'secondary'"
+          [icon]="{content: faGlassWater}"
+          [buttonInfo]="'Activity.SHOW.record'|translate"
+        ></app-small-box>
+      </div>
+      <div class="col-sm-3">
+        <app-small-box
+          [title]="'Activity.SHOW.toilet' |translate"
+          [text]="'2次'"
+          [navigateTo]="'#'"
+          [variant]="'primary'"
+          [icon]="{content: faRestroom}"
+          [buttonInfo]="'Activity.SHOW.record'|translate"
+        ></app-small-box>
+      </div>
+      <div class="col-sm-3">
+        <app-small-box
+          [title]="'Activity.SHOW.exercise' |translate"
+          [text]="'40分鐘'"
+          [navigateTo]="'#'"
+          [variant]="'info'"
+          [icon]="{content: faPersonWalking}"
+          [buttonInfo]="'Activity.SHOW.record'|translate"
+        ></app-small-box>
+      </div>
+    </div>
+    <!--row end -->
+    <div class="row">
+      <div class="col-sm-3">
+        <app-small-box
+          [title]="'Activity.SHOW.vital' |translate"
+          [text]="'150'"
+          [navigateTo]="'#'"
+          [variant]="'secondary'"
+          [icon]="{content: faHeartbeat}"
+          [buttonInfo]="'Activity.SHOW.record'|translate"
+        ></app-small-box>
+      </div>
+      <div class="col-sm-3">
+        <app-small-box
+          [title]="'Activity.SHOW.handover' |translate"
+          [text]="'150'"
+          [navigateTo]="'#'"
+          [variant]="'primary'"
+          [icon]="{content: faFile}"
+          [buttonInfo]="'Activity.SHOW.record'|translate"
+        ></app-small-box>
+      </div>
+    </div>
+    <!--row end -->
+    <div class="row">
       <div class="col-12">
         <div class="card">
           <div class="card-header p-2">
             <ul class="nav nav-pills">
-              <li class="nav-item"><a class="nav-link active" href="#" [ngClass]="{ 'active':activeTab==='activity'}" (click)="showTab('activity')" data-toggle="tab">Activity</a></li>
-              <li class="nav-item"><a class="nav-link" href="#" [ngClass]="{ 'active':activeTab==='timeline'}" (click)="showTab('timeline')" data-toggle="tab">Timeline</a></li>
-              <li class="nav-item"><a class="nav-link" href="#" [ngClass]="{ 'active':activeTab==='settings'}"(click)="showTab('settings')"  data-toggle="tab">Settings</a></li>
+              <li class="nav-item"><a class="nav-link active"  [ngClass]="{ 'active':activeTab==='activity'}" (click)="showTab('activity')" data-toggle="tab">Activity</a></li>
+              <li class="nav-item"><a class="nav-link"  [ngClass]="{ 'active':activeTab==='timeline'}" (click)="showTab('timeline')" data-toggle="tab">Timeline</a></li>
+              <li class="nav-item"><a class="nav-link"  [ngClass]="{ 'active':activeTab==='settings'}"(click)="showTab('settings')"  data-toggle="tab">Settings</a></li>
             </ul>
           </div><!-- /.card-header -->
           <div class="card-body">
@@ -59,66 +138,6 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-4">
-        <app-small-box
-          [title]="'認知悠能'"
-          [text]="'150'"
-          [navigateTo]="'#'"
-          [variant]="'info'"
-          [icon]="{content: faIdCard}"
-        ></app-small-box>
-      </div>
-      <div class="col-4">
-        <app-small-box
-          [title]="'生命徵象'"
-          [text]="'150'"
-          [navigateTo]="'#'"
-          [variant]="'secondary'"
-          [icon]="{content: faHeartbeat}"
-        ></app-small-box>
-      </div>
-      <div class="col-4">
-        <app-small-box
-          [title]="'護理交班'"
-          [text]="'150'"
-          [navigateTo]="'#'"
-          [variant]="'primary'"
-          [icon]="{content: faFile}"
-        ></app-small-box>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-4">
-        <app-small-box
-          [title]="'認知悠能'"
-          [text]="'150'"
-          [navigateTo]="'#'"
-          [variant]="'info'"
-          [icon]="{content: faIdCard}"
-        ></app-small-box>
-      </div>
-      <div class="col-4">
-        <app-small-box
-          [title]="'生命徵象'"
-          [text]="'150'"
-          [navigateTo]="'#'"
-          [variant]="'secondary'"
-          [icon]="{content: faHeartbeat}"
-        ></app-small-box>
-      </div>
-      <div class="col-4">
-        <app-small-box
-          [title]="'護理交班'"
-          [text]="'150'"
-          [navigateTo]="'#'"
-          [variant]="'primary'"
-          [icon]="{content: faFile}"
-        ></app-small-box>
       </div>
     </div>
   </div>

@@ -9,9 +9,17 @@ import {CareTeam} from "@/model/care-team.model";
 import {CareTeamService} from "@services/firestore/care-team.service";
 import {CarePerson} from "@/model/care-person.model";
 import {CarePersonService} from "@services/firestore/care-person.service";
-import {faCartShopping, faHeartbeat} from "@fortawesome/free-solid-svg-icons";
+import {
+  faBowlRice,
+  faCartShopping,
+  faGlassWater,
+  faHeartbeat, faPersonWalking,
+  faRestroom,
+  faUserPlus
+} from "@fortawesome/free-solid-svg-icons";
 import {faFile, faIdCard} from "@fortawesome/free-regular-svg-icons";
 import {document} from "ngx-bootstrap/utils";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-person-show',
@@ -25,6 +33,19 @@ export class PersonShowComponent implements OnInit{
   carePerson:CarePerson=new CarePerson();
   readonly dateYearNow=new Date().getFullYear();
   activeTab:string='activity';
+  myGroup = new FormGroup({
+    selectCareTeam: new FormControl()
+  });
+  protected readonly faCartShopping = faCartShopping;
+  protected readonly faHeartbeat = faHeartbeat;
+  protected readonly faFile = faFile;
+  protected readonly faIdCard = faIdCard;
+  protected readonly faUserPlus = faUserPlus;
+  protected readonly faGlassWater = faGlassWater;
+  protected readonly faBowlRice = faBowlRice;
+  protected readonly faRestroom = faRestroom;
+  protected readonly faPersonWalking = faPersonWalking;
+  waterIn='1500 ml'
 
   constructor(private appService: AppService,
               private careGiverService:CareGiverService,
@@ -38,15 +59,15 @@ export class PersonShowComponent implements OnInit{
     if(this.user){
       this.careGiverService.queryByEmail('careGivers',this.user.email).then(resp=>{
         if(resp.size!=0){
-          console.log(resp.docs.at(0).data());
+          //console.log(resp.docs.at(0).data());
           this.careGiver=resp.docs.at(0).data() as CareGiver;
-          console.log('careGiver : ',this.careGiver);
+          //console.log('careGiver : ',this.careGiver);
           const time=this.careGiver.creatDate;
           console.log('date : ',time);
           //console.log('date : ',time.toDate());
           if(!this.careGiver?.primaryCarePersonId){
             console.log('not create care person yet');
-            this.router.navigate(['/care-plan/person/profile/addOne'],{state:this.careGiver});
+            this.router.navigate(['/activity/addOne'],{state:this.careGiver});
           }else{
             this.carePersonService.queryOne(this.careGiver.primaryCarePersonId).subscribe(resp=>{
               //console.log(resp);
@@ -84,9 +105,15 @@ export class PersonShowComponent implements OnInit{
     this.activeTab=str;
   }
 
+  onChange(value:any){
+    console.log(value);
+    this.carePersonService.queryOne(value).subscribe(resp=>{
+      //console.log(resp);
+      if(resp.data()){
+        this.carePerson=resp.data() as CarePerson;
+      }
+    })
+  }
 
-  protected readonly faCartShopping = faCartShopping;
-  protected readonly faHeartbeat = faHeartbeat;
-  protected readonly faFile = faFile;
-  protected readonly faIdCard = faIdCard;
+
 }

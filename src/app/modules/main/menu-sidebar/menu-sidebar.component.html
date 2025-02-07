@@ -48,23 +48,23 @@
       data-accordion="false"
     >
       <app-menu-item [menuItem]="{
-                                     name: 'activity'|translate,
-                                     iconClasses: 'fas fa-tachometer-alt',
+                                     name: 'Activity.TITLE'|translate,
+                                     iconClasses: 'fas fa-user',
                                      path: ['/']
                                   }"/>
       <app-menu-item [menuItem]="{
-                                     name: 'dashboardTitle'|translate,
-                                     iconClasses: 'fas fa-tachometer-alt',
+                                     name: 'Record'|translate,
+                                     iconClasses: 'fas fa-clipboard',
                                      path: ['/dashboard']
                                   }"/>
       <app-menu-item [menuItem]="{
-                                     name: 'CarePlan'|translate,
+                                     name: 'CarePlan.TITLE'|translate,
                                      iconClasses: 'fas fa-user-nurse',
                                      path: ['/care-plan']
                                   }"/>
-      <app-menu-item [menuItem]="{
+      <!--<app-menu-item [menuItem]="{
                                      name: 'Kanban'|translate,
-                                     iconClasses: 'fas fa-clipboard-list',
+                                     iconClasses: 'fas fa-list-check',
                                      path: ['/kanban']
                                   }"/>
       <app-menu-item [menuItem]="{
@@ -92,7 +92,7 @@
                                               path: ['/sub-menu-2']
                                           }
                                       ]
-                                  }"/>
+                                  }"/>-->
 
 <!--      <app-menu-item *ngFor="let item of menu" [menuItem]="item"/>-->
     </ul>

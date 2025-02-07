@@ -6,5 +6,30 @@
   },
   "signInTitle": "照顧筆記本",
   "dashboardTitle": "儀表板",
-  "dashboard2Title": "儀表板２"
+  "dashboard2Title": "儀表板２",
+  "Activity": {
+    "TITLE": "個案資料",
+    "SHOW": {
+      "careThePerson": "請選擇照顧對象",
+      "idJoin": "(病患ID加入團隊用)",
+      "height": "身高：",
+      "weight": "體重：",
+      "age": "年齡：",
+      "ageNull": "空值",
+      "eat": "飲食",
+      "record": "記錄",
+      "water": "水分",
+      "toilet": "排泄",
+      "exercise": "運動",
+      "vital": "生命徵象",
+      "handover": "護理交班",
+      "": "",
+      "": "",
+      "": ""
+    }
+  },
+  "CarePlan": {
+    "TITLE": "照顧計畫"
+  },
+  "Record": "記錄個案"
 }

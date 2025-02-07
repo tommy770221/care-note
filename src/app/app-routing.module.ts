@@ -22,6 +22,7 @@ import {
 } from "@pages/care-plan/care-plan/person/profile/profile-add-one/profile-add-one.component";
 import {TeamMemberAddComponent} from "@pages/care-plan/care-plan/person/team/team-member-add/team-member-add.component";
 import {PersonShowComponent} from "@pages/activity/person-show/person-show.component";
+import {PersonAddComponent} from "@pages/activity/person-add/person-add.component";
 
 const routes: Routes = [
     {
@@ -74,6 +75,10 @@ const routes: Routes = [
             {
               path: 'activity',
               component: PersonShowComponent
+            },
+            {
+              path: 'activity/addOne',
+              component: PersonAddComponent
             },
             {
               path: 'dashboard',

@@ -91,6 +91,7 @@ import { PersonShowComponent } from './pages/activity/person-show/person-show.co
 import { ActivityComponent } from './pages/activity/person-show/component/activity/activity.component';
 import { TimelineComponent } from './pages/activity/person-show/component/timeline/timeline.component';
 import { SettingsComponent } from './pages/activity/person-show/component/settings/settings.component';
+import { PersonAddComponent } from './pages/activity/person-add/person-add.component';
 
 //registerLocaleData(localeEn, 'en-EN');
 
@@ -137,7 +138,8 @@ import { SettingsComponent } from './pages/activity/person-show/component/settin
         PersonShowComponent,
         ActivityComponent,
         TimelineComponent,
-        SettingsComponent
+        SettingsComponent,
+        PersonAddComponent
     ],
     bootstrap: [AppComponent],
     imports: [

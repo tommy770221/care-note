@@ -15,6 +15,7 @@ export class SmallBoxComponent implements OnInit {
     @Input() title: string;
     @Input() navigateTo: string;
     @HostBinding('class') class;
+    @Input() buttonInfo: string;
 
     ngOnInit(): void {
         this.class = `small-box bg-${this.variant}`;

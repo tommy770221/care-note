@@ -1,6 +1,6 @@
 <div class="inner">
-    <h3>{{ text }}</h3>
-    <p>{{ title }}</p>
+    <h3>{{ title }}</h3>
+    <p>{{ text }}</p>
 </div>
 <span class="icon" [ngClass]="icon?.variant ? 'bg-' + icon.variant : ''">
     <fa-icon *ngIf="icon?.content" [icon]="icon?.content"></fa-icon>
@@ -10,7 +10,7 @@
         <fa-icon icon="arrow-circle-right"></fa-icon>
     </a> -->
 <a class="small-box-footer" [routerLink]="navigateTo"
-    ><span class="mr-2">More info</span><i class="fa fa-arrow-circle-right"></i
+    ><span class="mr-2">{{ buttonInfo }}</span><i class="fa fa-arrow-circle-right"></i
 ></a>
 <app-overlay-loading
     *ngIf="loading"
