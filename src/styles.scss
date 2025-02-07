@@ -15,8 +15,38 @@ body {
 }*/
 
 ::-webkit-scrollbar {
-    width: 0px;
+    width: 10px;
     background: transparent;
+}
+
+::-webkit-scrollbar-button {
+
+  background: transparent;
+
+  border-radius: 4px;
+
+}
+
+::-webkit-scrollbar-track-piece {
+
+  background: transparent;
+
+}
+
+::-webkit-scrollbar-thumb {
+
+  border-radius: 4px;
+
+  background-color: rgba(0, 0, 0, 0.4);
+
+  border: 1px solid slategrey;
+
+}
+
+::-webkit-scrollbar-track {
+
+  box-shadow: transparent;
+
 }
 
 .content {
@@ -27,7 +57,7 @@ body {
 // Needed for open/close menu animation for menus with child nodes
 .nav .nav-item:not(.menu-open) > .ng-trigger-openClose,
 .nav .nav-item > .ng-trigger-openClose.ng-animating {
-    overflow: hidden;
+    overflow: auto;
     display: block;
 }
 
