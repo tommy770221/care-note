@@ -1,29 +1,28 @@
-
-    <div slot="head">
-        <a class="nav-link">
+<li class="nav-item dropdown">
+  <a class="nav-link" data-toggle="dropdown" href="#">
             <i class="flag-icon flag-icon-tw"></i>
         </a>
-    </div>
-    <div slot="body">
-        <div  (click)="changeLan('zh-TW')" class="dropdown-item active">
-            <i class="flag-icon flag-icon-tw mr-2"></i>
-            <span>Taiwan</span>
-        </div>
-        <div  (click)="changeLan('en')" class="dropdown-item">
-            <i class="flag-icon flag-icon-us mr-2"></i>
-            <span>English</span>
-        </div>
-        <div (click)="changeLan('ja')" class="dropdown-item">
-            <i class="flag-icon flag-icon-jp mr-2"></i>
-            <span>Japan</span>
-        </div>
-        <div (click)="changeLan('id')" class="dropdown-item">
-            <i class="flag-icon flag-icon-id mr-2"></i>
-            <span>ID</span>
-        </div>
-        <div (click)="changeLan('va')" class="dropdown-item">
-            <i class="flag-icon flag-icon-va mr-2"></i>
-            <span>Va</span>
-        </div>
-    </div>
+  <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+    <a href="#" class="dropdown-item" (click)="changeLan('zh-TW')" >
+      <i class="flag-icon flag-icon-tw mr-2"></i>
+      <span>Taiwan</span>
+    </a>
+    <a href="#" class="dropdown-item" (click)="changeLan('en')" >
+      <i class="flag-icon flag-icon-us mr-2"></i>
+      <span>English</span>
+    </a>
+    <a href="#" class="dropdown-item" (click)="changeLan('ja')" >
+      <i class="flag-icon flag-icon-jp mr-2"></i>
+      <span>Japan</span>
+    </a>
+    <a href="#" class="dropdown-item" (click)="changeLan('id')" >
+      <i class="flag-icon flag-icon-id mr-2"></i>
+      <span>ID</span>
+    </a>
+    <a href="#" class="dropdown-item" (click)="changeLan('va')" >
+      <i class="flag-icon flag-icon-va mr-2"></i>
+      <span>Va</span>
+    </a>
+  </div>
+</li>
 

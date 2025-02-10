@@ -6,7 +6,7 @@
           <div class="card-header">
             <div class="row">
               <div class="col-2">
-                <a routerLink="/activity/addOne"><span style='font-size:36px' class="fa fa-user-plus"></span></a>
+                <a routerLink="/activity/addOne" [state]="careGiver"><span style='font-size:36px' class="fa fa-user-plus"></span></a>
               </div>
               <div class="col-10 form-group" [formGroup]="myGroup">
                 <label>{{ 'Activity.SHOW.careThePerson' |translate }}</label>
@@ -22,7 +22,8 @@
           <div class="card-body box-profile">
             <div class="text-center">
               <img
-                class="profile-image"
+                class="profile-image img-circle"
+                src="assets/img/default-profile.png"
                 fallbackSrc="assets/img/default-profile.png"
                 alt="User profile"
                 width="100"

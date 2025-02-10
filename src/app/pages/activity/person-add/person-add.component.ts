@@ -38,11 +38,9 @@ export class PersonAddComponent implements OnInit {
   }
 
   //todo form validate
-  addModel(){
+  async addModel(){
     let careGiver=null;
-    this.location.subscribe(value => {
-      careGiver=value.state as CareGiver;
-    })
+    careGiver= window.history.state as CareGiver;
     const uid=this.afs.createId();
     console.log('careGiver :',careGiver)
     console.log(careGiver.userID);

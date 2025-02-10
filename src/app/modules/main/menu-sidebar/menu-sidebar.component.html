@@ -20,13 +20,14 @@
     style="justify-content: start; align-items: center"
   >
     <img
-      [src]="user.photoURL"
+      src="assets/img/default-profile.png"
       fallbackSrc="assets/img/default-profile.png"
       style="margin-left: 12px"
       alt="User Image"
       width="34"
       height="34"
       rounded="true"
+      class="img-circle"
     />
     <div class="info">
       <a [routerLink]="['/profile']" class="d-block">
