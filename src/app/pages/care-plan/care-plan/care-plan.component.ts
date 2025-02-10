@@ -2,8 +2,6 @@ import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core'
 import {
   faBookmark,
   faEnvelope,
-  faChartSimple,
-  faCartShopping,
   faUserPlus,
   faChartPie
 } from '@fortawesome/free-solid-svg-icons';
@@ -13,13 +11,11 @@ import {FireStoreService} from "@services/fire-store.service";
 @Component({
   selector: 'app-care-plan',
   templateUrl: './care-plan.component.html',
-  styleUrl: './care-plan.component.scss'
+  styleUrls: ['./care-plan.component.scss']
 })
 export class CarePlanComponent implements OnInit,OnDestroy{
   faBookmark = faBookmark;
   faEnvelope = faEnvelope;
-  faChartSimple = faChartSimple;
-  faCartShopping = faCartShopping;
   faUserPlus = faUserPlus;
   faChartPie = faChartPie;
   @Output()
@@ -30,8 +26,7 @@ export class CarePlanComponent implements OnInit,OnDestroy{
   setHide(){
     this.personId.emit(this.createPersonID);
   }
-  constructor(private fireDatabaseService :FireDatabaseService,
-              private fireStoreService: FireStoreService) {
+  constructor(private fireStoreService: FireStoreService) {
 
   }
 

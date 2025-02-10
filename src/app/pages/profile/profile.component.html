@@ -21,9 +21,8 @@
                 <div class="card card-primary card-outline">
                     <div class="card-body box-profile">
                         <div class="text-center">
-                            <pf-image
+                            <img
                                 class="profile-image"
-                                [rounded]="true"
                                 [src]="user.photoURL"
                                 fallbackSrc="assets/img/default-profile.png"
                                 alt="User profile"
@@ -102,43 +101,29 @@
                     <div class="card-header p-2">
                         <ul class="nav nav-pills">
                             <li class="nav-item">
-                                <pf-button
+                                <button
                                     class="tab-button"
-                                    [variant]="
-                                        (activeTab$ | async) === 'ACTIVITY'
-                                            ? 'primary'
-                                            : 'light'
-                                    "
+
                                     (click)="toggle('ACTIVITY')"
                                 >
                                     Activity
-                                </pf-button>
+                                </button>
                             </li>
                             <li class="nav-item">
-                                <pf-button
+                                <button
                                     class="tab-button"
-                                    [variant]="
-                                        (activeTab$ | async) === 'TIMELINE'
-                                            ? 'primary'
-                                            : 'light'
-                                    "
                                     (click)="toggle('TIMELINE')"
                                 >
                                     Timeline
-                                </pf-button>
+                                </button>
                             </li>
                             <li class="nav-item">
-                                <pf-button
+                                <button
                                     class="tab-button"
-                                    [variant]="
-                                        (activeTab$ | async) === 'SETTINGS'
-                                            ? 'primary'
-                                            : 'light'
-                                    "
                                     (click)="toggle('SETTINGS')"
                                 >
                                     Settings
-                                </pf-button>
+                                </button>
                             </li>
                         </ul>
                     </div>

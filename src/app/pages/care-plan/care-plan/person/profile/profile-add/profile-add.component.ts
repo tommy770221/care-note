@@ -1,11 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {AngularFireStorage} from '@angular/fire/compat/storage';
-import {ref, uploadBytesResumable} from '@angular/fire/storage';
+
 
 @Component({
     selector: 'app-profile-add',
     templateUrl: './profile-add.component.html',
-    styleUrl: './profile-add.component.scss'
+    styleUrls: ['./profile-add.component.scss']
 })
 export class ProfileAddComponent implements OnInit {
     bsValue = new Date();
@@ -13,18 +12,18 @@ export class ProfileAddComponent implements OnInit {
     maxDate = new Date();
     minDate = new Date();
 
-    constructor(private storage: AngularFireStorage) {
+    constructor() {
         this.minDate.setDate(this.minDate.getDate() - 1);
         this.maxDate.setDate(this.maxDate.getDate() + 7);
         this.bsRangeValue = [this.bsValue, this.maxDate];
     }
 
     ngOnInit(): void {
-      this.getFiles();
+      //this.getFiles();
     }
 
     async uploadFile(input: HTMLInputElement) {
-        if (!input.files) return;
+      /*  if (!input.files) return;
 
         const files: FileList = input.files;
 
@@ -38,9 +37,10 @@ export class ProfileAddComponent implements OnInit {
                     console.log('Uploaded a blob or file!', snapshot);
                 });
             }
-        }
+        }*/
     }
 
+    /*
     getFiles() {
         const storageRef = this.storage.storage.ref("");
         storageRef.listAll().then((result) => {
@@ -48,5 +48,5 @@ export class ProfileAddComponent implements OnInit {
                 ref.getDownloadURL().then((url) => {console.log(url);});
             });
         });
-    }
+    }*/
 }

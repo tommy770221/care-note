@@ -4,7 +4,7 @@ import {document} from "ngx-bootstrap/utils";
 @Component({
   selector: 'app-kanban',
   templateUrl: './kanban.component.html',
-  styleUrl: './kanban.component.scss'
+  styleUrls: ['./kanban.component.scss']
 })
 export class KanbanComponent implements OnInit,OnDestroy,AfterViewInit{
   constructor(private renderer: Renderer2,) {

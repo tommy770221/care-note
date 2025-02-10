@@ -1,4 +1,4 @@
-import {Timestamp} from "@firebase/firestore";
+import {Timestamp} from "@firebase/firestore-types";
 
 export class CareTeam {
     id: string;

@@ -6,16 +6,16 @@ import {Location} from "@angular/common";
 import {ToastrService} from "ngx-toastr";
 import {CareGiverService} from "@services/firestore/care-giver.service";
 import {AppService} from "@services/app.service";
-import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {CarePersonService} from "@services/firestore/care-person.service";
 import {CareTeamService} from "@services/firestore/care-team.service";
 import {CareGiver} from "@/model/care-giver.model";
-import {Timestamp} from "@firebase/firestore";
+import {AngularFirestore} from "@angular/fire/firestore";
+import firebase from "firebase";
 
 @Component({
   selector: 'app-person-add',
   templateUrl: './person-add.component.html',
-  styleUrl: './person-add.component.scss'
+  styleUrls: ['./person-add.component.scss']
 })
 export class PersonAddComponent implements OnInit {
   carePerson:CarePerson=new CarePerson();
@@ -39,13 +39,16 @@ export class PersonAddComponent implements OnInit {
 
   //todo form validate
   addModel(){
-    let careGiver=this.location.getState() as CareGiver
+    let careGiver=null;
+    this.location.subscribe(value => {
+      careGiver=value.state as CareGiver;
+    })
     const uid=this.afs.createId();
     console.log('careGiver :',careGiver)
     console.log(careGiver.userID);
     console.log(careGiver.email);
     this.birthday.setHours(0,0,0,0);
-    this.carePerson.birthday=Timestamp.fromDate(this.birthday);
+    this.carePerson.birthday=firebase.firestore.Timestamp.fromDate(this.birthday);
     if(!careGiver.userID){
       //this.toastr.success('Test Toast');
       this.careGiverService.queryOne(this.appService.user.uid).subscribe((resp)=>{
@@ -95,11 +98,11 @@ export class PersonAddComponent implements OnInit {
     //init carePerson
     carePerson.id=personId;
     carePerson.primaryCareGiverId=careGiver.userID;
-    carePerson.creatDate=Timestamp.fromDate(new Date());
+    carePerson.creatDate=firebase.firestore.Timestamp.fromDate(new Date());
 
     //init careTeams
     careTeam.id=personId;
-    careTeam.creatDate=Timestamp.fromDate(new Date());
+    careTeam.creatDate=firebase.firestore.Timestamp.fromDate(new Date());
     if(!careTeam.careGivers){
       careTeam.careGivers=[];
     }

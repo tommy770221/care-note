@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {AngularFirestore, DocumentReference} from "@angular/fire/compat/firestore";
 import {CareGiver} from "@/model/care-giver.model";
 import {CarePerson} from "@/model/care-person.model";
+import {AngularFirestore, DocumentReference} from "@angular/fire/firestore";
 
 @Injectable({
   providedIn: 'root'

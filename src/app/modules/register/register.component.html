@@ -61,36 +61,28 @@
                 </div>
                 <!-- /.col -->
                 <div class="col-5">
-                    <pf-button
-                        [loading]="isAuthLoading"
-                        [disabled]="isFacebookLoading || isGoogleLoading"
+                    <button
                         (click)="registerByAuth()"
-                    >
-                        Register
-                    </pf-button>
+                    ></button>
                 </div>
                 <!-- /.col -->
             </div>
         </form>
 
         <div class="social-auth-links text-center">
-            <pf-button
+            <button
                 class="mb-2"
-                [loading]="isFacebookLoading"
-                [disabled]="true || isAuthLoading || isGoogleLoading"
             >
                 <i class="fab fa-facebook mr-2"></i>
                 Sign up using Facebook
-            </pf-button>
-            <pf-button
-                [loading]="isGoogleLoading"
-                [disabled]="isAuthLoading || isFacebookLoading"
+            </button>
+            <button
                 (click)="registerByGoogle()"
                 variant="danger"
             >
                 <i class="fab fa-google mr-2"></i>
                 Sign up using Google+
-            </pf-button>
+            </button>
         </div>
 
         <a [routerLink]="['/login']" class="text-center">

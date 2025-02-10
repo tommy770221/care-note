@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {Router, Event, NavigationEnd} from '@angular/router';
 import {environment} from 'environments/environment';
-import {GoogleAnalyticsService} from 'ngx-google-analytics';
 import {TranslateService} from "@ngx-translate/core";
 
 @Component({
@@ -12,7 +11,6 @@ import {TranslateService} from "@ngx-translate/core";
 export class AppComponent {
     constructor(
         private router: Router,
-        protected $gaService: GoogleAnalyticsService,
         public translate: TranslateService
     ) {
         this.router.events.subscribe((event: Event) => {
@@ -20,7 +18,7 @@ export class AppComponent {
                 event instanceof NavigationEnd &&
                 environment.NODE_ENV === 'production'
             ) {
-                this.$gaService.pageView(event.url);
+
             }
         });
       const browserLang = navigator.language;

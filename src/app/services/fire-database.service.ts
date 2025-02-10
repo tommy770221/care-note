@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import {AngularFireDatabase} from "@angular/fire/compat/database";
+import {AngularFireDatabase} from "@angular/fire/database";
+
 
 
 @Injectable({
@@ -22,10 +23,6 @@ export class FireDatabaseService {
 
   query(url:string){
     let testCaresRef =this.fireDatabase.database.ref((url));
-    testCaresRef.equalTo('user').get().then((snapshot)=>{
-      console.log(snapshot.val());
-    }).catch((error)=>{
-      console.log(error);
-    });
+    console.log(testCaresRef.equalTo('user').toJSON());
   }
 }

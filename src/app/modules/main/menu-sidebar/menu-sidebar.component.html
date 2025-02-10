@@ -1,6 +1,6 @@
 <!-- Brand Logo -->
 <a [routerLink]="['/']" class="brand-link">
-  <pf-image
+  <img
     src="assets/img/logo.png"
     alt="AdminLTE Logo"
     class="brand-image"
@@ -8,7 +8,7 @@
     width="32"
     rounded="true"
     style="opacity: 0.8"
-  ></pf-image>
+  />
   <span class="brand-text font-weight-light">{{ 'signInTitle' | translate }}</span>
 </a>
 
@@ -19,7 +19,7 @@
     class="user-panel mt-3 pb-2 d-flex"
     style="justify-content: start; align-items: center"
   >
-    <pf-image
+    <img
       [src]="user.photoURL"
       fallbackSrc="assets/img/default-profile.png"
       style="margin-left: 12px"
@@ -51,17 +51,17 @@
                                      name: 'Activity.TITLE'|translate,
                                      iconClasses: 'fas fa-user',
                                      path: ['/']
-                                  }"/>
+                                  }"></app-menu-item>
       <app-menu-item [menuItem]="{
                                      name: 'Record'|translate,
                                      iconClasses: 'fas fa-clipboard',
                                      path: ['/dashboard']
-                                  }"/>
+                                  }"></app-menu-item>
       <app-menu-item [menuItem]="{
                                      name: 'CarePlan.TITLE'|translate,
                                      iconClasses: 'fas fa-user-nurse',
                                      path: ['/care-plan']
-                                  }"/>
+                                  }"></app-menu-item>
       <!--<app-menu-item [menuItem]="{
                                      name: 'Kanban'|translate,
                                      iconClasses: 'fas fa-list-check',

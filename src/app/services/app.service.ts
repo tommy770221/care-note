@@ -3,15 +3,17 @@ import {Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
 import {sleep} from '@/utils/helpers';
 
-import {GoogleAuthProvider, User} from 'firebase/auth';
+import {User} from 'firebase';
 import {environment} from '../../environments/environment';
-import {Auth, getAuth, user} from '@angular/fire/auth';
-import {AngularFireAuth} from '@angular/fire/compat/auth';
 import {FireStoreService} from '@services/fire-store.service';
-import {delay, forkJoin, Observable} from "rxjs";
+import {forkJoin, Observable} from "rxjs";
 import {CareGiverService} from "@services/firestore/care-giver.service";
 import {CareGiver} from "@/model/care-giver.model";
-import {Timestamp} from "@firebase/firestore";
+import {AngularFireAuth} from "@angular/fire/auth";
+import GoogleAuthProvider = firebase.auth.GoogleAuthProvider;
+import firebase from 'firebase';
+
+
 
 const provider = new GoogleAuthProvider();
 
@@ -28,7 +30,7 @@ export class AppService {
         private fireStoreService: FireStoreService,
         private careGiverService: CareGiverService
     ) {
-        this.auth.onAuthStateChanged(
+        this.auth.user.subscribe(
             (user) => {
                 if (user) {
                     this.user = user;
@@ -47,7 +49,7 @@ export class AppService {
     //todo email verification
     async registerWithEmail(email: string, password: string) {
         try {
-            const result = await this.auth.createUserWithEmailAndPassword(
+            const result = await this.auth.auth.createUserWithEmailAndPassword(
                 email,
                 password
             );
@@ -78,11 +80,11 @@ export class AppService {
                 careGiver.email = user.email;
                 careGiver.name = user.displayName;
                 careGiver.userID = user.uid;
-                careGiver.creatDate=Timestamp.fromDate(new Date());
+                careGiver.creatDate=firebase.firestore.Timestamp.fromDate(new Date());
                 console.log('resp : ', resp);
                 if (resp.size == 0) {
                     this.careGiverService.saveOne(user.uid, careGiver);
-                  if(!user?.emailVerified){
+                  if(!user.emailVerified){
                     this.toastr.error('Please verify your email');
                   }
                   this.router.navigate(['/login']);
@@ -95,20 +97,20 @@ export class AppService {
 
     async loginWithEmail(email: string, password: string) {
         try {
-            const result = await this.auth.signInWithEmailAndPassword(
+            const result = await this.auth.auth.signInWithEmailAndPassword(
                 email,
                 password
             );
             this.user = result.user;
-            if (this.user?.email === null) {
+            if (this.user.email === null) {
                 this.toastr.error('Email is null');
                 return;
             }
-            if (this.user?.emailVerified === true) {
+            if (this.user.emailVerified === true) {
                 this.loginSuccess();
                 this.router.navigate(['/']);
             } else if (
-                this.user?.emailVerified === false &&
+                this.user.emailVerified === false &&
                 environment.FIREBASE_CONFIG === null
             ) {
                 this.loginSuccess();
@@ -124,7 +126,7 @@ export class AppService {
 
     async signInByGoogle() {
         try {
-            const result = await this.auth.signInWithPopup(provider);
+            const result = await this.auth.auth.signInWithPopup(provider);
             this.user = result.user;
             //todo create user in firestore
             this.createCareGiver(this.user);
@@ -159,11 +161,11 @@ export class AppService {
 
     async sendPasswordResetEmail(email: string) {
         console.log('email : ', email);
-        this.auth.sendPasswordResetEmail(email);
+        this.auth.auth.sendPasswordResetEmail(email);
     }
 
     async logout() {
-        await this.auth.signOut();
+        await this.auth.auth.signOut();
         this.user = null;
         sessionStorage.removeItem('currentUser');
         this.router.navigate(['/login']);

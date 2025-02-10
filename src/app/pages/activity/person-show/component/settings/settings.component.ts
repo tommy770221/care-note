@@ -4,7 +4,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
-  styleUrl: './settings.component.scss'
+  styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent {
 

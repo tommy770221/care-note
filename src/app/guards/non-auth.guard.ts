@@ -34,7 +34,7 @@ export class NonAuthGuard implements CanActivate, CanActivateChild {
             return true;
         }
 
-        if(!this.appService.user?.emailVerified){
+        if(!this.appService.user.emailVerified){
             //this.router.navigate(['/login']);
             return true;
         }

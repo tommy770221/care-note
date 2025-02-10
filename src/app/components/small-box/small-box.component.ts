@@ -1,6 +1,5 @@
 import {Component, HostBinding, Input, OnInit} from '@angular/core';
 import {VARIANT_TYPES} from '@components/info-box/info-box.component';
-import {IconDefinition} from '@fortawesome/angular-fontawesome';
 
 @Component({
     selector: 'app-small-box',
@@ -10,7 +9,7 @@ import {IconDefinition} from '@fortawesome/angular-fontawesome';
 export class SmallBoxComponent implements OnInit {
     @Input() loading?: 'dark' | boolean;
     @Input() variant: VARIANT_TYPES = 'info';
-    @Input() icon?: {content: IconDefinition; variant?: VARIANT_TYPES};
+    @Input() icon?: {content: ''; variant?: VARIANT_TYPES};
     @Input() text: string;
     @Input() title: string;
     @Input() navigateTo: string;

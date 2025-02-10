@@ -21,13 +21,13 @@
             "prefix": "app",
             "architect": {
                 "build": {
-                    "builder": "@angular-devkit/build-angular:application",
+                    "builder": "@angular-devkit/build-angular:browser",
                     "options": {
                         "outputPath": "dist/adminlte",
                         "baseHref": "/care-note/",
                         "index": "src/index.html",
-                        "browser": "src/main.ts",
-                        "polyfills": ["zone.js"],
+                        "main": "src/main.ts",
+                        "polyfills": "src/polyfills.ts",
                         "tsConfig": "tsconfig.app.json",
                         "assets": ["src/favicon.ico", "src/assets"],
                         "styles": [
@@ -58,8 +58,7 @@
                             "extractLicenses": false,
                             "sourceMap": true
                         }
-                    },
-                    "defaultConfiguration": "production"
+                    }
                 },
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",
@@ -71,7 +70,9 @@
                             "buildTarget": "adminlte:build:development"
                         }
                     },
-                    "defaultConfiguration": "development"
+                    "options": {
+                      "browserTarget": "adminlte:build:development"
+                    }
                 },
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",

@@ -14,7 +14,7 @@ import {fromEventPattern} from 'rxjs';
 @Component({
     selector: 'app-calendar',
     templateUrl: './calendar.component.html',
-    styleUrl: './calendar.component.scss'
+    styleUrls: ['./calendar.component.scss']
 })
 export class CalendarComponent implements OnInit, AfterViewInit {
     calendar: Calendar;

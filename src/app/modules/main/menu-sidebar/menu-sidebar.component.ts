@@ -3,8 +3,8 @@ import {UiState} from '@/store/ui/state';
 import {Component, HostBinding, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {AppService} from '@services/app.service';
-import {User} from 'firebase/auth';
 import {Observable} from 'rxjs';
+import {User} from 'firebase';
 
 const BASE_CLASSES = 'main-sidebar elevation-4';
 @Component({

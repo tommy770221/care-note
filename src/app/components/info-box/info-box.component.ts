@@ -1,5 +1,5 @@
 import {Component, HostBinding, Input, OnInit} from '@angular/core';
-import {IconDefinition} from '@fortawesome/angular-fontawesome';
+
 
 export type VARIANT_TYPES =
     | 'primary'
@@ -19,7 +19,7 @@ export type VARIANT_TYPES =
 export class InfoBoxComponent implements OnInit {
     @Input() loading?: 'dark' | boolean;
     @Input() icon?: {
-        content: IconDefinition;
+        content: '';
         variant?: VARIANT_TYPES;
     };
     @Input() variant?: VARIANT_TYPES;
@@ -38,8 +38,17 @@ export class InfoBoxComponent implements OnInit {
 
     ngOnInit() {
         this.class = `info-box bg-${this.variant}`;
-        this.iconVariant = this.icon?.variant || this.variant;
-        this.progressBarVariant = this.progressBar?.variant || this.variant;
+        if(this.icon){
+          this.iconVariant = this.icon.variant;
+        }else{
+          this.iconVariant = this.variant;
+        }
+        if(this.progressBar){
+          this.progressBarVariant = this.progressBar.variant;
+        }else{
+          this.progressBarVariant =this.variant;
+        }
+
     }
 
     public getLoadingPropType(): 'light' | 'dark' {
