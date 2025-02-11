@@ -36,7 +36,7 @@ export class CareGiverService {
         .collection(url)
         .where('email', '==', email)
         .get()
-      console.log('resp : ',resp);
+     // console.log('resp : ',resp);
       return resp;
     }
 }

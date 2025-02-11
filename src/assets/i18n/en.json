@@ -6,5 +6,21 @@
   },
   "signInTitle": "Care Note",
   "dashboardTitle": "Dashboard",
-  "dashboard2Title": "Dashboard2 "
+  "dashboard2Title": "Dashboard2 ",
+  "self": "self caregiver",
+  "careGiver": "careGiver",
+  "registered nurse":"registered nurse",
+  "nurse practitioner": "nurse practitioner",
+  "medical doctor": "medical doctor",
+  "pharmacist": "pharmacist",
+  "physical therapist": "physical therapist",
+  "respiratory therapist": "respiratory therapist",
+  "occupational therapist": "occupational therapist",
+  "speech therapist": "speech therapist",
+  "radiographer": "radiographer",
+  "psychologist": "psychologist",
+  "dietician": "dietician",
+  "socialWorker": "socialWorker",
+  "paramedic": "paramedic",
+  "others": "others"
 }

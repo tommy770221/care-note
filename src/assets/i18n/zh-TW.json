@@ -31,5 +31,21 @@
   "CarePlan": {
     "TITLE": "照顧計畫"
   },
-  "Record": "記錄個案"
+  "Record": "記錄個案",
+  "self": "家庭照顧者",
+  "careGiver": "照顧服務員",
+  "registered nurse":"護士/護理師",
+  "nurse practitioner": "(專科）護理師",
+  "medical doctor": "醫師",
+  "pharmacist": "藥師",
+  "physical therapist": "物理治療師",
+  "respiratory therapist": "呼吸治療師",
+  "occupational therapist": "職能治療師",
+  "speech therapist": "語言治療師",
+  "radiographer": "醫事放射師",
+  "psychologist": "心理師",
+  "dietician": "營養師",
+  "socialWorker": "社會工作師",
+  "paramedic": "輔助醫護人員",
+  "others": "其他人員"
 }

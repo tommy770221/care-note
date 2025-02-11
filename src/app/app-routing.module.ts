@@ -23,6 +23,7 @@ import {
 import {TeamMemberAddComponent} from "@pages/care-plan/care-plan/person/team/team-member-add/team-member-add.component";
 import {PersonShowComponent} from "@pages/activity/person-show/person-show.component";
 import {PersonAddComponent} from "@pages/activity/person-add/person-add.component";
+import {CareGiverProfileComponent} from "@pages/caregiver/profile/profile.component";
 
 const routes: Routes = [
     {
@@ -34,6 +35,10 @@ const routes: Routes = [
             {
                 path: 'profile',
                 component: ProfileComponent
+            },
+            {
+              path: 'careGiver/profile',
+              component: CareGiverProfileComponent
             },
             {
                 path: 'blank',

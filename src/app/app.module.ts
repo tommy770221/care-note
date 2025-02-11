@@ -92,6 +92,7 @@ import { ActivityComponent } from './pages/activity/person-show/component/activi
 import { TimelineComponent } from './pages/activity/person-show/component/timeline/timeline.component';
 import { SettingsComponent } from './pages/activity/person-show/component/settings/settings.component';
 import { PersonAddComponent } from './pages/activity/person-add/person-add.component';
+import {CareGiverProfileComponent} from "@pages/caregiver/profile/profile.component";
 
 //registerLocaleData(localeEn, 'en-EN');
 
@@ -139,7 +140,8 @@ import { PersonAddComponent } from './pages/activity/person-add/person-add.compo
         ActivityComponent,
         TimelineComponent,
         SettingsComponent,
-        PersonAddComponent
+        PersonAddComponent,
+        CareGiverProfileComponent
     ],
     bootstrap: [AppComponent],
     imports: [

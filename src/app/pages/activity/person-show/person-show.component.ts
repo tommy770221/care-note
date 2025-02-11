@@ -105,7 +105,7 @@ export class PersonShowComponent implements OnInit{
     this.activeTab=str;
   }
 
-  onChange(value:any){
+  onChange(value:string){
     console.log(value);
     this.carePersonService.queryOne(value).subscribe(resp=>{
       //console.log(resp);

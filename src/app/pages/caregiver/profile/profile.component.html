@@ -1,0 +1,67 @@
+<div class="card card-primary card-outline">
+  <div class="card-body box-profile">
+    <div class="text-center">
+      <img
+        class="profile-image img-circle img-rounded img-profile"
+        src="assets/img/default-profile.png"
+        alt="User profile"
+      />
+    </div>
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+        <form class="col-sm-8 text-center">
+          <div class="form-group row">
+            <label for="email" class="col-sm-2 col-form-label">email: </label>
+            <div class="col-sm-10">
+              <input id="email" type="text" value="{{careGiver.email}}" disabled
+                     class="form-control"
+                     placeholder="Enter ..."/>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="careName" class="col-sm-2 col-form-label">照顧者姓名: </label>
+            <div class="col-sm-10">
+              <input id="careName" type="text" [(ngModel)]="careGiver.name" [ngModelOptions]="{standalone: true}"
+                     class="form-control"
+                     placeholder="Enter ..."/>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="role" class="col-sm-2 col-form-label">角色: </label>
+            <div class="col-sm-10">
+              <select id="role" [(ngModel)]="careGiver.role" [ngModelOptions]="{standalone: true}"
+                     class="form-control">
+                <option value=""></option>
+                <option *ngFor="let role of roleEnum" [value]="role">{{ role|translate}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="reservationdate" class="col-sm-2 col-form-label">生日:</label>
+            <div class="col-sm-10">
+              <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                <input type="text" bsDatepicker
+                       [bsValue]="birthday"
+                       [(ngModel)]="birthday" [ngModelOptions]="{standalone: true}"
+                       [bsConfig]="{ isAnimated: true, dateInputFormat: 'YYYY-MM-DD' }"
+                       class="form-control datetimepicker-input"/>
+                <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                  <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngFor="let careTeam of careTeams" class="form-group row">
+            <label for="careTeam" class="col-sm-2 col-form-label">照顧團隊: </label>
+            <div class="col-sm-10">
+              <a id="careTeam" routerLink="['/careTeam/',careTeam.id]">{{ careTeam.name }}</a>
+            </div>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-success" (click)="addModel()">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
