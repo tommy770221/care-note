@@ -93,6 +93,11 @@ import { TimelineComponent } from './pages/activity/person-show/component/timeli
 import { SettingsComponent } from './pages/activity/person-show/component/settings/settings.component';
 import { PersonAddComponent } from './pages/activity/person-add/person-add.component';
 import {CareGiverProfileComponent} from "@pages/caregiver/profile/profile.component";
+import {TeamProfileComponent} from "@pages/careteam/profile/profile.component";
+import { CarePersonProfileComponent } from './pages/carePerson/care-person-profile/care-person-profile.component';
+import { CareGiverShowComponent } from './pages/caregiver/care-giver-show/care-giver-show.component';
+import { SuggestionComponent } from './pages/suggestion/suggestion.component';
+import { ActivityAddComponent } from './pages/activity/activity-add/activity-add.component';
 
 //registerLocaleData(localeEn, 'en-EN');
 
@@ -141,7 +146,12 @@ import {CareGiverProfileComponent} from "@pages/caregiver/profile/profile.compon
         TimelineComponent,
         SettingsComponent,
         PersonAddComponent,
-        CareGiverProfileComponent
+        CareGiverProfileComponent,
+        TeamProfileComponent,
+        CarePersonProfileComponent,
+        CareGiverShowComponent,
+        SuggestionComponent,
+        ActivityAddComponent
     ],
     bootstrap: [AppComponent],
     imports: [
@@ -167,7 +177,7 @@ import {CareGiverProfileComponent} from "@pages/caregiver/profile/profile.compon
                 deps: [HttpClient]
             }
         }),
-        FormsModule
+        FormsModule,
     ],
     providers: [
         AppService,

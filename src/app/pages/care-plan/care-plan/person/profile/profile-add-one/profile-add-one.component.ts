@@ -95,11 +95,9 @@ export class ProfileAddOneComponent implements OnInit{
     //init carePerson
     carePerson.id=personId;
     carePerson.primaryCareGiverId=careGiver.userID;
-    carePerson.creatDate=Timestamp.fromDate(new Date());
 
     //init careTeams
     careTeam.id=personId;
-    careTeam.creatDate=Timestamp.fromDate(new Date());
     if(!careTeam.careGivers){
       careTeam.careGivers=[];
     }

@@ -10,5 +10,5 @@ export class CarePerson {
   height:number;
   weight:number;
   primaryCareGiverId:string;
-  creatDate: Timestamp;
+  creatDate: Timestamp=Timestamp.now();
 }

@@ -5,5 +5,5 @@ export class CareTeam {
     name: string;
     careGivers: string[];
     tempCareGivers: string[];
-    creatDate: Timestamp;
+    creatDate: Timestamp=Timestamp.now();
 }

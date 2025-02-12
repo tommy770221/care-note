@@ -24,6 +24,10 @@ import {TeamMemberAddComponent} from "@pages/care-plan/care-plan/person/team/tea
 import {PersonShowComponent} from "@pages/activity/person-show/person-show.component";
 import {PersonAddComponent} from "@pages/activity/person-add/person-add.component";
 import {CareGiverProfileComponent} from "@pages/caregiver/profile/profile.component";
+import {TeamProfileComponent} from "@pages/careteam/profile/profile.component";
+import {CareGiverShowComponent} from "@pages/caregiver/care-giver-show/care-giver-show.component";
+import {SuggestionComponent} from "@pages/suggestion/suggestion.component";
+import {ActivityAddComponent} from "@pages/activity/activity-add/activity-add.component";
 
 const routes: Routes = [
     {
@@ -39,6 +43,30 @@ const routes: Routes = [
             {
               path: 'careGiver/profile',
               component: CareGiverProfileComponent
+            },
+            {
+              path: 'careGiver/:id',
+              component: CareGiverShowComponent
+            },
+            {
+              path: 'careTeam/:id',
+              component: TeamProfileComponent
+            },
+            {
+              path: 'suggestion',
+              component: SuggestionComponent
+            },
+            {
+              path: 'activity',
+              component: PersonShowComponent
+            },
+            {
+              path: 'activity/addOne',
+              component: PersonAddComponent
+            },
+            {
+              path: 'activity/carePerson/:carePersonId/careGiver/:careGiverId/edit',
+              component: ActivityAddComponent
             },
             {
                 path: 'blank',
@@ -76,14 +104,6 @@ const routes: Routes = [
             {
                 path: 'calendar',
                 component: CalendarComponent
-            },
-            {
-              path: 'activity',
-              component: PersonShowComponent
-            },
-            {
-              path: 'activity/addOne',
-              component: PersonAddComponent
             },
             {
               path: 'dashboard',

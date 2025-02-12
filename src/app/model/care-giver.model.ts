@@ -8,7 +8,7 @@ export class CareGiver {
     careTeams: string[];
     tempCareTeams: string[];
     primaryCarePersonId:string;
-    creatDate: Timestamp;
+    creatDate: Timestamp=Timestamp.now();
     role:string;
 }
 

@@ -1,0 +1,39 @@
+<div class="card card-primary card-outline">
+  <div class="card-body box-profile">
+    <div class="text-center">
+      <img
+        class="profile-image img-circle img-rounded img-profile"
+        src="assets/img/default-profile.png"
+        alt="User profile"
+      />
+    </div>
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+        <form class="col-sm-8 text-center">
+          <div class="form-group row">
+            <label for="name" class="col-sm-2 col-form-label">團隊名稱: </label>
+            <div class="col-sm-10">
+              <input id="name" type="text" value="{{careTeam.name}}" disabled
+                     class="form-control"
+                     placeholder="Enter ..."/>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="carePersonName" class="col-sm-2 col-form-label">照顧對象: </label>
+            <div class="col-sm-10">
+              <input id="carePersonName" type="text" value="{{carePerson.name}}" disabled
+                     class="form-control"
+                     placeholder="Enter ..."/>
+            </div>
+          </div>
+          <div *ngFor="let careGiver of careGivers" class="form-group row">
+            <label for="careGiver" class="col-sm-2 col-form-label">照顧人員: </label>
+            <div class="col-sm-10">
+              <a id="careGiver" routerLink="/careGiver/{{careGiver.id}}">{{ careGiver.name }} -{{careGiver.role|translate}}</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

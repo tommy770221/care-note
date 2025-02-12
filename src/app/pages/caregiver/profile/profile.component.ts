@@ -65,5 +65,6 @@ export class CareGiverProfileComponent implements OnInit {
       this.birthday.setHours(0,0,0,0);
       this.careGiver.birthday=Timestamp.fromDate(this.birthday);
       this.careGiverService.updateOne(this.careGiver.id,this.careGiver);
+      this.toastr.success('CareGiver Updated successfully.');
     }
 }

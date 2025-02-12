@@ -78,7 +78,6 @@ export class AppService {
                 careGiver.email = user.email;
                 careGiver.name = user.displayName;
                 careGiver.userID = user.uid;
-                careGiver.creatDate=Timestamp.fromDate(new Date());
                 console.log('resp : ', resp);
                 if (resp.size == 0) {
                     this.careGiverService.saveOne(user.uid, careGiver);

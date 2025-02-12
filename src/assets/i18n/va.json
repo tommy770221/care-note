@@ -47,5 +47,32 @@
   "dietician": "Chuyên gia dinh dưỡng",
   "socialWorker": "Nhân viên công tác xã hội",
   "paramedic": "Nhân viên y tế khẩn cấp",
-  "others": "Nhân viên khác"
+  "others": "Nhân viên khác",
+
+  "urine-yellow": "Màu hổ phách, vàng hoặc vàng nhạt(Bình thường)",
+  "urine-transparent": "Không màu",
+  "urine-milky": "Màu trắng sữa",
+  "urine-whiteSticky": "Dạng nhầy trắng",
+  "urine-strongBrownColor": "Màu trà đậm",
+  "urine-orange": "Màu cam, vàng cam",
+  "urine-tan": "Màu nâu, màu nước tương",
+  "urine-red": "Màu đỏ (tiểu ra máu)",
+  "urine-black": "Màu đen",
+  "urine-green": "Màu xanh lá cây, xanh lục lam",
+  "urine-reddishBrown": "Màu đỏ nâu, nâu đen",
+  "urine-purple": "Màu tím",
+  "urine-other": "Khác",
+
+  "stool-tan": "Màu nâu vàng, nâu, vàng hoặc vàng kim(Bình thường)",
+  "stool-green": "Màu xanh lá cây",
+  "stool-tarry": "Phân màu nhựa đường",
+  "stool-red": "Màu đỏ",
+  "stool-surface-blood": "Máu tươi trên bề mặt, đốm máu",
+  "stool-chocolate": "Màu sô-cô-la",
+  "stool-pus-and-blood": "Mủ và máu",
+  "stool-brown-black": "Màu nâu đen",
+  "stool-lightBrown": "Màu nâu nhạt",
+  "stool-yellow": "Màu vàng",
+  "stool-offWhite": "Màu trắng xám",
+  "stool-other": "Khác"
 }

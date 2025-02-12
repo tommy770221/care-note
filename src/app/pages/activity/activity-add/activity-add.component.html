@@ -1,0 +1,105 @@
+<div class="card card-primary card-outline">
+  <div class="card-header">
+    <div class="col-12 text-center align-items-center justify-content-center">
+      <div class="">
+        <h2>自立支援表單填寫</h2>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+        <form class="col-sm-12" >
+          <div class="form-group row">
+            <label for="exercise" class="col-sm-2 col-form-label">運動(分鐘): </label>
+            <div class="col-sm-10">
+              <input id="exercise" type="number" [(ngModel)]="exercise.howLong" [ngModelOptions]="{standalone: true}"
+                     class="form-control"
+                     placeholder="Enter ..."/>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="water" class="col-sm-2 col-form-label">飲水(ml): </label>
+            <div class="col-sm-10">
+              <input id="water" type="number" [(ngModel)]="water.volume" [ngModelOptions]="{standalone: true}"
+                     class="form-control"
+                     placeholder="Enter ..."/>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="meal-type" class="col-sm-2 col-form-label">餐飲類型: </label>
+            <div class="col-sm-4">
+              <select id="meal-type" [(ngModel)]="meal.mealType" [ngModelOptions]="{standalone: true}"
+                      class="form-control">
+                <option value=""></option>
+                <option *ngFor="let mealType of mealTypeEnum" [value]="mealType">{{ mealType|translate}}</option>
+              </select>
+            </div>
+            <label for="meal" class="col-sm-2 col-form-label">餐飲量(cal): </label>
+            <div class="col-sm-4">
+              <input id="meal" type="number" [(ngModel)]="meal.volume" [ngModelOptions]="{standalone: true}"
+                     class="form-control"
+                     placeholder="Enter ..."/>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="toilet-urine-color" class="col-sm-2 col-form-label">尿尿顏色: </label>
+            <div class="col-sm-4">
+              <select id="toilet-urine-color" [(ngModel)]="toilet.urineColor" [ngModelOptions]="{standalone: true}"
+                      class="form-control">
+                <option value=""></option>
+                <option *ngFor="let color of urineColor" [value]="color">{{ color|translate}}</option>
+              </select>
+            </div>
+            <label for="toilet-urine-volume" class="col-sm-2 col-form-label">尿尿量(ml): </label>
+            <div class="col-sm-4">
+              <input id="toilet-urine-volume" type="number" [(ngModel)]="toilet.urineVolume" [ngModelOptions]="{standalone: true}"
+                     class="form-control"
+                     placeholder="Enter ..."/>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="toilet-stool-color" class="col-sm-2 col-form-label">大便顏色: </label>
+            <div class="col-sm-4">
+              <select id="toilet-stool-color" [(ngModel)]="toilet.stoolColor" [ngModelOptions]="{standalone: true}"
+                      class="form-control">
+                <option value=""></option>
+                <option *ngFor="let color of stoolColor" [value]="color">{{ color|translate}}</option>
+              </select>
+            </div>
+            <label for="toilet-stool-volume" class="col-sm-2 col-form-label">大便量(g): </label>
+            <div class="col-sm-4">
+              <input id="toilet-stool-volume" type="number" [(ngModel)]="toilet.stoolVolume" [ngModelOptions]="{standalone: true}"
+                     class="form-control"
+                     placeholder="Enter ..."/>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="recordDate" class="col-sm-2 col-form-label">recordDate: </label>
+            <div class="col-sm-10">
+              <div class="input-group date" id="recordDate" data-target-input="nearest">
+                <input type="text" bsDatepicker
+                       [bsValue]="recordDate"
+                       [(ngModel)]="recordDate" [ngModelOptions]="{standalone: true}"
+                       [bsConfig]="{ withTimepicker: true,isAnimated: true, dateInputFormat: 'YYYY-MM-DD HH:mm' }" class="form-control datetimepicker-input"/>
+                <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                  <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-12">
+              <input type="submit" (click)="addModel()" class="btn btn-primary" value="新增">
+            </div>
+          </div>
+        </form>
+        <p>參考文獻： <br>
+          朱為民、林金立(2024)·不被束縛的晚年——自立支援照顧，讓長者脫離臥床、自理生活、自由行動，減輕照顧者負擔，實踐高品質的長照(初版)·台北市：商周。<br>
+          酈欽菁、于會功、黎佳伶、廖珮宏、李思瑩(2021)·基本護理實習手冊·台北市：華杏。<br>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

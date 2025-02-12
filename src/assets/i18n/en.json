@@ -47,5 +47,32 @@
   "dietician": "dietician",
   "socialWorker": "socialWorker",
   "paramedic": "paramedic",
-  "others": "others"
+  "others": "others",
+
+  "urine-yellow": "Amber, yellow, or light yellow(Normal)",
+  "urine-transparent": "Colorless",
+  "urine-milky": "Milky white",
+  "urine-whiteSticky": "White and sticky",
+  "urine-strongBrownColor": "Dark brown",
+  "urine-orange": "Orange",
+  "urine-tan": "Tan, amber",
+  "urine-red": "Red (hematuria)",
+  "urine-black": "Black",
+  "urine-green": "Green, blue-green",
+  "urine-reddishBrown": "Reddish-brown, dark brown",
+  "urine-purple": "Purple",
+  "urine-other": "Other",
+
+  "stool-tan": "Tan, brown, yellow, or golden yellow(Normal)",
+  "stool-green": "Green",
+  "stool-tarry": "Tarry",
+  "stool-red": "Red",
+  "stool-surface-blood": "Fresh blood on the surface, blood spots",
+  "stool-chocolate": "Chocolate",
+  "stool-pus-and-blood": "Pus and blood",
+  "stool-brown-black": "Brown-black",
+  "stool-lightBrown": "Light brown",
+  "stool-yellow": "Yellow",
+  "stool-offWhite": "Off-white",
+  "stool-other": "Other"
 }

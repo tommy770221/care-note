@@ -1,0 +1,34 @@
+<div class="card card-primary card-outline">
+  <div class="card-header">
+    <div class="col-12 text-center align-items-center justify-content-center">
+      <div class="">
+        <h2><strong>{{'signInTitle'|translate}}</strong></h2>
+        <p class="lead mb-5">{{email}}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="card-body row text-center align-items-center justify-content-center">
+    <div class="col-7">
+      <div class="form-group">
+        <label for="inputName">Name</label>
+        <input type="text" [(ngModel)]="suggestion.name" [ngModelOptions]="{standalone: true}" id="inputName" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="inputEmail">E-Mail</label>
+        <input type="email" [(ngModel)]="suggestion.email" [ngModelOptions]="{standalone: true}" id="inputEmail" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="inputSubject">Subject</label>
+        <input type="text" [(ngModel)]="suggestion.subject" [ngModelOptions]="{standalone: true}" id="inputSubject" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="inputMessage">Message</label>
+        <textarea id="inputMessage" [(ngModel)]="suggestion.message" [ngModelOptions]="{standalone: true}" class="form-control" rows="4"></textarea>
+      </div>
+      <div class="form-group">
+        <input type="submit" (click)="addModel()" class="btn btn-primary" value="Send message">
+      </div>
+    </div>
+  </div>
+</div>

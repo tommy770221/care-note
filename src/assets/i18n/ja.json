@@ -47,5 +47,32 @@
   "dietician": "栄養士",
   "socialWorker": "社会福祉士",
   "paramedic": "救急救命士",
-  "others": "その他のスタッフ"
+  "others": "その他のスタッフ",
+
+  "urine-yellow": "琥珀色、黄色、淡黄色(普通)",
+  "urine-transparent": "無色",
+  "urine-milky": "乳白色",
+  "urine-whiteSticky": "白い粘液状",
+  "urine-strongBrownColor": "濃い茶色",
+  "urine-orange": "オレンジ色、黄橙色",
+  "urine-tan": "茶褐色、醤油色",
+  "urine-red": "赤色（血尿）",
+  "urine-black": "黒色",
+  "urine-green": "緑色、青緑色",
+  "urine-reddishBrown": "赤褐色、黒褐色",
+  "urine-purple": "紫色",
+  "urine-other": "その他",
+
+  "stool-tan": "黄褐色、茶色、黄色、金色(普通)",
+  "stool-green": "緑色",
+  "stool-tarry": "タール便",
+  "stool-red": "赤色",
+  "stool-surface-blood": "表面に鮮血、点状の血斑",
+  "stool-chocolate": "チョコレート色",
+  "stool-pus-and-blood": "膿と血",
+  "stool-brown-black": "茶黒色",
+  "stool-lightBrown": "淡い茶色",
+  "stool-yellow": "黄色",
+  "stool-offWhite": "灰白色",
+  "stool-other": "その他"
 }

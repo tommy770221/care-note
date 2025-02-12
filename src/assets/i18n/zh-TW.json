@@ -47,5 +47,32 @@
   "dietician": "營養師",
   "socialWorker": "社會工作師",
   "paramedic": "輔助醫護人員",
-  "others": "其他人員"
+  "others": "其他人員",
+
+  "urine-yellow": "琥珀色、黃色或淡黃色(正常)",
+  "urine-transparent": "無色",
+  "urine-milky": "乳白色",
+  "urine-whiteSticky": "白色黏液狀",
+  "urine-strongBrownColor": "濃茶色",
+  "urine-orange": "橘色、黃橙色",
+  "urine-tan": "棕褐色、醬油色",
+  "urine-red": "紅色(血尿)",
+  "urine-black": "黑色",
+  "urine-green": "綠色、藍綠色",
+  "urine-reddishBrown": "紅棕色、黑褐色",
+  "urine-purple": "紫色",
+  "urine-other": "其他",
+
+  "stool-tan": "黃褐色、棕色、黃色或金黃色(正常)",
+  "stool-green": "綠色",
+  "stool-tarry": "柏油便",
+  "stool-red": "紅色",
+  "stool-surface-blood": "表面鮮血、點狀血斑",
+  "stool-chocolate": "巧克力色",
+  "stool-pus-and-blood": "膿血",
+  "stool-brown-black": "棕黑色",
+  "stool-lightBrown": "淡棕色",
+  "stool-yellow": "黃色",
+  "stool-offWhite": "灰白色",
+  "stool-other": "其他"
 }
