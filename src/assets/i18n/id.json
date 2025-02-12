@@ -1,10 +1,51 @@
 {
-  "welcomeMessage": "Thanks for joining, {{ firstName }}! It's great to have you!",
+  "welcomeMessage": "Terima kasih telah bergabung, {{ firstName }}! Senang memiliki Anda di sini!",
   "login": {
-    "username": "Enter your user name",
-    "password": "Password here"
+    "username": "Masukkan nama Anda",
+    "password": "Silakan masukkan kata sandi"
   },
-  "signInTitle": "Care Note(id)",
-  "dashboardTitle": "Dashboard (id)",
-  "dashboard2Title": "Dashboard2 (id)"
+  "signInTitle": "Catatan Perawatan",
+  "dashboardTitle": "Dasbor",
+  "dashboard2Title": "Dasbor 2",
+  "Activity": {
+    "TITLE": "Data Kasus",
+    "SHOW": {
+      "careThePerson": "Silakan pilih orang yang dirawat",
+      "idJoin": "(Gabung tim dengan ID pasien)",
+      "height": "Tinggi badan:",
+      "weight": "Berat badan:",
+      "age": "Usia:",
+      "ageNull": "Kosong",
+      "eat": "Makan",
+      "record": "Catatan",
+      "water": "Asupan cairan",
+      "toilet": "Buang air",
+      "exercise": "Olahraga",
+      "vital": "Tanda vital",
+      "handover": "Serah terima perawatan",
+      "": "",
+      "": "",
+      "": ""
+    }
+  },
+  "CarePlan": {
+    "TITLE": "Rencana Perawatan"
+  },
+  "Record": "Catatan Kasus",
+  "self": "Pengasuh keluarga",
+  "careGiver": "Petugas perawatan",
+  "registered nurse": "Perawat",
+  "nurse practitioner": "Perawat spesialis",
+  "medical doctor": "Dokter",
+  "pharmacist": "Apoteker",
+  "physical therapist": "Fisioterapis",
+  "respiratory therapist": "Terapis pernapasan",
+  "occupational therapist": "Terapis okupasi",
+  "speech therapist": "Terapis wicara",
+  "radiographer": "Radiografer",
+  "psychologist": "Psikolog",
+  "dietician": "Ahli gizi",
+  "socialWorker": "Pekerja sosial",
+  "paramedic": "Tenaga medis darurat",
+  "others": "Staf lainnya"
 }

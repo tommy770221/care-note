@@ -1,10 +1,51 @@
 {
-  "welcomeMessage": "Thanks for joining, {{ firstName }}! It's great to have you!",
+  "welcomeMessage": "Cảm ơn bạn đã tham gia, {{ firstName }}! Rất vui khi có bạn ở đây!",
   "login": {
-    "username": "Enter your user name",
-    "password": "Password here"
+    "username": "Nhập tên của bạn",
+    "password": "Vui lòng nhập mật khẩu"
   },
-  "signInTitle": "Care Note(Va)",
-  "dashboardTitle": "Dashboard (Va)",
-  "dashboard2Title": "Dashboard2 (Va)"
+  "signInTitle": "Sổ tay chăm sóc",
+  "dashboardTitle": "Bảng điều khiển",
+  "dashboard2Title": "Bảng điều khiển 2",
+  "Activity": {
+    "TITLE": "Dữ liệu hồ sơ",
+    "SHOW": {
+      "careThePerson": "Vui lòng chọn người được chăm sóc",
+      "idJoin": "(Tham gia nhóm bằng ID bệnh nhân)",
+      "height": "Chiều cao:",
+      "weight": "Cân nặng:",
+      "age": "Tuổi:",
+      "ageNull": "Trống",
+      "eat": "Ăn uống",
+      "record": "Ghi chép",
+      "water": "Lượng nước",
+      "toilet": "Đi vệ sinh",
+      "exercise": "Tập thể dục",
+      "vital": "Dấu hiệu sinh tồn",
+      "handover": "Bàn giao điều dưỡng",
+      "": "",
+      "": "",
+      "": ""
+    }
+  },
+  "CarePlan": {
+    "TITLE": "Kế hoạch chăm sóc"
+  },
+  "Record": "Ghi chép hồ sơ",
+  "self": "Người chăm sóc gia đình",
+  "careGiver": "Nhân viên chăm sóc",
+  "registered nurse": "Y tá",
+  "nurse practitioner": "Y tá chuyên khoa",
+  "medical doctor": "Bác sĩ",
+  "pharmacist": "Dược sĩ",
+  "physical therapist": "Chuyên viên vật lý trị liệu",
+  "respiratory therapist": "Chuyên viên trị liệu hô hấp",
+  "occupational therapist": "Chuyên viên trị liệu nghề nghiệp",
+  "speech therapist": "Chuyên viên trị liệu ngôn ngữ",
+  "radiographer": "Kỹ thuật viên X-quang",
+  "psychologist": "Nhà tâm lý học",
+  "dietician": "Chuyên gia dinh dưỡng",
+  "socialWorker": "Nhân viên công tác xã hội",
+  "paramedic": "Nhân viên y tế khẩn cấp",
+  "others": "Nhân viên khác"
 }

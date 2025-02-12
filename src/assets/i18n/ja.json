@@ -1,10 +1,51 @@
 {
-  "welcomeMessage": "Thanks for joining, {{ firstName }}! It's great to have you!",
+  "welcomeMessage": "参加してくれてありがとう, {{ firstName }}! 参加してくれて嬉しいです!",
   "login": {
-    "username": "Enter your user name",
-    "password": "Password here"
+    "username": "あなたの名前を入力してください",
+    "password": "パスワードを入力してください"
   },
-  "signInTitle": "Care Note(Japan)",
-  "dashboardTitle": "Dashboard (JA)",
-  "dashboard2Title": "Dashboard2 (JA)"
+  "signInTitle": "ケアノート",
+  "dashboardTitle": "ダッシュボード",
+  "dashboard2Title": "ダッシュボード２",
+  "Activity": {
+    "TITLE": "ケースデータ",
+    "SHOW": {
+      "careThePerson": "ケア対象を選択してください",
+      "idJoin": "(患者IDでチームに参加)",
+      "height": "身長：",
+      "weight": "体重：",
+      "age": "年齢：",
+      "ageNull": "空欄",
+      "eat": "食事",
+      "record": "記録",
+      "water": "水分",
+      "toilet": "排泄",
+      "exercise": "運動",
+      "vital": "バイタルサイン",
+      "handover": "看護引き継ぎ",
+      "": "",
+      "": "",
+      "": ""
+    }
+  },
+  "CarePlan": {
+    "TITLE": "ケアプラン"
+  },
+  "Record": "ケース記録",
+  "self": "家族介護者",
+  "careGiver": "介護スタッフ",
+  "registered nurse": "看護師",
+  "nurse practitioner": "専門看護師",
+  "medical doctor": "医師",
+  "pharmacist": "薬剤師",
+  "physical therapist": "理学療法士",
+  "respiratory therapist": "呼吸療法士",
+  "occupational therapist": "作業療法士",
+  "speech therapist": "言語聴覚士",
+  "radiographer": "放射線技師",
+  "psychologist": "心理士",
+  "dietician": "栄養士",
+  "socialWorker": "社会福祉士",
+  "paramedic": "救急救命士",
+  "others": "その他のスタッフ"
 }

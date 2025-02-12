@@ -7,6 +7,31 @@
   "signInTitle": "Care Note",
   "dashboardTitle": "Dashboard",
   "dashboard2Title": "Dashboard2 ",
+  "Activity": {
+    "TITLE": "Patient Profile",
+    "SHOW": {
+      "careThePerson": "Please select the person to care for",
+      "idJoin": "(patient ID used to join the team)",
+      "height": "Height:",
+      "weight": "Weight:",
+      "age": "Age:",
+      "ageNull": "null value",
+      "eat": "diet",
+      "record": "record",
+      "water": "water",
+      "toilet": "excretion",
+      "exercise": "exercise",
+      "vital": "vital signs",
+      "handover": "nursing handover",
+      "": "",
+      "": "",
+      "": ""
+    }
+  },
+  "CarePlan": {
+    "TITLE": "Care Plan"
+  },
+  "Record": "Record Case",
   "self": "self caregiver",
   "careGiver": "careGiver",
   "registered nurse":"registered nurse",
