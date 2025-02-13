@@ -2,7 +2,20 @@
   "welcomeMessage": "Terima kasih telah bergabung, {{ firstName }}! Senang memiliki Anda di sini!",
   "login": {
     "username": "Masukkan nama Anda",
-    "password": "Silakan masukkan kata sandi"
+    "password": "Silakan masukkan kata sandi",
+    "forgetpass": "Lupa Kata Sandi",
+    "regist": "Daftar Anggota Baru",
+    "button": "Masuk",
+    "session": "Mulai Perjalanan Perawatan Anda"
+  },
+  "regist": {
+    "already": "Sudah menjadi anggota",
+    "button": "Daftar"
+  },
+  "forget": {
+    "forget": "Lupa kata sandi? Masukkan email untuk mengirim ulang kata sandi",
+    "button": "Kirim",
+    "login": "Masuk"
   },
   "signInTitle": "Catatan Perawatan",
   "dashboardTitle": "Dasbor",

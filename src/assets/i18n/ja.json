@@ -2,7 +2,20 @@
   "welcomeMessage": "参加してくれてありがとう, {{ firstName }}! 参加してくれて嬉しいです!",
   "login": {
     "username": "あなたの名前を入力してください",
-    "password": "パスワードを入力してください"
+    "password": "パスワードを入力してください",
+    "forgetpass": "パスワードを忘れた",
+    "regist": "新規会員登録",
+    "button": "ログイン",
+    "session": "ケアの旅を始めましょう"
+  },
+  "regist": {
+    "already": "既に会員です",
+    "button": "登録"
+  },
+  "forget": {
+    "forget": "パスワードをお忘れですか？メールアドレスを入力してパスワードを再送してください",
+    "button": "送信",
+    "login": "ログイン"
   },
   "signInTitle": "ケアノート",
   "dashboardTitle": "ダッシュボード",

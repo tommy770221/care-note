@@ -2,7 +2,20 @@
   "welcomeMessage": "Cảm ơn bạn đã tham gia, {{ firstName }}! Rất vui khi có bạn ở đây!",
   "login": {
     "username": "Nhập tên của bạn",
-    "password": "Vui lòng nhập mật khẩu"
+    "password": "Vui lòng nhập mật khẩu",
+    "forgetpass": "Quên mật khẩu",
+    "regist": "Đăng ký thành viên mới",
+    "button": "Đăng nhập",
+    "session": "Bắt đầu hành trình chăm sóc của bạn"
+  },
+  "regist": {
+    "already": "Đã có thành viên",
+    "button": "Đăng ký"
+  },
+  "forget": {
+    "forget": "Quên mật khẩu? Vui lòng nhập email để gửi lại mật khẩu",
+    "button": "Gửi",
+    "login": "Đăng nhập"
   },
   "signInTitle": "Sổ tay chăm sóc",
   "dashboardTitle": "Bảng điều khiển",

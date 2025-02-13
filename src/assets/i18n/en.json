@@ -2,7 +2,20 @@
   "welcomeMessage": "Thanks for joining, {{ firstName }}! It's great to have you!",
   "login": {
     "username": "Enter your user name",
-    "password": "Password here"
+    "password": "Password here",
+    "forgetpass": "I forgot my password",
+    "regist": "Register a new membership",
+    "button": "Sign In",
+    "session": "Start Your Care Journey"
+  },
+  "regist": {
+    "already": "I already have a membership",
+    "button": " Register"
+  },
+  "forget": {
+    "forget": "You forgot your password? Here you can easily retrieve a new password.",
+    "button": "Request new password",
+    "login": "Login"
   },
   "signInTitle": "Care Note",
   "dashboardTitle": "Dashboard",

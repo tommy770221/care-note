@@ -2,7 +2,20 @@
   "welcomeMessage": "謝謝你加入, {{ firstName }}! It's great to have you!",
   "login": {
     "username": "輸入你的姓名",
-    "password": "請輸入密碼"
+    "password": "請輸入密碼",
+    "forgetpass": "忘記密碼",
+    "regist": "註冊新會員",
+    "button": "登入",
+    "session": "開啟您的照顧旅程"
+  },
+  "regist": {
+    "already": "已經有會員了",
+    "button": "註冊"
+  },
+  "forget": {
+    "forget": "忘記密碼了嗎?請輸入email重寄密碼",
+    "button": "送出",
+    "login": "登入"
   },
   "signInTitle": "照顧筆記本",
   "dashboardTitle": "儀表板",
