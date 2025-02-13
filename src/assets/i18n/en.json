@@ -74,5 +74,10 @@
   "stool-lightBrown": "Light brown",
   "stool-yellow": "Yellow",
   "stool-offWhite": "Off-white",
-  "stool-other": "Other"
+  "stool-other": "Other",
+
+  "breakfast": "breakfast",
+  "lunch": "lunch",
+  "dinner": "dinner",
+  "snack": "snack"
 }

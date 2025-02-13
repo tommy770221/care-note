@@ -74,5 +74,10 @@
   "stool-lightBrown": "淡い茶色",
   "stool-yellow": "黄色",
   "stool-offWhite": "灰白色",
-  "stool-other": "その他"
+  "stool-other": "その他",
+
+  "breakfast": "朝食",
+  "lunch": "ランチ",
+  "dinner": "夕食",
+  "snack": "スナック"
 }

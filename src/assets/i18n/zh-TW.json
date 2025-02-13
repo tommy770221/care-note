@@ -74,5 +74,10 @@
   "stool-lightBrown": "淡棕色",
   "stool-yellow": "黃色",
   "stool-offWhite": "灰白色",
-  "stool-other": "其他"
+  "stool-other": "其他",
+
+  "breakfast": "早餐",
+  "lunch": "午餐",
+  "dinner": "晚餐",
+  "snack": "點心"
 }

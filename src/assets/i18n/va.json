@@ -74,5 +74,10 @@
   "stool-lightBrown": "Màu nâu nhạt",
   "stool-yellow": "Màu vàng",
   "stool-offWhite": "Màu trắng xám",
-  "stool-other": "Khác"
+  "stool-other": "Khác",
+
+  "breakfast": "bữa sáng",
+  "lunch": "Bữa trưa",
+  "dinner": "bữa tối",
+  "snack": "đồ ăn vặt"
 }
