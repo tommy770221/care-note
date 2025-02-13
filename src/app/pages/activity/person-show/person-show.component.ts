@@ -21,6 +21,8 @@ import {faFile, faIdCard} from "@fortawesome/free-regular-svg-icons";
 import {document} from "ngx-bootstrap/utils";
 import {FormControl, FormGroup} from "@angular/forms";
 import {ActivityService} from "@services/firestore/activity/activity.service";
+import {PrimaryDiseaseService} from "@services/firestore/translation/primary-disease.service";
+import {PrimaryDisease} from "@/model/translation/primary-disease.model";
 
 @Component({
   selector: 'app-person-show',
@@ -46,7 +48,8 @@ export class PersonShowComponent implements OnInit{
   protected readonly faBowlRice = faBowlRice;
   protected readonly faRestroom = faRestroom;
   protected readonly faPersonWalking = faPersonWalking;
-  waterIn='1500 ml'
+  waterIn='1500 ml';
+  primaryDis='';
 
   constructor(private appService: AppService,
               private careGiverService:CareGiverService,
@@ -54,7 +57,8 @@ export class PersonShowComponent implements OnInit{
               private toastr: ToastrService,
               private careTeamService : CareTeamService,
               private carePersonService: CarePersonService,
-              private activityService: ActivityService,) {
+              private activityService: ActivityService,
+              private primaryDiseaseService:PrimaryDiseaseService) {
   }
   ngOnInit(): void {
     this.user=this.appService.user;
@@ -79,6 +83,12 @@ export class PersonShowComponent implements OnInit{
                 //this.activityService.queryActivities("/activities/"+this.carePerson.id+"/meals/").subscribe(resp=>{
                 //  console.log("activities : ",resp.docs);
                 //})
+                if(this.carePerson.primaryDiseaseInputId){
+                  this.primaryDiseaseService.queryOne(this.carePerson.primaryDiseaseInputId).subscribe(resp=>{
+                    const primaryDisease=resp.data() as PrimaryDisease;
+                    this.primaryDis=primaryDisease.translated[localStorage.getItem("lan")];
+                  })
+                }
               }
             })
           }

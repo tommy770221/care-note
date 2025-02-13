@@ -11,6 +11,8 @@ import {CarePersonService} from "@services/firestore/care-person.service";
 import {CareTeamService} from "@services/firestore/care-team.service";
 import {CareGiver} from "@/model/care-giver.model";
 import {Timestamp} from "@firebase/firestore";
+import {PrimaryDiseaseService} from "@services/firestore/translation/primary-disease.service";
+import {PrimaryDisease} from "@/model/translation/primary-disease.model";
 
 @Component({
   selector: 'app-person-add',
@@ -31,7 +33,8 @@ export class PersonAddComponent implements OnInit {
               private appService:AppService,
               private afs: AngularFirestore,
               private carePersonService:CarePersonService,
-              private careTeamService:CareTeamService) {
+              private careTeamService:CareTeamService,
+              private primaryDiseaseService:PrimaryDiseaseService) {
   }
   ngOnInit(): void {
 
@@ -44,6 +47,22 @@ export class PersonAddComponent implements OnInit {
     console.log('careGiver :',careGiver)
     console.log(careGiver.userID);
     console.log(careGiver.email);
+    if(this.carePerson.primaryDisease){
+      this.primaryDiseaseService.queryDiseasesByDis(this.carePerson.primaryDisease)
+        .then(resp=>{
+          if(resp.size==0){
+            const disId=this.afs.createId();
+            this.carePerson.primaryDiseaseInputId=disId;
+            let primaryDisease=new PrimaryDisease();
+            primaryDisease.disease=this.carePerson.primaryDisease;
+            primaryDisease.id=disId;
+            this.primaryDiseaseService.saveOne(disId,primaryDisease);
+          }else{
+            const primaryDisease=resp.docs.at(0).data() as PrimaryDisease;
+            this.carePerson.primaryDiseaseInputId=primaryDisease.id;
+          }
+        })
+    }
     this.birthday.setHours(0,0,0,0);
     this.carePerson.birthday=Timestamp.fromDate(this.birthday);
     if(!careGiver.userID){
