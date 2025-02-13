@@ -39,6 +39,18 @@
       "stool-volume": "Volume tinja (g):",
       "recordDate": "Waktu pencatatan:",
       "button": "Tambah"
+    },
+    "PERSON-ADD": {
+      "header": "Masukkan ID kasus untuk memuat data kasus (jika tidak ada ID, silakan isi formulir di bawah)",
+      "keyIn": "Muat data kasus",
+      "system": "Sebelum menggunakan sistem, harap masukkan data kasus",
+      "name": "Nama kasus",
+      "height": "Tinggi badan",
+      "weight": "Berat badan",
+      "birthday": "Tanggal lahir:",
+      "team": "Nama tim",
+      "button": "Tambahkan kasus",
+      "disease": "Penyakit utama"
     }
   },
   "CarePlan": {

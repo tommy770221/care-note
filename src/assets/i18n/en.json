@@ -39,6 +39,18 @@
       "stool-volume": "Stool volume (g):",
       "recordDate": "Record time:",
       "button": "Add"
+    },
+    "PERSON-ADD": {
+      "header": "Enter the case ID to import case data (if no ID, please fill in the form below)",
+      "keyIn": "Import case data",
+      "system": "Before using the system, please enter case data",
+      "name": "Case name",
+      "height": "Height",
+      "weight": "Weight",
+      "birthday": "Birthday:",
+      "team": "Team name",
+      "button": "Add case",
+      "disease": "Primary disease"
     }
   },
   "CarePlan": {

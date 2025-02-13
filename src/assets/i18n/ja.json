@@ -39,6 +39,18 @@
       "stool-volume": "便の量（g）:",
       "recordDate": "記録時間:",
       "button": "追加"
+    },
+    "PERSON-ADD": {
+      "header": "ケースIDを入力してケースデータをインポート（IDがない場合は以下のフォームに記入してください）",
+      "keyIn": "ケースデータをインポート",
+      "system": "システムを使用する前に、ケースデータを入力してください",
+      "name": "ケース名",
+      "height": "身長",
+      "weight": "体重",
+      "birthday": "誕生日:",
+      "team": "チーム名",
+      "button": "ケースを追加",
+      "disease": "主な病気"
     }
   },
   "CarePlan": {

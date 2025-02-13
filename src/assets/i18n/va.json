@@ -39,6 +39,18 @@
       "stool-volume": "Lượng phân (g):",
       "recordDate": "Thời gian ghi chép:",
       "button": "Thêm"
+    },
+    "PERSON-ADD": {
+      "header": "Nhập mã định danh ID bệnh nhân để lấy dữ liệu bệnh nhân (nếu không có ID, vui lòng điền vào biểu mẫu bên dưới)",
+      "keyIn": "Lấy dữ liệu bệnh nhân",
+      "system": "Trước khi sử dụng hệ thống, vui lòng nhập dữ liệu bệnh nhân",
+      "name": "Họ và tên bệnh nhân",
+      "height": "Chiều cao",
+      "weight": "Cân nặng",
+      "birthday": "Ngày sinh:",
+      "team": "Tên nhóm",
+      "button": "Thêm bệnh nhân",
+      "disease": "Bệnh chính"
     }
   },
   "CarePlan": {

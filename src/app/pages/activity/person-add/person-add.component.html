@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-sm-12">
           <div class="form-group">
-            <label>輸入個案ID識別碼帶入個案資料(無ID請填下面表格)</label>
+            <label>{{ 'Activity.PERSON-ADD.header'|translate}}</label>
             <input type="text" [(ngModel)]="carePersonId" [ngModelOptions]="{standalone: true}" class="form-control"
                    placeholder="Enter ...">
           </div>
@@ -13,7 +13,7 @@
       <div class="row">
         <div class="col-sm-12">
           <div class="form-group">
-            <button class="btn btn-success" (click)="queryCarePerson()">帶入個案資料</button>
+            <button class="btn btn-success" (click)="queryCarePerson()">{{ 'Activity.PERSON-ADD.keyIn'|translate}}</button>
           </div>
         </div>
       </div>
@@ -22,7 +22,7 @@
 
   <div class="card card-warning ">
     <div class="card-header">
-      <h3 class="card-title">使用系統前,請輸入個案資料</h3>
+      <h3 class="card-title">{{ 'Activity.PERSON-ADD.system'|translate}}</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body text-center align-items-center justify-content-center col-12">
@@ -30,7 +30,7 @@
         <div class="row">
           <div class="col-sm-12">
             <div class="form-group">
-              <label>個案姓名</label>
+              <label>{{ 'Activity.PERSON-ADD.name'|translate}}</label>
               <input type="text" [(ngModel)]="carePerson.name" [ngModelOptions]="{standalone: true}"
                      class="form-control" placeholder="Enter ..."/>
             </div>
@@ -39,7 +39,7 @@
         <div class="row">
           <div class="col-sm-12">
             <div class="form-group">
-              <label>身高</label>
+              <label>{{ 'Activity.PERSON-ADD.height'|translate}}</label>
               <input type="text" [(ngModel)]="carePerson.height" [ngModelOptions]="{standalone: true}"
                      class="form-control" placeholder="Enter ..."/>
             </div>
@@ -48,7 +48,7 @@
         <div class="row">
           <div class="col-sm-12">
             <div class="form-group">
-              <label>體重</label>
+              <label>{{ 'Activity.PERSON-ADD.weight'|translate}}</label>
               <input type="text" [(ngModel)]="carePerson.weight" [ngModelOptions]="{standalone: true}"
                      class="form-control" placeholder="Enter ..."/>
             </div>
@@ -57,7 +57,16 @@
         <div class="row">
           <div class="col-sm-12">
             <div class="form-group">
-              <label>生日:</label>
+              <label>{{ 'Activity.PERSON-ADD.disease'|translate}}</label>
+              <input type="text" [(ngModel)]="carePerson.primaryDisease" [ngModelOptions]="{standalone: true}"
+                     class="form-control" placeholder="Enter ..."/>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label>{{ 'Activity.PERSON-ADD.birthday'|translate}}</label>
               <div class="input-group date" id="reservationdate" data-target-input="nearest">
                 <input type="text" bsDatepicker
                        [bsValue]="birthday"
@@ -74,7 +83,7 @@
         <div class="row">
           <div class="col-sm-12">
             <div class="form-group">
-              <label>團隊名稱</label>
+              <label>{{ 'Activity.PERSON-ADD.team'|translate}}</label>
               <input type="text" [(ngModel)]="careTeam.name" [ngModelOptions]="{standalone: true}" class="form-control"
                      placeholder="Enter ...">
             </div>
@@ -84,7 +93,7 @@
         <div class="row">
           <div class="col-sm-12">
             <div class="form-group">
-              <button class="btn btn-success" (click)="addModel()">Submit</button>
+              <button class="btn btn-success" (click)="addModel()">{{ 'Activity.PERSON-ADD.button'|translate}}</button>
             </div>
           </div>
         </div>

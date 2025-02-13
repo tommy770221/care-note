@@ -9,6 +9,8 @@ export class CarePerson {
   birthday: Timestamp;
   height:number;
   weight:number;
+  primaryDisease:string;
+  primaryDiseaseInputId:string;
   primaryCareGiverId:string;
   creatDate: Timestamp=Timestamp.now();
 }

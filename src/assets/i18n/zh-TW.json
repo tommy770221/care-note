@@ -39,6 +39,18 @@
       "stool-volume": "大便量(g):",
       "recordDate": "紀錄時間:",
       "button": "新增"
+    },
+    "PERSON-ADD": {
+      "header": "輸入個案ID識別碼帶入個案資料(無ID請填下面表格)",
+      "keyIn": "帶入個案資料",
+      "system": "使用系統前,請輸入個案資料",
+      "name": "個案姓名",
+      "height": "身高",
+      "weight": "體重",
+      "birthday": "生日:",
+      "team": "團隊名稱",
+      "button": "新增個案",
+      "disease": "主要疾病"
     }
   },
   "CarePlan": {
