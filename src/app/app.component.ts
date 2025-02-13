@@ -25,7 +25,7 @@ export class AppComponent {
         });
       const browserLang = navigator.language;
       const userLang=localStorage.getItem('lan');
-      const langs=['en', 'zh-TW','id','ja','va']
+      const langs=['en', 'zh-TW','id','ja','vi']
       console.log('browserLang: ',browserLang);
       console.log('userLang: ',userLang);
       translate.addLangs(langs);

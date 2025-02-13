@@ -15,13 +15,13 @@ export class LanguageComponent implements OnInit {
     ngOnInit(): void {
       const browserLang = navigator.language;
       const userLang=localStorage.getItem('lan');
-      const langs=['en', 'zh-TW','id','ja','va']
+      const langs=['en', 'zh-TW','id','ja','vi']
       let myTag = this.el.nativeElement.querySelector('#lang-show');
       myTag.classList.remove('flag-icon-tw');
       myTag.classList.remove('flag-icon-jp');
       myTag.classList.remove('flag-icon-us');
       myTag.classList.remove('flag-icon-id');
-      myTag.classList.remove('flag-icon-va');
+      myTag.classList.remove('flag-icon-vn');
       if (userLang){
         if(userLang==='en'){
           myTag.classList.add('flag-icon-us');
@@ -31,8 +31,8 @@ export class LanguageComponent implements OnInit {
           myTag.classList.add('flag-icon-id');
         }else if(userLang==='ja'){
           myTag.classList.add('flag-icon-jp');
-        }else if(userLang==='va'){
-          myTag.classList.add('flag-icon-va');
+        }else if(userLang==='vi'){
+          myTag.classList.add('flag-icon-vn');
         }
       }else{
         console.log("userLang ",userLang);
@@ -49,7 +49,7 @@ export class LanguageComponent implements OnInit {
         myTag.classList.remove('flag-icon-jp');
         myTag.classList.remove('flag-icon-us');
         myTag.classList.remove('flag-icon-id');
-        myTag.classList.remove('flag-icon-va');
+        myTag.classList.remove('flag-icon-vn');
         for (let x = 0; x < myTagList.length; x++) {
             myTagList[x].classList.remove('active');
         }
@@ -61,8 +61,8 @@ export class LanguageComponent implements OnInit {
             myTag.classList.add('flag-icon-us');
         } else if (lan == 'id') {
             myTag.classList.add('flag-icon-id');
-        } else if (lan == 'va') {
-            myTag.classList.add('flag-icon-va');
+        } else if (lan == 'vi') {
+            myTag.classList.add('flag-icon-vn');
         }
         localStorage.setItem('lan', lan);
         this.translate.use(lan);
