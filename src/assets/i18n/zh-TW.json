@@ -26,6 +26,19 @@
       "": "",
       "": "",
       "": ""
+    },
+    "ADD": {
+      "form-header": "自立支援表單填寫",
+      "exercise": "運動(分鐘):",
+      "water": "飲水(ml):",
+      "meal-type": "餐飲類型:",
+      "meal-volume": "餐飲量(cal):",
+      "urine-color": "尿尿顏色:",
+      "urine-volume": "尿尿量(ml):",
+      "stool-color": "大便顏色:",
+      "stool-volume": "大便量(g):",
+      "recordDate": "紀錄時間:",
+      "button": "新增"
     }
   },
   "CarePlan": {
@@ -79,5 +92,10 @@
   "breakfast": "早餐",
   "lunch": "午餐",
   "dinner": "晚餐",
-  "snack": "點心"
+  "snack": "點心",
+
+  "HEADER": {
+    "home": "首頁",
+    "contact": "網站建議"
+  }
 }

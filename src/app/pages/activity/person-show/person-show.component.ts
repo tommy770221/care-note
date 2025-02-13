@@ -20,6 +20,7 @@ import {
 import {faFile, faIdCard} from "@fortawesome/free-regular-svg-icons";
 import {document} from "ngx-bootstrap/utils";
 import {FormControl, FormGroup} from "@angular/forms";
+import {ActivityService} from "@services/firestore/activity/activity.service";
 
 @Component({
   selector: 'app-person-show',
@@ -52,7 +53,8 @@ export class PersonShowComponent implements OnInit{
               private router: Router,
               private toastr: ToastrService,
               private careTeamService : CareTeamService,
-              private carePersonService: CarePersonService,) {
+              private carePersonService: CarePersonService,
+              private activityService: ActivityService,) {
   }
   ngOnInit(): void {
     this.user=this.appService.user;
@@ -73,6 +75,10 @@ export class PersonShowComponent implements OnInit{
               //console.log(resp);
               if(resp.data()){
                 this.carePerson=resp.data() as CarePerson;
+                //console.log(this.carePerson.id);
+                //this.activityService.queryActivities("/activities/"+this.carePerson.id+"/meals/").subscribe(resp=>{
+                //  console.log("activities : ",resp.docs);
+                //})
               }
             })
           }

@@ -26,6 +26,19 @@
       "": "",
       "": "",
       "": ""
+    },
+    "ADD": {
+      "form-header": "Pengisian Formulir Dukungan Mandiri",
+      "exercise": "Olahraga (menit):",
+      "water": "Asupan air (ml):",
+      "meal-type": "Jenis makanan:",
+      "meal-volume": "Jumlah makanan (kal):",
+      "urine-color": "Warna urin:",
+      "urine-volume": "Volume urin (ml):",
+      "stool-color": "Warna tinja:",
+      "stool-volume": "Volume tinja (g):",
+      "recordDate": "Waktu pencatatan:",
+      "button": "Tambah"
     }
   },
   "CarePlan": {
@@ -79,5 +92,10 @@
   "breakfast": "sarapan",
   "lunch": "makan siang",
   "dinner": "makan malam",
-  "snack": "camilan"
+  "snack": "camilan",
+
+  "HEADER": {
+    "home": "halaman rumah",
+    "contact": "Saran situs web"
+  }
 }

@@ -48,7 +48,7 @@
     </div>
    <!-- row end-->
     <div class="row">
-      <div class="col-sm-3">
+      <div class="col-sm-4">
         <app-small-box
           [title]="'Activity.SHOW.eat'|translate"
           [text]="'1500 cal'"
@@ -58,27 +58,30 @@
           [buttonInfo]="'Activity.SHOW.record'|translate"
         ></app-small-box>
       </div>
-      <div class="col-sm-3">
+      <div class="col-sm-4">
         <app-small-box
           [title]="'Activity.SHOW.water' |translate"
           [text]="waterIn"
           [navigateTo]="'activity/carePerson/'+carePerson.id+'/careGiver/'+careGiver.id+'/edit'"
-          [variant]="'secondary'"
+          [variant]="'info'"
           [icon]="{content: faGlassWater}"
           [buttonInfo]="'Activity.SHOW.record'|translate"
         ></app-small-box>
       </div>
-      <div class="col-sm-3">
+      <div class="col-sm-4">
         <app-small-box
           [title]="'Activity.SHOW.toilet' |translate"
           [text]="'2次'"
           [navigateTo]="'activity/carePerson/'+carePerson.id+'/careGiver/'+careGiver.id+'/edit'"
-          [variant]="'primary'"
+          [variant]="'info'"
           [icon]="{content: faRestroom}"
           [buttonInfo]="'Activity.SHOW.record'|translate"
         ></app-small-box>
       </div>
-      <div class="col-sm-3">
+    </div>
+    <!--row end -->
+    <div class="row">
+      <div class="col-sm-4">
         <app-small-box
           [title]="'Activity.SHOW.exercise' |translate"
           [text]="'40分鐘'"
@@ -88,10 +91,7 @@
           [buttonInfo]="'Activity.SHOW.record'|translate"
         ></app-small-box>
       </div>
-    </div>
-    <!--row end -->
-    <div class="row">
-      <div class="col-sm-3">
+      <div class="col-sm-4">
         <app-small-box
           [title]="'Activity.SHOW.vital' |translate"
           [text]="'150'"
@@ -101,12 +101,12 @@
           [buttonInfo]="'Activity.SHOW.record'|translate"
         ></app-small-box>
       </div>
-      <div class="col-sm-3">
+      <div class="col-sm-4">
         <app-small-box
           [title]="'Activity.SHOW.handover' |translate"
           [text]="'150'"
           [navigateTo]="'#'"
-          [variant]="'primary'"
+          [variant]="'secondary'"
           [icon]="{content: faFile}"
           [buttonInfo]="'Activity.SHOW.record'|translate"
         ></app-small-box>

@@ -2,16 +2,16 @@
   <div class="card-header">
     <div class="col-12 text-center align-items-center justify-content-center">
       <div class="">
-        <h2>自立支援表單填寫</h2>
+        <h2>{{ 'Activity.ADD.form-header'|translate }}</h2>
       </div>
     </div>
   </div>
   <div class="card-body">
-    <div class="container">
-      <div class="row justify-content-center align-items-center">
+    <div class="container justify-content-center align-items-center">
+      <div class="row">
         <form class="col-sm-12" >
           <div class="form-group row">
-            <label for="exercise" class="col-sm-2 col-form-label">運動(分鐘): </label>
+            <label for="exercise" class="col-sm-2 col-form-label">{{ 'Activity.ADD.exercise'|translate }}</label>
             <div class="col-sm-10">
               <input id="exercise" type="number" [(ngModel)]="exercise.howLong" [ngModelOptions]="{standalone: true}"
                      class="form-control"
@@ -19,7 +19,7 @@
             </div>
           </div>
           <div class="form-group row">
-            <label for="water" class="col-sm-2 col-form-label">飲水(ml): </label>
+            <label for="water" class="col-sm-2 col-form-label">{{ 'Activity.ADD.water'|translate }} </label>
             <div class="col-sm-10">
               <input id="water" type="number" [(ngModel)]="water.volume" [ngModelOptions]="{standalone: true}"
                      class="form-control"
@@ -27,7 +27,7 @@
             </div>
           </div>
           <div class="form-group row">
-            <label for="meal-type" class="col-sm-2 col-form-label">餐飲類型: </label>
+            <label for="meal-type" class="col-sm-2 col-form-label">{{ 'Activity.ADD.meal-type'|translate }}</label>
             <div class="col-sm-4">
               <select id="meal-type" [(ngModel)]="meal.mealType" [ngModelOptions]="{standalone: true}"
                       class="form-control">
@@ -35,7 +35,7 @@
                 <option *ngFor="let mealType of mealTypeEnum" [value]="mealType">{{ mealType|translate}}</option>
               </select>
             </div>
-            <label for="meal" class="col-sm-2 col-form-label">餐飲量(cal): </label>
+            <label for="meal" class="col-sm-2 col-form-label">{{ 'Activity.ADD.meal-volume'|translate }} </label>
             <div class="col-sm-4">
               <input id="meal" type="number" [(ngModel)]="meal.volume" [ngModelOptions]="{standalone: true}"
                      class="form-control"
@@ -43,7 +43,7 @@
             </div>
           </div>
           <div class="form-group row">
-            <label for="toilet-urine-color" class="col-sm-2 col-form-label">尿尿顏色: </label>
+            <label for="toilet-urine-color" class="col-sm-2 col-form-label">{{ 'Activity.ADD.urine-color'|translate }} </label>
             <div class="col-sm-4">
               <select id="toilet-urine-color" [(ngModel)]="toilet.urineColor" [ngModelOptions]="{standalone: true}"
                       class="form-control">
@@ -51,7 +51,7 @@
                 <option *ngFor="let color of urineColor" [value]="color">{{ color|translate}}</option>
               </select>
             </div>
-            <label for="toilet-urine-volume" class="col-sm-2 col-form-label">尿尿量(ml): </label>
+            <label for="toilet-urine-volume" class="col-sm-2 col-form-label">{{ 'Activity.ADD.urine-volume'|translate }}</label>
             <div class="col-sm-4">
               <input id="toilet-urine-volume" type="number" [(ngModel)]="toilet.urineVolume" [ngModelOptions]="{standalone: true}"
                      class="form-control"
@@ -59,7 +59,7 @@
             </div>
           </div>
           <div class="form-group row">
-            <label for="toilet-stool-color" class="col-sm-2 col-form-label">大便顏色: </label>
+            <label for="toilet-stool-color" class="col-sm-2 col-form-label">{{ 'Activity.ADD.stool-color'|translate }}</label>
             <div class="col-sm-4">
               <select id="toilet-stool-color" [(ngModel)]="toilet.stoolColor" [ngModelOptions]="{standalone: true}"
                       class="form-control">
@@ -67,7 +67,7 @@
                 <option *ngFor="let color of stoolColor" [value]="color">{{ color|translate}}</option>
               </select>
             </div>
-            <label for="toilet-stool-volume" class="col-sm-2 col-form-label">大便量(g): </label>
+            <label for="toilet-stool-volume" class="col-sm-2 col-form-label">{{ 'Activity.ADD.stool-volume'|translate }}</label>
             <div class="col-sm-4">
               <input id="toilet-stool-volume" type="number" [(ngModel)]="toilet.stoolVolume" [ngModelOptions]="{standalone: true}"
                      class="form-control"
@@ -76,7 +76,7 @@
           </div>
 
           <div class="form-group row">
-            <label for="recordDate" class="col-sm-2 col-form-label">recordDate: </label>
+            <label for="recordDate" class="col-sm-2 col-form-label">{{ 'Activity.ADD.recordDate'|translate }}</label>
             <div class="col-sm-10">
               <div class="input-group date" id="recordDate" data-target-input="nearest">
                 <input type="text" bsDatepicker
@@ -89,10 +89,8 @@
               </div>
             </div>
           </div>
-          <div class="form-group row">
-            <div class="col-sm-12">
-              <input type="submit" (click)="addModel()" class="btn btn-primary" value="新增">
-            </div>
+          <div class="form-group offset-5">
+              <input type="submit" (click)="addModel()" class="btn btn-primary col-auto" value="{{ 'Activity.ADD.button'|translate }}">
           </div>
         </form>
         <p>參考文獻： <br>

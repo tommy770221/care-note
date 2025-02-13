@@ -26,6 +26,19 @@
       "": "",
       "": "",
       "": ""
+    },
+    "ADD": {
+      "form-header": "Điền biểu mẫu hỗ trợ tự lập",
+      "exercise": "Tập thể dục (phút):",
+      "water": "Lượng nước uống (ml):",
+      "meal-type": "Loại bữa ăn:",
+      "meal-volume": "Lượng thức ăn (cal):",
+      "urine-color": "Màu nước tiểu:",
+      "urine-volume": "Lượng nước tiểu (ml):",
+      "stool-color": "Màu phân:",
+      "stool-volume": "Lượng phân (g):",
+      "recordDate": "Thời gian ghi chép:",
+      "button": "Thêm"
     }
   },
   "CarePlan": {
@@ -79,5 +92,10 @@
   "breakfast": "bữa sáng",
   "lunch": "Bữa trưa",
   "dinner": "bữa tối",
-  "snack": "đồ ăn vặt"
+  "snack": "đồ ăn vặt",
+
+  "HEADER": {
+    "home": "trang chủ",
+    "contact": "Đề xuất trang web"
+  }
 }

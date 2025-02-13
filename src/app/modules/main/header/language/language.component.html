@@ -1,11 +1,11 @@
 <pf-dropdown [hideArrow]="true">
     <div slot="head">
         <a class="nav-link">
-            <i class="flag-icon flag-icon-tw"></i>
+            <i id="lang-show" class="flag-icon flag-icon-tw"></i>
         </a>
     </div>
-    <div slot="body">
-        <div  (click)="changeLan('zh-TW')" class="dropdown-item active">
+    <div id="select-lang" slot="body">
+        <div  (click)="changeLan('zh-TW')" class="dropdown-item">
             <i class="flag-icon flag-icon-tw mr-2"></i>
             <span>Taiwan</span>
         </div>

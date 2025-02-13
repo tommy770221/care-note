@@ -36,8 +36,10 @@ export class AppComponent {
         console.log('use browser Lang: ',browserLang);
         console.log('use browser Lang: (user)',userLang);
         if(langs.includes(browserLang)){
+          localStorage.setItem('lang', browserLang);
           translate.setDefaultLang(browserLang);
         }else{
+          localStorage.setItem('lang', 'en');
           translate.setDefaultLang('en');
         }
       }

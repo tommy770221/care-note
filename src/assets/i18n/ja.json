@@ -26,6 +26,19 @@
       "": "",
       "": "",
       "": ""
+    },
+    "ADD": {
+      "form-header": "自立支援フォーム記入",
+      "exercise": "運動（分）:",
+      "water": "水分摂取量（ml）:",
+      "meal-type": "食事の種類:",
+      "meal-volume": "食事量（cal）:",
+      "urine-color": "尿の色:",
+      "urine-volume": "尿の量（ml）:",
+      "stool-color": "便の色:",
+      "stool-volume": "便の量（g）:",
+      "recordDate": "記録時間:",
+      "button": "追加"
     }
   },
   "CarePlan": {
@@ -79,5 +92,10 @@
   "breakfast": "朝食",
   "lunch": "ランチ",
   "dinner": "夕食",
-  "snack": "スナック"
+  "snack": "スナック",
+
+  "HEADER": {
+    "home": "ホームページ",
+    "contact": "ウェブサイトのご提案"
+  }
 }

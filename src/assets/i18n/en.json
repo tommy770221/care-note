@@ -26,6 +26,19 @@
       "": "",
       "": "",
       "": ""
+    },
+    "ADD": {
+      "form-header": "Self-support Form Filling",
+      "exercise": "Exercise (minutes):",
+      "water": "Water intake (ml):",
+      "meal-type": "Meal type:",
+      "meal-volume": "Meal volume (cal):",
+      "urine-color": "Urine color:",
+      "urine-volume": "Urine volume (ml):",
+      "stool-color": "Stool color:",
+      "stool-volume": "Stool volume (g):",
+      "recordDate": "Record time:",
+      "button": "Add"
     }
   },
   "CarePlan": {
@@ -79,5 +92,10 @@
   "breakfast": "breakfast",
   "lunch": "lunch",
   "dinner": "dinner",
-  "snack": "snack"
+  "snack": "snack",
+
+  "HEADER": {
+    "home": "Home",
+    "contact": "Contact"
+  }
 }
