@@ -9,6 +9,6 @@ export class ActivityService {
   constructor(private angularFirestore: AngularFirestore) { }
 
   queryActivities(url: string) {
-   return  this.angularFirestore.collection(url).get()
+   return  this.angularFirestore.collection(url).get();
   }
 }

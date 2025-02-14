@@ -39,7 +39,15 @@
       "disease": "Primary disease",
       "": "",
       "": "",
-      "": ""
+      "": "",
+      "COMPONENT": {
+        "activity": {
+          "exercise": "Record exercise, total exercise time {{howLong}} minutes",
+          "water": "Record water intake, total water intake {{volume}} ml",
+          "meal": "Record meal, {{mealType}} total {{volume}} cal",
+          "toilet": "Record excretion, urine color {{urineColor}}, urine volume {{urineVolume}} ml , stool color {{stoolColor}}, stool volume {{stoolVolume}} (g)"
+        }
+      }
     },
     "ADD": {
       "form-header": "Self-support Form Filling",

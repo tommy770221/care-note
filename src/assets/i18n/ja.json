@@ -39,7 +39,15 @@
       "disease": "主な病気",
       "": "",
       "": "",
-      "": ""
+      "": "",
+      "COMPONENT": {
+        "activity": {
+          "exercise": "運動を記録、合計運動時間 {{howLong}} 分",
+          "water": "水分摂取を記録、合計水分摂取量 {{volume}} ml",
+          "meal": "食事を記録、{{mealType}} 合計 {{volume}} cal",
+          "toilet": "排泄を記録、尿の色 {{urineColor}}、尿量 {{urineVolume}} ml、便の色 {{stoolColor}}、便の量 {{stoolVolume}} (g)"
+        }
+      }
     },
     "ADD": {
       "form-header": "自立支援フォーム記入",

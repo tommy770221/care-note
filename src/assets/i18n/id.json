@@ -39,7 +39,15 @@
       "disease": "Penyakit utama",
       "": "",
       "": "",
-      "": ""
+      "": "",
+      "COMPONENT": {
+        "activity": {
+          "exercise": "Catat olahraga, total waktu olahraga {{howLong}} menit",
+          "water": "Catat asupan air, total asupan air {{volume}} ml",
+          "meal": "Catat makan, {{mealType}} total {{volume}} kal",
+          "toilet": "Catat ekskresi, warna urin {{urineColor}}, volume urin {{urineVolume}} ml , warna tinja {{stoolColor}}, volume tinja {{stoolVolume}} (g)"
+        }
+      }
     },
     "ADD": {
       "form-header": "Pengisian Formulir Dukungan Mandiri",

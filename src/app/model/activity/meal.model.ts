@@ -6,6 +6,7 @@ export class Meal {
   careGiverId:string;
   createDate:Timestamp=Timestamp.now();
   recordDate:Timestamp;
+  type:string='meal';
   mealType:MealType;
   volume:number;
 

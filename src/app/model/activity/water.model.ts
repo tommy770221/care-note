@@ -6,5 +6,6 @@ export class Water {
   careGiverId:string;
   createDate:Timestamp=Timestamp.now();
   recordDate:Timestamp;
+  type:string='water';
   volume:number;
 }

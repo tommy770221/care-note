@@ -39,7 +39,15 @@
       "disease": "主要疾病",
       "": "",
       "": "",
-      "": ""
+      "": "",
+      "COMPONENT": {
+        "activity": {
+          "exercise": "紀錄運動 總共運動 {{howLong}} 分鐘",
+          "water": "紀錄喝水 總共喝水 {{volume}} ml",
+          "meal": "紀錄用餐 {{mealType}} 總共 {{volume}} cal",
+          "toilet": "紀錄排泄 尿尿顏色 {{urineColor}}  尿量 {{urineVolume}} ml  大便顏色 {{stoolColor}}  大便量 {{stoolVolume}} (g) "
+        }
+      }
     },
     "ADD": {
       "form-header": "自立支援表單填寫",

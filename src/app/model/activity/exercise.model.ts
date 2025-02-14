@@ -6,5 +6,6 @@ export class Exercise {
   careGiverId:string;
   createDate:Timestamp=Timestamp.now();
   recordDate:Timestamp;
+  type:string='exercise';
   howLong:number;
 }

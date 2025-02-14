@@ -6,6 +6,7 @@ export class Toilet {
   careGiverId:string;
   createDate:Timestamp=Timestamp.now();
   recordDate:Timestamp;
+  type:string='toilet';
   stoolColor:string;
   stoolVolume:number;
   urineColor:string;

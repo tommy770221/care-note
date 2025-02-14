@@ -39,7 +39,15 @@
       "disease": "Bệnh chính",
       "": "",
       "": "",
-      "": ""
+      "": "",
+      "COMPONENT": {
+        "activity": {
+          "exercise": "Ghi lại bài tập, tổng thời gian tập thể dục {{howLong}} phút",
+          "water": "Ghi lại lượng nước uống, tổng lượng nước uống {{volume}} ml",
+          "meal": "Ghi lại bữa ăn, {{mealType}} tổng {{volume}} cal",
+          "toilet": "Ghi lại bài tiết, màu nước tiểu {{urineColor}}, lượng nước tiểu {{urineVolume}} ml, màu phân {{stoolColor}}, lượng phân {{stoolVolume}} (g)"
+        }
+      }
     },
     "ADD": {
       "form-header": "Điền biểu mẫu hỗ trợ tự lập",
