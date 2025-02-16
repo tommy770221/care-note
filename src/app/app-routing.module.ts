@@ -28,6 +28,21 @@ import {TeamProfileComponent} from "@pages/careteam/profile/profile.component";
 import {CareGiverShowComponent} from "@pages/caregiver/care-giver-show/care-giver-show.component";
 import {SuggestionComponent} from "@pages/suggestion/suggestion.component";
 import {ActivityAddComponent} from "@pages/activity/activity-add/activity-add.component";
+import {
+  DementiabilityMeetingAgendaComponent
+} from "@pages/dementiability/part-one/dementiability-meeting-agenda/dementiability-meeting-agenda.component";
+import {
+  RoundsTrackingToolComponent
+} from "@pages/dementiability/part-one/rounds-tracking-tool/rounds-tracking-tool.component";
+import {
+  DementiabilityActionPlanComponent
+} from "@pages/dementiability/part-one/dementiability-action-plan/dementiability-action-plan.component";
+import {
+  ProgramParticipantFormComponent
+} from "@pages/dementiability/part-one/program-participant-form/program-participant-form.component";
+import {
+  SightReadingAssessmentComponent
+} from "@pages/dementiability/part-one/sight-reading-assessment/sight-reading-assessment.component";
 
 const routes: Routes = [
     {
@@ -67,6 +82,26 @@ const routes: Routes = [
             {
               path: 'activity/carePerson/:carePersonId/careGiver/:careGiverId/edit',
               component: ActivityAddComponent
+            },
+            {
+              path: 'dementiability/part-one/dementiability-meeting-agenda',
+              component: DementiabilityMeetingAgendaComponent
+            },
+            {
+              path: 'dementiability/part-one/rounds-tracking-tool',
+              component: RoundsTrackingToolComponent
+            },
+            {
+              path: 'dementiability/part-one/dementiability-action-plan',
+              component: DementiabilityActionPlanComponent
+            },
+            {
+              path: 'dementiability/part-one/program-participant-form',
+              component:  ProgramParticipantFormComponent
+            },
+            {
+              path: 'dementiability/part-one/sight-reading-assessment',
+              component:  SightReadingAssessmentComponent
             },
             {
                 path: 'blank',

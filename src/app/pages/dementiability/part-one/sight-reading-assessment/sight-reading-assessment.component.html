@@ -1,0 +1,84 @@
+<form [formGroup]="assessmentForm" (ngSubmit)="onSubmit()">
+  <h2>視力與閱讀能力評估表 (Sight and Reading Ability Assessment)</h2>
+
+  <div>
+    <p><b>評估前應先了解的事項</b></p>
+    <div>
+      <label>患者在被診斷出患有失智症之前是否能夠閱讀？</label>
+      <label><input type="radio" formControlName="readBeforeDementia" [value]="true"> 是</label>
+      <label><input type="radio" formControlName="readBeforeDementia" [value]="false"> 否</label>
+    </div>
+
+    <div>
+      <label>患者閱讀何種語言？</label>
+      <label *ngFor="let language of languages">
+        <input type="checkbox" [value]="language" (change)="onLanguageCheckboxChange()"> {{ language }}
+      </label>
+      <input type="text" placeholder="Other Language" *ngIf="assessmentForm.get('languagesRead').value.includes('Other')">
+    </div>
+
+    <div>
+      <label>患者是否需要眼鏡？</label>
+      <label><input type="radio" formControlName="needsGlasses" [value]="true"> 是</label>
+      <label><input type="radio" formControlName="needsGlasses" [value]="false"> 否</label>
+    </div>
+
+    <div *ngIf="assessmentForm.get('needsGlasses').value === true">
+      <label>眼鏡用於：</label>
+      <label><input type="radio" formControlName="glassesFor" value="distance"> 看遠用</label>
+      <label><input type="radio" formControlName="glassesFor" value="reading"> 閱讀用</label>
+    </div>
+
+    <div>
+      <label>患者的眼鏡是否乾淨？</label>
+      <label><input type="radio" formControlName="glassesClean" [value]="true"> 是</label>
+      <label><input type="radio" formControlName="glassesClean" [value]="false"> 否</label>
+    </div>
+  </div>
+
+  <div>
+    <p><b>字體大小和閱讀能力記錄</b></p>
+    <div formArrayName="fontSizeAssessment">
+      <div *ngFor="let fontSizeGroup of fontSizeAssessmentArray.controls; let i = index" [formGroupName]="i">
+        <label>字體大小：{{ fontSizes[i] }} point</label>
+        <div>
+          <label><input type="radio" formControlName="readFullSentence" [value]="true"> 讀完完整句子</label>
+          <label><input type="radio" formControlName="readFullSentence" [value]="false"> 沒有讀完完整句子</label>
+        </div>
+        <div *ngIf="fontSizeGroup.get('readFullSentence').value === false">
+          <label>看到的單字：</label>
+          <input type="text" formControlName="wordsSeen">
+        </div>
+      </div>
+    </div>
+    <div>
+      <label><input type="checkbox" formControlName="couldNotReadSentences"> 無法閱讀句子</label>
+    </div>
+  </div>
+
+  <div>
+    <p><b>表格完成資訊</b></p>
+    <div>
+      <label>填寫表格者姓名：</label>
+      <input type="text" formControlName="formCompletedBy">
+    </div>
+    <div>
+      <label>日期：</label>
+      <input type="date" formControlName="dateCompleted">
+    </div>
+  </div>
+
+  <div>
+    <p><b>如果是複測</b></p>
+    <div>
+      <label>填寫表格者姓名：</label>
+      <input type="text" formControlName="retestFormCompletedBy">
+    </div>
+    <div>
+      <label>日期：</label>
+      <input type="date" formControlName="retestDateCompleted">
+    </div>
+  </div>
+
+  <button type="submit">提交</button>
+</form>

@@ -1,0 +1,128 @@
+<form [formGroup]="agendaForm" (ngSubmit)="onSubmit()">
+  <h2>DementiAbility 會議議程範例</h2>
+
+  <div>
+    <label for="meetingDate">**會議日期:**</label>
+    <input type="date" id="meetingDate" formControlName="meetingDate">
+  </div>
+
+  <div>
+    <label for="members">**成員:**</label>
+    <input type="text" id="members" formControlName="members">
+  </div>
+
+  <hr>
+
+  <h3>**項目**</h3>
+
+  <div>
+    <h4>1. 環境支持</h4>
+    <div>
+      <label>a. 指路標 需要在哪裡？</label>
+      <input type="text" formControlName="environmentSupports.wayfindingNeeded">
+    </div>
+    <div>
+      <label>b. 記憶提示，尋找物品 需要在哪裡？</label>
+      <input type="text" formControlName="environmentSupports.memoryCuesNeeded">
+    </div>
+    <div>
+      <label>c. 任務分解 需要在哪裡？</label>
+      <input type="text" formControlName="environmentSupports.taskBreakdownNeeded">
+    </div>
+    <div>
+      <label>d. 其他 需要在哪裡？</label>
+      <input type="text" formControlName="environmentSupports.otherNeeded">
+    </div>
+    <div>
+      <label>**此/這些項目的負責人:**</label>
+      <input type="text" formControlName="environmentSupports.environmentChampion">
+    </div>
+  </div>
+
+  <div>
+    <h4>2. 家庭環境</h4>
+    <div>
+      <label>a. 餐廳 需要什麼？</label>
+      <input type="text" formControlName="homeEnvironment.diningRoomNeeded">
+    </div>
+    <div>
+      <label>b. 客廳 需要什麼？</label>
+      <input type="text" formControlName="homeEnvironment.livingAreaNeeded">
+    </div>
+    <div>
+      <label>c. 臥室 需要什麼？</label>
+      <input type="text" formControlName="homeEnvironment.bedroomsNeeded">
+    </div>
+    <div>
+      <label>d. 沐浴區 需要什麼？</label>
+      <input type="text" formControlName="homeEnvironment.bathingAreasNeeded">
+    </div>
+    <div>
+      <label>e. 廁所區域 需要什麼？</label>
+      <input type="text" formControlName="homeEnvironment.toiletAreasNeeded">
+    </div>
+    <div>
+      <label>f. 前門入口 需要什麼？</label>
+      <input type="text" formControlName="homeEnvironment.frontEntranceNeeded">
+    </div>
+    <div>
+      <label>g. 其他 需要什麼？</label>
+      <input type="text" formControlName="homeEnvironment.otherHomeNeeded">
+    </div>
+    <div>
+      <label>**此/這些項目的負責人:**</label>
+      <input type="text" formControlName="homeEnvironment.homeEnvironmentChampion">
+    </div>
+  </div>
+
+  <div>
+    <h4>3. WOW 表格</h4>
+    <div>
+      <label>a. 我們現在正在處理哪些居民？</label>
+      <input type="text" formControlName="wowForms.residentsBeingWorkedOn">
+    </div>
+    <div>
+      <label>b. 每個人的行動計畫是什麼？</label>
+      <input type="text" formControlName="wowForms.actionPlansForResidents">
+    </div>
+    <div>
+      <label>c. 誰在負責每個居民？</label>
+      <input type="text" formControlName="wowForms.whoIsResponsible">
+    </div>
+    <div>
+      <label>我們希望每週關注多少居民？</label>
+      <input type="number" formControlName="wowForms.howManyResidentsToFocusOn">
+    </div>
+    <div>
+      <label>**此/這些項目的負責人:**</label>
+      <input type="text" formControlName="wowForms.wowFormsChampion">
+    </div>
+  </div>
+
+  <div>
+    <h4>4. 需要團體討論和腦力激盪的反應性行為</h4>
+    <div>
+      <label>**此/這些項目的負責人:**</label>
+      <input type="text" formControlName="responsiveBehaviours.responsiveBehavioursChampion">
+    </div>
+  </div>
+
+  <div>
+    <h4>5. 跌倒</h4>
+    <p>(注意：由於跌倒可能與反應性行為有關，建議將您的跌倒委員會與 DementiAbility 委員會聯繫起來。考慮任務分解、記憶提示，例如「坐下後再穿襪子、褲子和鞋子」)</p>
+    <div>
+      <label>**此/這些項目的負責人:**</label>
+      <input type="text" formControlName="falls.fallsChampion">
+    </div>
+  </div>
+
+  <div>
+    <h4>6. 傷口</h4>
+    <div>
+      <label>**此/這些項目的負責人:**</label>
+      <input type="text" formControlName="wounds.woundsChampion">
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="!agendaForm.valid">提交</button>
+</form>

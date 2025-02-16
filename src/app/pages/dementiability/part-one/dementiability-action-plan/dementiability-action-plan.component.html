@@ -1,0 +1,76 @@
+<div class="container">
+  <h2>專案追蹤工具（失智症行動計畫）</h2>
+  <form [formGroup]="actionPlanForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="actionItem">行動項目:</label>
+      <input type="text" id="actionItem" class="form-control" formControlName="actionItem">
+      <div *ngIf="actionPlanForm.get('actionItem')?.invalid && (actionPlanForm.get('actionItem')?.dirty || actionPlanForm.get('actionItem')?.touched)" class="alert alert-danger">
+        行動項目為必填欄位
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="targetDate">目標完成日期:</label>
+      <input type="date" id="targetDate" class="form-control" formControlName="targetDate">
+      <div *ngIf="actionPlanForm.get('targetDate')?.invalid && (actionPlanForm.get('targetDate')?.dirty || actionPlanForm.get('targetDate')?.touched)" class="alert alert-danger">
+        目標完成日期為必填欄位
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="whatToDo">我們需要做什麼？:</label>
+      <textarea id="whatToDo" class="form-control" formControlName="whatToDo" rows="3"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="goal">目標:</label>
+      <input type="text" id="goal" class="form-control" formControlName="goal">
+    </div>
+
+    <div class="form-group">
+      <label for="date">日期:</label>
+      <input type="date" id="date" class="form-control" formControlName="date">
+    </div>
+
+    <div class="form-group">
+      <label for="projectTitle">專案標題:</label>
+      <input type="text" id="projectTitle" class="form-control" formControlName="projectTitle">
+    </div>
+
+    <div class="form-group">
+      <label for="projectLead">專案負責人:</label>
+      <input type="text" id="projectLead" class="form-control" formControlName="projectLead">
+    </div>
+
+    <div class="form-group">
+      <label for="notes">注意事項:</label>
+      <textarea id="notes" class="form-control" formControlName="notes" rows="3"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="resources">所需資源:</label>
+      <textarea id="resources" class="form-control" formControlName="resources" rows="3"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>諮詢對象:</label>
+      <div *ngFor="let option of consultationOptions" class="form-check">
+        <input type="checkbox" class="form-check-input" [value]="option" (change)="onConsultationChange(option)">
+        <label class="form-check-label">{{ option }}</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="timeFrame">完成所需時間 (天、週、月):</label>
+      <input type="text" id="timeFrame" class="form-control" formControlName="timeFrame">
+    </div>
+
+    <div class="form-group">
+      <label for="evaluation">專案評估:</label>
+      <textarea id="evaluation" class="form-control" formControlName="evaluation" rows="3"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">提交</button>
+  </form>
+</div>

@@ -1,0 +1,54 @@
+<div class="container">
+  <h2>樣本巡查追蹤工具</h2>
+  <form [formGroup]="roundsForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="date">日期:</label>
+      <input type="date" id="date" class="form-control" formControlName="date">
+      <div *ngIf="roundsForm.get('date')?.invalid && (roundsForm.get('date')?.dirty || roundsForm.get('date')?.touched)" class="alert alert-danger">
+        日期為必填欄位
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="shift">班別:</label>
+      <select id="shift" class="form-control" formControlName="shift">
+        <option value="" disabled selected>請選擇班別</option>
+        <option *ngFor="let shift of shiftOptions" [value]="shift">{{ shift }}</option>
+      </select>
+      <div *ngIf="roundsForm.get('shift')?.invalid && (roundsForm.get('shift')?.dirty || roundsForm.get('shift')?.touched)" class="alert alert-danger">
+        班別為必填欄位
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="residentName">住民姓名:</label>
+      <select id="residentName" class="form-control" formControlName="residentName">
+        <option value="" disabled selected>請選擇住民</option>
+        <option *ngFor="let resident of residentOptions" [value]="resident">{{ resident }}</option>
+      </select>
+      <div *ngIf="roundsForm.get('residentName')?.invalid && (roundsForm.get('residentName')?.dirty || roundsForm.get('residentName')?.touched)" class="alert alert-danger">
+        住民姓名為必填欄位
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="staffInvolved">參與員工:</label>
+      <select multiple id="staffInvolved" class="form-control" formControlName="staffInvolved">
+        <option *ngFor="let staff of staffOptions" [value]="staff">{{ staff }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="observationsWho">觀察記錄 (觸發因素和行為發生的時間):</label>
+      <textarea id="observationsWho" class="form-control" formControlName="observationsWho" rows="3"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="observationsWhat">將採取的行動:</label>
+      <textarea id="observationsWhat" class="form-control" formControlName="observationsWhat" rows="3"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">提交</button>
+  </form>
+</div>

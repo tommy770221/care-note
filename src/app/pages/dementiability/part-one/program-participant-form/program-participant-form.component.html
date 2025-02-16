@@ -1,0 +1,533 @@
+<div class="container">
+  <h2>計畫參與者檔案 & 興趣表</h2>
+  <form [formGroup]="participantForm" (ngSubmit)="onSubmit()">
+
+    <!-- 基本資料 -->
+    <div class="form-group">
+      <label for="name">姓名:</label>
+      <input type="text" id="name" class="form-control" formControlName="name">
+    </div>
+
+    <div class="form-group">
+      <label for="address">地址:</label>
+      <input type="text" id="address" class="form-control" formControlName="address">
+    </div>
+
+    <div class="form-group">
+      <label for="dateOfBirth">出生日期:</label>
+      <input type="date" id="dateOfBirth" class="form-control" formControlName="dateOfBirth">
+    </div>
+
+    <div class="form-group">
+      <label for="placeOfBirth">出生地點:</label>
+      <input type="text" id="placeOfBirth" class="form-control" formControlName="placeOfBirth">
+    </div>
+
+    <div class="form-group">
+      <label for="livedWhere">居住地:</label>
+      <textarea id="livedWhere" class="form-control" formControlName="livedWhere" rows="3"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="maritalStatus">婚姻狀況:</label>
+      <select id="maritalStatus" class="form-control" formControlName="maritalStatus">
+        <option value="">請選擇</option>
+        <option value="married">已婚</option>
+        <option value="widowed">喪偶</option>
+        <option value="divorced">離婚</option>
+        <option value="single">單身</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="partnerName">伴侶姓名:</label>
+      <input type="text" id="partnerName" class="form-control" formControlName="partnerName">
+    </div>
+
+    <div class="form-group">
+      <label for="employmentHistory">工作/志工經歷:</label>
+      <textarea id="employmentHistory" class="form-control" formControlName="employmentHistory" rows="3"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="languagesSpoken">語言:</label>
+      <input type="text" id="languagesSpoken" class="form-control" formControlName="languagesSpoken">
+    </div>
+
+    <!-- 家庭 -->
+    <!-- (使用 *ngFor 迭代子女 FormArray - 此部分較複雜，建議參考 Angular 官方文件) -->
+    <!--  若要動態新增或移除家庭成員，可以使用  FormArray  -->
+
+    <!-- 重要朋友 -->
+    <div class="form-group">
+      <label for="importantFriends">重要朋友:</label>
+      <textarea id="importantFriends" class="form-control" formControlName="importantFriends" rows="3"></textarea>
+    </div>
+
+    <!-- 健康狀況 -->
+    <div class="form-group">
+      <label>認知狀況:</label>
+      <input type="text" class="form-control" formControlName="cognitiveStatus">
+    </div>
+
+    <div class="form-group">
+      <label>身體狀況:</label>
+      <input type="text" class="form-control" formControlName="physicalStatus">
+    </div>
+
+    <div class="form-group">
+      <label>失智症類型:</label>
+      <select class="form-control" formControlName="dementiaType">
+        <option value="">請選擇</option>
+        <option value="alzheimer">阿茲海默症</option>
+        <option value="vascular">血管型失智症</option>
+        <option value="frontalLobe">額顳葉型失智症</option>
+        <option value="lewyBody">路易體失智症</option>
+        <option value="other">其他</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>失智症階段:</label>
+      <select class="form-control" formControlName="dementiaStage">
+        <option value="">請選擇</option>
+        <option value="mild">輕度</option>
+        <option value="moderate">中度</option>
+        <option value="advanced">重度</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>定向感:</label>
+      <select class="form-control" formControlName="orientation">
+        <option value="">請選擇</option>
+        <option value="fullyOriented">完全定向</option>
+        <option value="orientedInFamiliarSurroundings">在熟悉環境中定向</option>
+        <option value="needsSomeOrienting">需要一些定向</option>
+        <option value="needsOrientingInformationMostOrAllOfTheTime">大部分或所有時間需要定向資訊</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>容易感到焦慮的情境:</label>
+      <textarea class="form-control" formControlName="anxietySituations" rows="3"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>記憶提示建議:</label>
+      <input type="text" class="form-control" formControlName="memoryCueing">
+    </div>
+
+    <!-- Abilities (能力) -->
+    <div formGroupName="abilities">
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="canWalk" formControlName="canWalk">
+        <label class="form-check-label" for="canWalk">能行走</label>
+      </div>
+
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="usesWalker" formControlName="usesWalker">
+        <label class="form-check-label" for="usesWalker">使用助行器</label>
+      </div>
+
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="getsIntoWheelchair" formControlName="getsIntoWheelchair">
+        <label class="form-check-label" for="getsIntoWheelchair">能自行坐輪椅</label>
+      </div>
+
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="toileting" formControlName="toileting">
+        <label class="form-check-label" for="toileting">能自己上廁所</label>
+      </div>
+
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="needsHelpEating" formControlName="needsHelpEating">
+        <label class="form-check-label" for="needsHelpEating">需要協助進食</label>
+      </div>
+
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="dressing" formControlName="dressing">
+        <label class="form-check-label" for="dressing">能自己穿衣</label>
+      </div>
+
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="bathing" formControlName="bathing">
+        <label class="form-check-label" for="bathing">能自己洗澡</label>
+      </div>
+
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="groomingHair" formControlName="groomingHair">
+        <label class="form-check-label" for="groomingHair">能自己整理頭髮</label>
+      </div>
+
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="groomingFace" formControlName="groomingFace">
+        <label class="form-check-label" for="groomingFace">能自己整理臉部</label>
+      </div>
+
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="transfers" formControlName="transfers">
+        <label class="form-check-label" for="transfers">能自行轉位</label>
+      </div>
+
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="brushingTeeth" formControlName="brushingTeeth">
+        <label class="form-check-label" for="brushingTeeth">能自己刷牙</label>
+      </div>
+
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="generalNeatness" formControlName="generalNeatness">
+        <label class="form-check-label" for="generalNeatness">能保持整潔</label>
+      </div>
+
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="knowsWhatToDoWithObjects" formControlName="knowsWhatToDoWithObjects">
+        <label class="form-check-label" for="knowsWhatToDoWithObjects">知道如何使用物品</label>
+      </div>
+
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="canHandleOwnFinances" formControlName="canHandleOwnFinances">
+        <label class="form-check-label" for="canHandleOwnFinances">能處理財務</label>
+      </div>
+
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="usesPhone" formControlName="usesPhone">
+        <label class="form-check-label" for="usesPhone">能使用電話</label>
+      </div>
+
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="usesComputer" formControlName="usesComputer">
+        <label class="form-check-label" for="usesComputer">能使用電腦</label>
+      </div>
+
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="likesToBeHelped" formControlName="likesToBeHelped">
+        <label class="form-check-label" for="likesToBeHelped">喜歡被幫助</label>
+      </div>
+    </div>
+
+    <!-- Depression, Arthritis, Mobility (憂鬱症、關節炎、行動能力) -->
+    <div class="form-group">
+      <label>憂鬱症:</label>
+      <input type="text" class="form-control" formControlName="depression">
+    </div>
+
+    <div class="form-group">
+      <label>關節炎:</label>
+      <input type="text" class="form-control" formControlName="arthritis">
+    </div>
+
+    <div class="form-group">
+      <label>行動能力:</label>
+      <input type="text" class="form-control" formControlName="mobility">
+    </div>
+
+    <!-- Hand Used, Pain, Vision/Hearing (慣用手、疼痛、視力/聽力) -->
+    <div class="form-group">
+      <label>慣用手:</label>
+      <select class="form-control" formControlName="handUsed">
+        <option value="">請選擇</option>
+        <option value="right">右手</option>
+        <option value="left">左手</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>疼痛:</label>
+      <input type="text" class="form-control" formControlName="pain">
+    </div>
+
+    <div class="form-group">
+      <label>視力/聽力:</label>
+      <input type="text" class="form-control" formControlName="visionHearing">
+    </div>
+
+    <!-- Motivation, Delirium (動機、譫妄) -->
+    <div class="form-group">
+      <label>動機:</label>
+      <input type="text" class="form-control" formControlName="motivation">
+    </div>
+
+    <div class="form-group">
+      <label>譫妄:</label>
+      <input type="text" class="form-control" formControlName="delirium">
+    </div>
+
+    <!-- 溝通技巧 -->
+    <div class="form-group">
+      <label>溝通技巧:</label>
+      <input type="text" class="form-control" formControlName="communicationSkills">
+    </div>
+
+    <!-- 喜歡談論 -->
+    <div class="form-group">
+      <label>喜歡談論:</label>
+      <input type="text" class="form-control" formControlName="enjoysTalkingAbout">
+    </div>
+
+    <!-- 興趣 -->
+    <div formGroupName="interests">
+      <!-- Household Tasks (家務) -->
+      <div formGroupName="householdTasks">
+        <label>家務:</label>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="cooking" formControlName="cooking">
+          <label class="form-check-label" for="cooking">烹飪</label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="laundry" formControlName="laundry">
+          <label class="form-check-label" for="laundry">洗衣</label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="cleaning" formControlName="cleaning">
+          <label class="form-check-label" for="cleaning">清潔</label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="shopping" formControlName="shopping">
+          <label class="form-check-label" for="shopping">購物</label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="doingDishes" formControlName="doingDishes">
+          <label class="form-check-label" for="doingDishes">洗碗</label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="decoratingHome" formControlName="decoratingHome">
+          <label class="form-check-label" for="decoratingHome">裝飾家居</label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="homeRepairs" formControlName="homeRepairs">
+          <label class="form-check-label" for="homeRepairs">家居維修</label>
+        </div>
+
+        <div class="form-group">
+          <label for="otherHouseholdTasks">其他家務:</label>
+          <input type="text" id="otherHouseholdTasks" class="form-control" formControlName="other">
+        </div>
+      </div>
+
+      <!-- Social (社交) -->
+      <div formGroupName="social">
+        <label>社交:</label>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="visitingFamily" formControlName="visitingFamily">
+          <label class="form-check-label" for="visitingFamily">拜訪家人</label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="visitingFriends" formControlName="visitingFriends">
+          <label class="form-check-label" for="visitingFriends">拜訪朋友</label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="planningSocialFunctions" formControlName="planningSocialFunctions">
+          <label class="form-check-label" for="planningSocialFunctions">計畫社交活動</label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="entertaining" formControlName="entertaining">
+          <label class="form-check-label" for="entertaining">娛樂</label>
+        </div>
+
+        <div class="form-group">
+          <label for="reminiscing">懷舊話題:</label>
+          <input type="text" id="reminiscing" class="form-control" formControlName="reminiscing">
+        </div>
+      </div>
+
+      <!-- Reading (閱讀) -->
+      <div class="form-group">
+        <label for="reading">閱讀:</label>
+        <input type="text" id="reading" class="form-control" formControlName="reading">
+      </div>
+      <!--todo 完成詳細記錄 運動的部分也是 -->
+      <!-- Leisure Activities (休閒活動) -->
+      <div formGroupName="leisureActivities">
+        <label>休閒活動:</label>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="travel" formControlName="travel">
+          <label class="form-check-label" for="travel">旅遊</label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="games" formControlName="games">
+          <label class="form-check-label" for="games">遊戲</label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="sportsExercise" formControlName="sportsExercise">
+          <label class="form-check-label" for="sportsExercise">運動</label>
+        </div>
+      </div>
+
+      <!-- Culture, Religion & Spirituality (文化、宗教與靈性) -->
+      <div formGroupName="cultureReligionSpirituality">
+        <label>文化、宗教與靈性:</label>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="religiousService" formControlName="religiousService">
+          <label class="form-check-label" for="religiousService">宗教儀式</label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="quietPrayer" formControlName="quietPrayer">
+          <label class="form-check-label" for="quietPrayer">靜默祈禱</label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="guidedPrayer" formControlName="guidedPrayer">
+          <label class="form-check-label" for="guidedPrayer">引導式祈禱</label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="singingHymns" formControlName="singingHymns">
+          <label class="form-check-label" for="singingHymns">唱聖歌</label>
+        </div>
+
+        <div class="form-group">
+          <label for="otherCultureReligionSpirituality">其他:</label>
+          <input type="text" id="otherCultureReligionSpirituality" class="form-control" formControlName="other">
+        </div>
+      </div>
+
+      <!-- Music (音樂) -->
+      <div formGroupName="music">
+        <label>音樂:</label>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="listeningToMusic" formControlName="listeningToMusic">
+          <label class="form-check-label" for="listeningToMusic">聽音樂</label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="playingMusic" formControlName="playingMusic">
+          <label class="form-check-label" for="playingMusic">演奏音樂</label>
+        </div>
+
+        <div class="form-group">
+          <label for="musicType">音樂類型:</label>
+          <input type="text" id="musicType" class="form-control" formControlName="musicType">
+        </div>
+      </div>
+
+      <!-- Crafts (手工藝) -->
+      <div formGroupName="crafts">
+        <label>手工藝:</label>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="knitting" formControlName="knitting">
+          <label class="form-check-label" for="knitting">編織</label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="sewing" formControlName="sewing">
+          <label class="form-check-label" for="sewing">縫紉</label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="woodworking" formControlName="woodworking">
+          <label class="form-check-label" for="woodworking">木工</label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="painting" formControlName="painting">
+          <label class="form-check-label" for="painting">繪畫</label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="sculpting" formControlName="sculpting">
+          <label class="form-check-label" for="sculpting">雕塑</label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="ceramics" formControlName="ceramics">
+          <label class="form-check-label" for="ceramics">陶瓷</label>
+        </div>
+
+        <div class="form-group">
+          <label for="otherCrafts">其他手工藝:</label>
+          <input type="text" id="otherCrafts" class="form-control" formControlName="other">
+        </div>
+      </div>
+
+      <!-- Pets (寵物) -->
+      <div class="form-group">
+        <label for="pets">寵物:</label>
+        <input type="text" id="pets" class="form-control" formControlName="pets">
+      </div>
+
+      <!-- General Interests (一般興趣) -->
+      <div formGroupName="generalInterests">
+        <label>一般興趣:</label>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="fashion" formControlName="fashion">
+          <label class="form-check-label" for="fashion">時尚</label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="givingBackToCommunity" formControlName="givingBackToCommunity">
+          <label class="form-check-label" for="givingBackToCommunity">回饋社會</label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="volunteering" formControlName="volunteering">
+          <label class="form-check-label" for="volunteering">志願服務</label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="helpingFamily" formControlName="helpingFamily">
+          <label class="form-check-label" for="helpingFamily">幫助家人</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- 房間環境 -->
+    <div formGroupName="roomEnvironment">
+      <label>房間環境:</label>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="feelsLikeHome" formControlName="feelsLikeHome">
+        <label class="form-check-label" for="feelsLikeHome">感覺像家</label>
+      </div>
+
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="reflectsFormerSelf" formControlName="reflectsFormerSelf">
+        <label class="form-check-label" for="reflectsFormerSelf">反映以前的自己</label>
+      </div>
+
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="phoneUsable" formControlName="phoneUsable">
+        <label class="form-check-label" for="phoneUsable">電話可用</label>
+      </div>
+
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="tvAvailable" formControlName="tvAvailable">
+        <label class="form-check-label" for="tvAvailable">電視可用</label>
+      </div>
+
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="radioAvailable" formControlName="radioAvailable">
+        <label class="form-check-label" for="radioAvailable">收音機可用</label>
+      </div>
+
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="orientingInfoAvailable" formControlName="orientingInfoAvailable">
+        <label class="form-check-label" for="orientingInfoAvailable">有定向資訊</label>
+      </div>
+
+      <div class="form-group">
+        <label for="modificationsRequired">需要修改:</label>
+        <input type="text" id="modificationsRequired" class="form-control" formControlName="modificationsRequired">
+      </div>
+    </div>
+
+    <!-- 日常作息 -->
+    <div class="form-group">
+      <label for="routines">日常作息:</label>
+      <textarea id="routines" class="form-control" formControlName="routines" rows="3"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">提交</button>
+  </form>
+</div>

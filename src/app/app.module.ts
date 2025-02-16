@@ -98,6 +98,11 @@ import { CarePersonProfileComponent } from './pages/carePerson/care-person-profi
 import { CareGiverShowComponent } from './pages/caregiver/care-giver-show/care-giver-show.component';
 import { SuggestionComponent } from './pages/suggestion/suggestion.component';
 import { ActivityAddComponent } from './pages/activity/activity-add/activity-add.component';
+import { DementiabilityMeetingAgendaComponent } from './pages/dementiability/part-one/dementiability-meeting-agenda/dementiability-meeting-agenda.component';
+import { RoundsTrackingToolComponent } from './pages/dementiability/part-one/rounds-tracking-tool/rounds-tracking-tool.component';
+import { DementiabilityActionPlanComponent } from './pages/dementiability/part-one/dementiability-action-plan/dementiability-action-plan.component';
+import { ProgramParticipantFormComponent } from './pages/dementiability/part-one/program-participant-form/program-participant-form.component';
+import { SightReadingAssessmentComponent } from './pages/dementiability/part-one/sight-reading-assessment/sight-reading-assessment.component';
 
 //registerLocaleData(localeEn, 'en-EN');
 
@@ -151,7 +156,12 @@ import { ActivityAddComponent } from './pages/activity/activity-add/activity-add
         CarePersonProfileComponent,
         CareGiverShowComponent,
         SuggestionComponent,
-        ActivityAddComponent
+        ActivityAddComponent,
+        DementiabilityMeetingAgendaComponent,
+        RoundsTrackingToolComponent,
+        DementiabilityActionPlanComponent,
+        ProgramParticipantFormComponent,
+        SightReadingAssessmentComponent
     ],
     bootstrap: [AppComponent],
     imports: [
