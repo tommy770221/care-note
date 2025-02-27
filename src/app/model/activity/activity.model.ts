@@ -7,5 +7,6 @@ export class Activity {
   createDate:Timestamp=Timestamp.now();
   recordDate:Timestamp;
   type:string='activity';
+  message:string;
 
 }

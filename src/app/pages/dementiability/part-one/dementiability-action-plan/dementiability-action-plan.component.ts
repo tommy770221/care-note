@@ -1,3 +1,4 @@
+import { ActionPlan } from '@/model/dementiability/action-plan.model';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -12,6 +13,8 @@ export class DementiabilityActionPlanComponent {
     '單位特定員工', '住民', '家屬', '一般員工', '註冊員工',
     '住民或家屬委員會', '醫療主任', '發展委員會', '衛生部', '管理階層'
   ]; // 諮詢對象選項
+
+
 
   constructor(private fb: FormBuilder) { // 注入 FormBuilder
     this.actionPlanForm = this.fb.group({ // 建立表單群組
@@ -35,6 +38,7 @@ export class DementiabilityActionPlanComponent {
 
   onSubmit(): void { // 表單提交處理
     if (this.actionPlanForm.valid) { // 檢查表單是否有效
+      const actionPlan = new ActionPlan(this.actionPlanForm.value);
       console.log(this.actionPlanForm.value); // 輸出表單值
       // 在此處將資料傳送到後端
     } else {

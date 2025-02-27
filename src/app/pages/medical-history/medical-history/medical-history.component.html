@@ -1,0 +1,82 @@
+<form [formGroup]="medicalHistoryForm" class="container mt-5">
+  <h2>Medical History</h2>
+
+  <!-- General Information -->
+  <div class="mb-3">
+    <label for="relatedTo" class="form-label">1. Is this injury related to?</label>
+    <div *ngFor="let option of relatedToOptions" class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" [name]="'relatedTo'" [id]="option" formControlName="relatedTo" [value]="option">
+      <label class="form-check-label" [for]="option">{{option}}</label>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="hasPrimaryCare" class="form-label">2. Do you have a Primary Care Physician / Family Doctor?</label>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="hasPrimaryCare" id="noPrimaryCare" formControlName="hasPrimaryCare" value="No">
+      <label class="form-check-label" for="noPrimaryCare">No</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="hasPrimaryCare" id="yesPrimaryCare" formControlName="hasPrimaryCare" value="Yes">
+      <label class="form-check-label" for="yesPrimaryCare">Yes</label>
+    </div>
+  </div>
+
+  <div class="mb-3" *ngIf="medicalHistoryForm.get('hasPrimaryCare').value === 'Yes'">
+    <label for="recentAppointment" class="form-label">If yes, have you had an appointment with him / her in the last 12 months?</label>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="recentAppointment" id="noRecent" formControlName="recentAppointment" value="No">
+      <label class="form-check-label" for="noRecent">No</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="recentAppointment" id="yesRecent" formControlName="recentAppointment" value="Yes">
+      <label class="form-check-label" for="yesRecent">Yes</label>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="raceEthnicity" class="form-label">3. Race/Ethnicity (Please select one):</label>
+    <select class="form-select" id="raceEthnicity" formControlName="raceEthnicity">
+      <option *ngFor="let option of raceEthnicityOptions" [value]="option">{{option}}</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="alcoholConsumption" class="form-label">4. Do you consume more than 7 alcoholic drinks in a week?</label>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="alcoholConsumption" id="noAlcohol" formControlName="alcoholConsumption" value="No">
+      <label class="form-check-label" for="noAlcohol">No</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="alcoholConsumption" id="yesAlcohol" formControlName="alcoholConsumption" value="Yes">
+      <label class="form-check-label" for="yesAlcohol">Yes</label>
+    </div>
+  </div>
+
+  <!-- Medical History Section -->
+  <div *ngFor="let condition of medicalConditions" class="mb-3">
+    <label [for]="condition" class="form-label">{{condition}}</label>
+    <div *ngFor="let option of conditionOptions" class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" [name]="condition" [id]="condition + option" formControlName="{{condition}}" [value]="option">
+      <label class="form-check-label" [for]="condition + option">{{option}}</label>
+    </div>
+  </div>
+
+  <!-- Additional Conditions -->
+  <div *ngFor="let additionalCondition of additionalConditions" class="mb-3">
+    <label [for]="additionalCondition" class="form-label">{{additionalCondition}}</label>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" [name]="additionalCondition" [id]="additionalCondition + 'No'" formControlName="{{additionalCondition}}" value="No">
+      <label class="form-check-label" [for]="additionalCondition + 'No'">No</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" [name]="additionalCondition" [id]="additionalCondition + 'Yes'" formControlName="{{additionalCondition}}" value="Yes">
+      <label class="form-check-label" [for]="additionalCondition + 'Yes'">Yes</label>
+    </div>
+    <div class="form-group" *ngIf="medicalHistoryForm.get(additionalCondition).value === 'Yes'">
+      <input type="text" class="form-control" [formControlName]="additionalCondition + 'Details'" placeholder="Please specify the condition">
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary" (click)="submitForm()">Submit</button>
+</form>

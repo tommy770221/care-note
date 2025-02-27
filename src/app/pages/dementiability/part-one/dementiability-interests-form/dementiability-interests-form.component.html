@@ -1,0 +1,21 @@
+<div class="container">
+    <h2>興趣調查表</h2>
+    <form [formGroup]="interestsForm" (ngSubmit)="onSubmit()">
+      <div *ngFor="let interest of interestsList" class="mb-3">
+        <label class="form-label">{{ interest }}</label>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" [formControlName]="'past_' + sanitizeName(interest)" id="past_{{sanitizeName(interest)}}">
+          <label class="form-check-label" for="past_{{sanitizeName(interest)}}">過去</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" [formControlName]="'present_' + sanitizeName(interest)" id="present_{{sanitizeName(interest)}}">
+          <label class="form-check-label" for="present_{{sanitizeName(interest)}}">現在</label>
+        </div>
+        <div class="mb-3">
+          <label for="notes" class="form-label">注意事項</label>
+          <textarea class="form-control" [formControlName]="'notes_' + sanitizeName(interest)" rows="3"></textarea>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">提交</button>
+    </form>
+  </div>

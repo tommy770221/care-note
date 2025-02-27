@@ -1,0 +1,64 @@
+<div class="container mt-4">
+    <h2 class="text-center">個人化照護準備表單</h2>
+    <form [formGroup]="careForm" (ngSubmit)="submitForm()">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label class="form-label">🏡 寢具與居家用品</label>
+            <input type="text" class="form-control" formControlName="bedItems" />
+          </div>
+  
+          <div class="mb-3">
+            <label class="form-label">📷 個人照片與回憶物品</label>
+            <input type="text" class="form-control" formControlName="photos" />
+          </div>
+  
+          <div class="mb-3">
+            <label class="form-label">👕 衣物與日常用品</label>
+            <input type="text" class="form-control" formControlName="clothing" />
+          </div>
+  
+          <div class="mb-3">
+            <label class="form-label">🎨 興趣相關物品</label>
+            <input type="text" class="form-control" formControlName="interests" />
+          </div>
+  
+          <div class="mb-3">
+            <label class="form-label">🛁 衛生與保健品</label>
+            <input type="text" class="form-control" formControlName="hygiene" />
+          </div>
+        </div>
+  
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label class="form-label">🏠 居住背景</label>
+            <input type="text" class="form-control" formControlName="background" />
+          </div>
+  
+          <div class="mb-3">
+            <label class="form-label">👨‍👩‍👧‍👦 主要家庭成員資訊</label>
+            <input type="text" class="form-control" formControlName="family" />
+          </div>
+  
+          <div class="mb-3">
+            <label class="form-label">👔 過去的職業與興趣</label>
+            <input type="text" class="form-control" formControlName="profession" />
+          </div>
+  
+          <div class="mb-3">
+            <label class="form-label">💭 重要的人生回憶</label>
+            <input type="text" class="form-control" formControlName="memories" />
+          </div>
+  
+          <div class="mb-3">
+            <label class="form-label">🎵 喜愛的音樂/電視/運動</label>
+            <input type="text" class="form-control" formControlName="favorites" />
+          </div>
+        </div>
+      </div>
+  
+      <div class="text-center mt-4">
+        <button type="submit" class="btn btn-primary">提交表單</button>
+      </div>
+    </form>
+  </div>

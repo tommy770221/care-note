@@ -1,0 +1,116 @@
+<div class="container my-4">
+    <h2 class="text-center mb-4">物理治療師交班紀錄表</h2>
+    <form [formGroup]="handoverForm" (ngSubmit)="onSubmit()">
+      <!-- 基本資訊 -->
+      <div class="row mb-3">
+        <div class="col-md-4">
+          <label for="date" class="form-label">日期</label>
+          <input type="date" class="form-control" id="date" formControlName="date">
+        </div>
+        <div class="col-md-4">
+          <label for="handoverPerson" class="form-label">交班人員</label>
+          <input type="text" class="form-control" id="handoverPerson" formControlName="handoverPerson" placeholder="例如：張小明">
+        </div>
+        <div class="col-md-4">
+          <label for="receivingPerson" class="form-label">接班人員</label>
+          <input type="text" class="form-control" id="receivingPerson" formControlName="receivingPerson" placeholder="例如：李大華">
+        </div>
+      </div>
+  
+      <!-- 患者基本資料 -->
+      <h4>患者基本資料</h4>
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <label for="patientName" class="form-label">姓名</label>
+          <input type="text" class="form-control" id="patientName" formControlName="patientName" placeholder="例如：陳阿姨">
+        </div>
+        <div class="col-md-3">
+          <label for="patientId" class="form-label">病歷號</label>
+          <input type="text" class="form-control" id="patientId" formControlName="patientId" placeholder="例如：A123456">
+        </div>
+        <div class="col-md-3">
+          <label for="age" class="form-label">年齡</label>
+          <input type="number" class="form-control" id="age" formControlName="age" placeholder="例如：65">
+        </div>
+        <div class="col-md-3">
+          <label for="gender" class="form-label">性別</label>
+          <select class="form-select" id="gender" formControlName="gender">
+            <option value="">請選擇</option>
+            <option value="男">男</option>
+            <option value="女">女</option>
+          </select>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="issue" class="form-label">主要問題</label>
+        <textarea class="form-control" id="issue" formControlName="issue" rows="2" placeholder="例如：中風後右邊手腳沒力"></textarea>
+      </div>
+  
+      <!-- 今天的情況與治療 -->
+      <h4>今天的情況與治療</h4>
+      <div class="mb-3">
+        <label for="currentCondition" class="form-label">目前情況</label>
+        <textarea class="form-control" id="currentCondition" formControlName="currentCondition" rows="2" placeholder="例如：右邊手腳力氣弱，走路不穩，要用助行器"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="todayActivities" class="form-label">今天做了什麼</label>
+        <textarea class="form-control" id="todayActivities" formControlName="todayActivities" rows="2" placeholder="例如：練手腳力氣30分鐘、站穩練習20分鐘"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="patientResponse" class="form-label">患者感覺如何</label>
+        <textarea class="form-control" id="patientResponse" formControlName="patientResponse" rows="2" placeholder="例如：治療後痛少一點，但有點累"></textarea>
+      </div>
+  
+      <!-- 復健目標與行動計劃 -->
+      <h4>復健目標與行動計劃</h4>
+      <div class="mb-3">
+        <label for="shortTermGoal" class="form-label">短期目標（最近1-4週）</label>
+        <textarea class="form-control" id="shortTermGoal" formControlName="shortTermGoal" rows="2" placeholder="例如：讓手腳力氣變強一點，能站穩30秒"></textarea>
+        <label for="shortTermPlan" class="form-label mt-2">行動計劃</label>
+        <textarea class="form-control" id="shortTermPlan" formControlName="shortTermPlan" rows="2" placeholder="例如：每天練站立平衡10次，每次20秒"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="midTermGoal" class="form-label">中期目標（1-3個月）</label>
+        <textarea class="form-control" id="midTermGoal" formControlName="midTermGoal" rows="2" placeholder="例如：自己走10公尺，少用助行器"></textarea>
+        <label for="midTermPlan" class="form-label mt-2">行動計劃</label>
+        <textarea class="form-control" id="midTermPlan" formControlName="midTermPlan" rows="2" placeholder="例如：每週增加走路距離2公尺"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="longTermGoal" class="form-label">長期目標（3個月以上）</label>
+        <textarea class="form-control" id="longTermGoal" formControlName="longTermGoal" rows="2" placeholder="例如：能自己上下樓梯，走100公尺不休息"></textarea>
+        <label for="longTermPlan" class="form-label mt-2">行動計劃</label>
+        <textarea class="form-control" id="longTermPlan" formControlName="longTermPlan" rows="2" placeholder="例如：練習爬樓梯，每週增加1階"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="progress" class="form-label">目前進步</label>
+        <textarea class="form-control" id="progress" formControlName="progress" rows="2" placeholder="例如：站穩已經能到20秒，進步一半"></textarea>
+      </div>
+  
+      <!-- 注意事項 -->
+      <h4>注意事項</h4>
+      <div class="mb-3">
+        <label for="specialNotes" class="form-label">特別提醒</label>
+        <textarea class="form-control" id="specialNotes" formControlName="specialNotes" rows="2" placeholder="例如：今天血壓高一點，注意心跳"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="nextSteps" class="form-label">明天要做什麼</label>
+        <textarea class="form-control" id="nextSteps" formControlName="nextSteps" rows="2" placeholder="例如：多練走路，看能不能少用助行器"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="otherSuggestions" class="form-label">其他建議</label>
+        <textarea class="form-control" id="otherSuggestions" formControlName="otherSuggestions" rows="2" placeholder="例如：提醒患者多喝水，別太累"></textarea>
+      </div>
+  
+      <!-- 交班簽名 -->
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="handoverTime" class="form-label">交班時間</label>
+          <input type="datetime-local" class="form-control" id="handoverTime" formControlName="handoverTime" placeholder="例如：2025-02-24 15:00">
+        </div>
+      </div>
+  
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">提交</button>
+      </div>
+    </form>
+  </div>

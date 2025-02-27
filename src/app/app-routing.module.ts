@@ -43,6 +43,34 @@ import {
 import {
   SightReadingAssessmentComponent
 } from "@pages/dementiability/part-one/sight-reading-assessment/sight-reading-assessment.component";
+import { DementiabilityDementiaInfoComponent } from '@pages/dementiability/part-one/dementiability-dementia-info/dementiability-dementia-info.component';
+import { DementiabilityPreviousRolesComponent } from '@pages/dementiability/part-one/dementiability-previous-roles/dementiability-previous-roles.component';
+import { DementiabilityNeedsFormComponent } from '@pages/dementiability/part-one/dementiability-needs-form/dementiability-needs-form.component';
+import { DementiabilityInterestsFormComponent } from '@pages/dementiability/part-one/dementiability-interests-form/dementiability-interests-form.component';
+import { DementiabilityDailyScheduleFormComponent } from '@pages/dementiability/part-one/dementiability-daily-schedule-form/dementiability-daily-schedule-form.component';
+import { DementiabilityWowModelFormComponent } from '@pages/dementiability/part-one/dementiability-wow-model-form/dementiability-wow-model-form.component';
+import { DementiabilityCareFormComponent } from '@pages/dementiability/part-one/dementiability-care-form/dementiability-care-form.component';
+import { DementiabilityCareBathFormComponent } from '@pages/dementiability/part-two/dementiability-care-bath-form/dementiability-care-bath-form.component';
+import { DementiabilityCareActivityFormComponent } from '@pages/dementiability/part-two/dementiability-care-activity-form/dementiability-care-activity-form.component';
+import { DementiabilityEnvironmentalChecklistComponent } from '@pages/dementiability/part-two/dementiability-environmental-checklist/dementiability-environmental-checklist.component';
+import { DementiabilityUnitChecklistComponent } from '@pages/dementiability/part-two/dementiability-unit-checklist/dementiability-unit-checklist.component';
+import { DementiabilityOrgChecklistComponent } from '@pages/dementiability/part-two/dementiability-org-checklist/dementiability-org-checklist.component';
+import { DementiabilityStaffRecognitionComponent } from '@pages/dementiability/part-two/dementiability-staff-recognition/dementiability-staff-recognition.component';
+import { DementiabilityTeamMeetingComponent } from '@pages/dementiability/part-two/dementiability-team-meeting/dementiability-team-meeting.component';
+import { DementiabilityWowWithStaffComponent } from '@pages/dementiability/part-two/dementiability-wow-with-staff/dementiability-wow-with-staff.component';
+import { DementiabilityHomeAreaChecklistComponent } from '@pages/dementiability/part-two/dementiability-home-area-checklist/dementiability-home-area-checklist.component';
+import { DementiabilityStaffAssessmentComponent } from '@pages/dementiability/part-two/dementiability-staff-assessment/dementiability-staff-assessment.component';
+import { DementiabilityTeamAssessmentComponent } from '@pages/dementiability/part-two/dementiability-team-assessment/dementiability-team-assessment.component';
+import { ThisIsMeComponent } from '@pages/dementiability/part-two/this-is-me/this-is-me.component';
+import { ClinicalHistoryComponent } from '@pages/medical-history/clinical-history/clinical-history.component';
+import { CaregiverChecklistComponent } from '@pages/care-plan/care-plan/caregiver-checklist/caregiver-checklist.component';
+import { CaregiverResponsibilityComponent } from '@pages/care-plan/care-plan/caregiver-responsibility/caregiver-responsibility.component';
+import { MedicalHistoryVersionTwoComponent } from '@pages/medical-history/medical-history/medical-history.component';
+import { NurseReportSheetComponent } from '@pages/medical-history/nurse-report/nurse-report-sheet/nurse-report-sheet.component';
+import { IsbarHandoverComponent } from '@pages/activity/isbar-handover/isbar-handover.component';
+import { MedicalHistoryComponent } from '@pages/activity/medical-history/medical-history.component';
+import { PhysicalHandoverComponent } from '@pages/activity/physical-handover/physical-handover.component';
+import { OccupationalHandoverComponent } from '@pages/activity/occupational-handover/occupational-handover.component';
 
 const routes: Routes = [
     {
@@ -80,6 +108,26 @@ const routes: Routes = [
               component: PersonAddComponent
             },
             {
+              path: 'activity/isbar-handover',
+              component: IsbarHandoverComponent
+              
+            },
+            {
+              path: 'activity/medical-history',
+              component: MedicalHistoryComponent
+              
+            },
+            {
+              path: 'activity/physical-handover',
+              component: PhysicalHandoverComponent
+              
+            },
+            {
+              path: 'activity/occupational-handover',
+              component: OccupationalHandoverComponent
+              
+            },
+            {
               path: 'activity/carePerson/:carePersonId/careGiver/:careGiverId/edit',
               component: ActivityAddComponent
             },
@@ -102,6 +150,100 @@ const routes: Routes = [
             {
               path: 'dementiability/part-one/sight-reading-assessment',
               component:  SightReadingAssessmentComponent
+            },
+            {
+              path: 'dementiability/part-one/dementiability-dementia-info',
+              component:  DementiabilityDementiaInfoComponent
+            },
+            {
+              path: 'dementiability/part-one/dementiability-previous-roles',
+              component:  DementiabilityPreviousRolesComponent
+
+            },
+            {
+              path: 'dementiability/part-one/dementiability-needs-form',
+              component:  DementiabilityNeedsFormComponent
+              
+            },
+            {
+              path: 'dementiability/part-one/dementiability-interests-form',
+              component:  DementiabilityInterestsFormComponent
+              
+            },
+            {
+              path: 'dementiability/part-one/dementiability-daily-schedule-form',
+              component:  DementiabilityDailyScheduleFormComponent
+              
+            },
+            {
+              path: 'dementiability/part-one/dementiability-wow-model-form',
+              component:  DementiabilityWowModelFormComponent
+              
+            },
+            {
+              path: 'dementiability/part-one/dementiability-care-form',
+              component:  DementiabilityCareFormComponent
+              
+            },
+            {
+              path: 'dementiability/part-two/dementiability-care-bath-form',
+              component:  DementiabilityCareBathFormComponent
+              
+            },
+            {
+              path: 'dementiability/part-two/dementiability-care-activity-form',
+              component:  DementiabilityCareActivityFormComponent
+              
+            },
+            {
+              path: 'dementiability/part-two/dementiability-environmental-checklist',
+              component:  DementiabilityEnvironmentalChecklistComponent
+              
+            },
+            {
+              path: 'dementiability/part-two/dementiability-unit-checklist',
+              component:  DementiabilityUnitChecklistComponent
+              
+            },
+            {
+              path: 'dementiability/part-two/dementiability-org-checklist',
+              component:  DementiabilityOrgChecklistComponent
+              
+            },
+            {
+              path: 'dementiability/part-two/dementiability-staff-recognition',
+              component:  DementiabilityStaffRecognitionComponent
+              
+            },
+            {
+              path: 'dementiability/part-two/dementiability-team-meeting',
+              component:  DementiabilityTeamMeetingComponent
+              
+            },
+            {
+              path: 'dementiability/part-two/dementiability-wow-with-staff',
+              component:  DementiabilityWowWithStaffComponent              
+            },
+            {
+              path: 'dementiability/part-two/dementiability-home-area-checklist',
+              component:  DementiabilityHomeAreaChecklistComponent         
+            },
+            {
+              path: 'dementiability/part-two/dementiability-staff-assessment',
+              component:  DementiabilityStaffAssessmentComponent     
+            },
+            {
+              path: 'dementiability/part-two/dementiability-team-assessment',
+              component:  DementiabilityTeamAssessmentComponent    
+            },
+            {
+              path: 'dementiability/part-two/this-is-me',
+              component:  ThisIsMeComponent    
+            },
+            {
+              path: 'medical-history/clinical-history',
+              component:  ClinicalHistoryComponent
+                  
             },
             {
                 path: 'blank',
@@ -133,6 +275,22 @@ const routes: Routes = [
                     {
                         path: 'person/profile/:id',
                         component: ProfileShowComponent
+                    },
+                    {
+                      path: 'caregiver/checklist',
+                      component: CaregiverChecklistComponent
+                    },
+                    {
+                      path: 'caregiver/responsibility',
+                      component: CaregiverResponsibilityComponent
+                    },
+                    {
+                      path: 'medical-history/medical-history',
+                      component: MedicalHistoryVersionTwoComponent
+                    },
+                    {
+                      path: 'nurse-report/nurse-report-sheet',
+                      component: NurseReportSheetComponent
                     }
                 ]
             },

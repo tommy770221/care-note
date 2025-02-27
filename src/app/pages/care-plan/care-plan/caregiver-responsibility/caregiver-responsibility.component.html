@@ -1,0 +1,95 @@
+<h2>Caregiver Responsibilities Checklist</h2>
+
+<form [formGroup]="responsibilitiesForm" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Dressing & Personal Hygiene</h3>
+      <div formArrayName="dressingHygiene">
+        <div *ngFor="let responsibility of dressingHygiene().controls; let i = index" [formGroupName]="i" class="responsibility-row">
+          <div class="form-group">
+            <label>
+              <input type="checkbox" formControlName="completed" class="form-check-input">
+              {{ responsibility.value.description }}
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <h3>Medicine & Medical Plan Management</h3>
+      <div formArrayName="medicineManagement">
+        <div *ngFor="let responsibility of medicineManagement().controls; let i = index" [formGroupName]="i" class="responsibility-row">
+          <div class="form-group">
+            <label>
+              <input type="checkbox" formControlName="completed" class="form-check-input">
+              {{ responsibility.value.description }}
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <h3>Eating Properly</h3>
+      <div formArrayName="eatingProperly">
+        <div *ngFor="let responsibility of eatingProperly().controls; let i = index" [formGroupName]="i" class="responsibility-row">
+          <div class="form-group">
+            <label>
+              <input type="checkbox" formControlName="completed" class="form-check-input">
+              {{ responsibility.value.description }}
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <h3>Help Get Around</h3>
+      <div formArrayName="helpGetAround">
+        <div *ngFor="let responsibility of helpGetAround().controls; let i = index" [formGroupName]="i" class="responsibility-row">
+          <div class="form-group">
+            <label>
+              <input type="checkbox" formControlName="completed" class="form-check-input">
+              {{ responsibility.value.description }}
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <h3>Companionship</h3>
+      <div formArrayName="companionship">
+        <div *ngFor="let responsibility of companionship().controls; let i = index" [formGroupName]="i" class="responsibility-row">
+          <div class="form-group">
+            <label>
+              <input type="checkbox" formControlName="completed" class="form-check-input">
+              {{ responsibility.value.description }}
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <h3>Light Housework</h3>
+      <div formArrayName="lightHousework">
+        <div *ngFor="let responsibility of lightHousework().controls; let i = index" [formGroupName]="i" class="responsibility-row">
+          <div class="form-group">
+            <label>
+              <input type="checkbox" formControlName="completed" class="form-check-input">
+              {{ responsibility.value.description }}
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <h3>Communicate With Family</h3>
+      <div formArrayName="communicateWithFamily">
+        <div *ngFor="let responsibility of communicateWithFamily().controls; let i = index" [formGroupName]="i" class="responsibility-row">
+          <div class="form-group">
+            <label>
+              <input type="checkbox" formControlName="completed" class="form-check-input">
+              {{ responsibility.value.description }}
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

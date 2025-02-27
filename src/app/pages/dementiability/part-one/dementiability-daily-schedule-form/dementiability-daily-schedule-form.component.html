@@ -1,0 +1,22 @@
+<div class="container">
+    <h2>今日行程</h2>
+    <form [formGroup]="dailyScheduleForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="time" class="form-label">時間</label>
+        <input type="text" class="form-control" id="time" formControlName="time">
+      </div>
+      <div class="mb-3">
+        <label for="details" class="form-label">詳細資訊</label>
+        <input type="text" class="form-control" id="details" formControlName="details">
+      </div>
+      <div class="mb-3">
+        <label for="location" class="form-label">地點</label>
+        <input type="text" class="form-control" id="location" formControlName="location">
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="done" formControlName="done">
+        <label class="form-check-label" for="done">完成</label>
+      </div>
+      <button type="submit" class="btn btn-primary">提交</button>
+    </form>
+  </div>

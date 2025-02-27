@@ -1,0 +1,68 @@
+<div class="container">
+    <h2>確認先前的角色與現在要做的事情</h2>
+    <form [formGroup]="previousRolesForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">姓名:</label>
+        <input type="text" id="name" class="form-control" formControlName="name">
+      </div>
+  
+      <div class="form-group">
+        <label for="pastRole">先前擔任的角色:</label>
+        <div class="input-group">
+          <input type="text" id="pastRole" class="form-control" formControlName="pastRole">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" (click)="addPastRole()">新增</button>
+          </div>
+        </div>
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let role of pastRoles">
+            {{ role }}
+            <button class="btn btn-danger btn-sm float-right" (click)="removePastRole(role)">移除</button>
+          </li>
+        </ul>
+      </div>
+  
+      <div class="form-group">
+        <label for="currentRole">現在可以獲得的角色:</label>
+        <div class="input-group">
+          <input type="text" id="currentRole" class="form-control" formControlName="currentRole">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" (click)="addCurrentRole()">新增</button>
+          </div>
+        </div>
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let role of currentRoles">
+            {{ role }}
+            <button class="btn btn-danger btn-sm float-right" (click)="removeCurrentRole(role)">移除</button>
+          </li>
+        </ul>
+      </div>
+  
+      <div class="form-group">
+        <label>待辦事項:</label>
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let task of tasks">
+            {{ task }}
+          </li>
+        </ul>
+      </div>
+  
+         <div class="form-group">
+        <label for="otherTask">其他事項:</label>
+        <div class="input-group">
+          <input type="text" id="otherTask" class="form-control" formControlName="otherTask">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" (click)="addOtherTask()">新增</button>
+          </div>
+        </div>
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let task of otherTasks">
+            {{ task }}
+             <button class="btn btn-danger btn-sm float-right" (click)="removeOtherTask(task)">移除</button>
+          </li>
+        </ul>
+      </div>
+  
+      <button type="submit" class="btn btn-primary">提交</button>
+    </form>
+  </div>

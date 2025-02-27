@@ -1,0 +1,516 @@
+<div class="container">
+  <h2>需求評估表</h2>
+
+  <form [formGroup]="needsAssessmentForm" (ngSubmit)="onSubmit()">
+  
+    <!-- 基本生理需求 (Basic physiological needs) -->
+    <h3>基本生理需求</h3>
+    <div>
+      <label>規律上廁所:
+        <select formControlName="bathroomRegularly">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>一日三餐:
+        <select formControlName="eatThreeMeals">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>享受食物:
+        <select formControlName="enjoyFood">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>喜歡的食物:
+        <select formControlName="likeFoods">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>精緻餐飲:
+        <select formControlName="fineDining">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>良好的睡眠:
+        <select formControlName="goodNightRest">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>參與親密行為:
+        <select formControlName="engageIntimacy">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+     <div>
+      <label>免於疼痛:
+        <select formControlName="freeFromPain">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>良好的心理健康:
+        <select formControlName="goodMentalHealth">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>活動身體:
+        <select formControlName="moveBody">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+  
+    <!-- 安全與保障 (Safety & Security) -->
+    <h3>安全與保障</h3>
+    <div>
+      <label>感到安全，不將自己或他人置於危險之中:
+        <select formControlName="safeSelfOthers">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>居住的地方感到安全:
+        <select formControlName="feelSafeLive">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>被自己和他人照顧:
+        <select formControlName="caredFor">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>知道每天互動的對象:
+        <select formControlName="knowInteracting">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>在像家一樣的地方感到安全和舒適:
+        <select formControlName="safeComfortableHome">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>有感到安全且不會迷路的地方可以散步:
+        <select formControlName="safeWalk">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <!-- 社交 (Social) -->
+    <h3>社交</h3>
+    <div>
+      <label>能夠透過電話、簡訊或電子郵件與他人交流:
+        <select formControlName="communicateOthers">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>能夠告訴他人我的感受，自由地表達自己:
+        <select formControlName="tellFeelings">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>花時間與家人相處:
+        <select formControlName="spendFamilyTime">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>能夠享受與朋友相處的時光:
+        <select formControlName="enjoyFriendsTime">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>感到與他人聯繫並感到歸屬感:
+        <select formControlName="feelConnectedBelong">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <!-- 職業 (Occupation) -->
+    <h3>職業</h3>
+    <div>
+      <label>工作 - 擁有有意義的工作:
+        <select formControlName="meaningfulWork">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>參與有意義的活動（包括家務）:
+        <select formControlName="meaningfulActivity">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>幫助他人:
+        <select formControlName="helpingOthers">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>自己做事:
+        <select formControlName="doingThingsMyself">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>做家務 - 整天忙碌:
+        <select formControlName="householdChores">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>井然有序:
+        <select formControlName="havingThingsOrder">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>保持整潔:
+        <select formControlName="keepingNeatClean">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <!-- 愛與歸屬感 (Love and Belonging) -->
+    <h3>愛與歸屬感</h3>
+    <div>
+      <label>在稱之為家的地方感到歸屬感:
+        <select formControlName="belongHome">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>在任何地方都感到歸屬感:
+        <select formControlName="belongWherever">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>我喜歡獨處:
+        <select formControlName="likeAlone">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+     <div>
+      <label>有其他人可以愛我，並且他們愛我:
+        <select formControlName="haveOthersLove">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <!-- 自尊 (Self-esteem) -->
+    <h3>自尊</h3>
+    <div>
+      <label>對一天所做的事情感覺良好:
+        <select formControlName="feelGoodAboutDay">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>有能力自己決定穿什麼和吃什麼:
+        <select formControlName="makeOwnDecisions">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>受到他人尊重:
+        <select formControlName="respectedByOthers">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>解決問題:
+        <select formControlName="solveProblems">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>儀容整潔:
+        <select formControlName="wellGroomed">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>穿著讓我感覺良好的衣服:
+        <select formControlName="wearFeelGoodClothes">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+  
+    <!-- 自我實現 (Self-actualization) -->
+    <h3>自我實現</h3>
+    <div>
+      <label>參與刺激大腦的活動:
+        <select formControlName="stimulateBrain">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>參與幫助我與他人建立聯繫的活動:
+        <select formControlName="feelConnected">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>實踐我的宗教和精神信仰:
+        <select formControlName="practiceReligion">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>每天祈禱:
+        <select formControlName="sayPrayers">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>為自己做事:
+        <select formControlName="doThingsForSelf">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>能夠用我的語言與他人交流:
+        <select formControlName="communicateLanguage">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>能夠參與創意藝術並對我的成就感到滿意:
+        <select formControlName="creativeArts">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>能夠定期閱讀和學習:
+        <select formControlName="readLearnRegularly">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <!-- 其他 (Other) - 範例 -->
+    <h3>其他</h3>
+     <div>
+      <label>洗碗:
+        <select formControlName="washDishes">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>園藝:
+        <select formControlName="gardening">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <div>
+      <label>網路搜尋:
+        <select formControlName="searchingInternet">
+          <option value="1">1 - 不重要</option>
+          <option value="2">2 - 一般重要</option>
+          <option value="3">3 - 非常重要</option>
+        </select>
+      </label>
+    </div>
+  
+    <button type="submit" [disabled]="!needsAssessmentForm.valid">提交</button>
+  </form>
+  </div>

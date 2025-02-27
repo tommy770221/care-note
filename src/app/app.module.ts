@@ -103,6 +103,35 @@ import { RoundsTrackingToolComponent } from './pages/dementiability/part-one/rou
 import { DementiabilityActionPlanComponent } from './pages/dementiability/part-one/dementiability-action-plan/dementiability-action-plan.component';
 import { ProgramParticipantFormComponent } from './pages/dementiability/part-one/program-participant-form/program-participant-form.component';
 import { SightReadingAssessmentComponent } from './pages/dementiability/part-one/sight-reading-assessment/sight-reading-assessment.component';
+import { DementiabilityDementiaInfoComponent } from './pages/dementiability/part-one/dementiability-dementia-info/dementiability-dementia-info.component';
+import { DementiabilityPreviousRolesComponent } from './pages/dementiability/part-one/dementiability-previous-roles/dementiability-previous-roles.component';
+import { DementiabilityNeedsFormComponent } from './pages/dementiability/part-one/dementiability-needs-form/dementiability-needs-form.component';
+import { DementiabilityInterestsFormComponent } from './pages/dementiability/part-one/dementiability-interests-form/dementiability-interests-form.component';
+import { DementiabilityDailyScheduleFormComponent } from './pages/dementiability/part-one/dementiability-daily-schedule-form/dementiability-daily-schedule-form.component';
+import { DementiabilityWowModelFormComponent } from './pages/dementiability/part-one/dementiability-wow-model-form/dementiability-wow-model-form.component';
+import { DementiabilityCareFormComponent } from './pages/dementiability/part-one/dementiability-care-form/dementiability-care-form.component';
+import { DementiabilityCareBathFormComponent } from './pages/dementiability/part-two/dementiability-care-bath-form/dementiability-care-bath-form.component';
+import { DementiabilityCareActivityFormComponent } from './pages/dementiability/part-two/dementiability-care-activity-form/dementiability-care-activity-form.component';
+import { DementiabilityEnvironmentalChecklistComponent } from './pages/dementiability/part-two/dementiability-environmental-checklist/dementiability-environmental-checklist.component';
+import { DementiabilityUnitChecklistComponent } from './pages/dementiability/part-two/dementiability-unit-checklist/dementiability-unit-checklist.component';
+import { DementiabilityOrgChecklistComponent } from './pages/dementiability/part-two/dementiability-org-checklist/dementiability-org-checklist.component';
+import { DementiabilityStaffRecognitionComponent } from './pages/dementiability/part-two/dementiability-staff-recognition/dementiability-staff-recognition.component';
+import { DementiabilityTeamMeetingComponent } from './pages/dementiability/part-two/dementiability-team-meeting/dementiability-team-meeting.component';
+import { DementiabilityWowWithStaffComponent } from './pages/dementiability/part-two/dementiability-wow-with-staff/dementiability-wow-with-staff.component';
+import { DementiabilityHomeAreaChecklistComponent } from './pages/dementiability/part-two/dementiability-home-area-checklist/dementiability-home-area-checklist.component';
+import { DementiabilityStaffAssessmentComponent } from './pages/dementiability/part-two/dementiability-staff-assessment/dementiability-staff-assessment.component';
+import { DementiabilityTeamAssessmentComponent } from './pages/dementiability/part-two/dementiability-team-assessment/dementiability-team-assessment.component';
+import { ThisIsMeComponent } from './pages/dementiability/part-two/this-is-me/this-is-me.component';
+import { ClinicalHistoryComponent } from './pages/medical-history/clinical-history/clinical-history.component';
+import { CaregiverChecklistComponent } from './pages/care-plan/care-plan/caregiver-checklist/caregiver-checklist.component';
+import { CaregiverResponsibilityComponent } from './pages/care-plan/care-plan/caregiver-responsibility/caregiver-responsibility.component';
+import { MedicalHistoryVersionTwoComponent } from './pages/medical-history/medical-history/medical-history.component';
+import { REGION } from '@angular/fire/compat/functions';
+import { NurseReportSheetComponent } from './pages/medical-history/nurse-report/nurse-report-sheet/nurse-report-sheet.component';
+import { IsbarHandoverComponent } from './pages/activity/isbar-handover/isbar-handover.component';
+import { MedicalHistoryComponent } from '@pages/activity/medical-history/medical-history.component';
+import { OccupationalHandoverComponent } from './pages/activity/occupational-handover/occupational-handover.component';
+import { PhysicalHandoverComponent } from './pages/activity/physical-handover/physical-handover.component';
 
 //registerLocaleData(localeEn, 'en-EN');
 
@@ -161,7 +190,35 @@ import { SightReadingAssessmentComponent } from './pages/dementiability/part-one
         RoundsTrackingToolComponent,
         DementiabilityActionPlanComponent,
         ProgramParticipantFormComponent,
-        SightReadingAssessmentComponent
+        SightReadingAssessmentComponent,
+        DementiabilityDementiaInfoComponent,
+        DementiabilityPreviousRolesComponent,
+        DementiabilityNeedsFormComponent,
+        DementiabilityInterestsFormComponent,
+        DementiabilityDailyScheduleFormComponent,
+        DementiabilityWowModelFormComponent,
+        DementiabilityCareFormComponent,
+        DementiabilityCareBathFormComponent,
+        DementiabilityCareActivityFormComponent,
+        DementiabilityEnvironmentalChecklistComponent,
+        DementiabilityUnitChecklistComponent,
+        DementiabilityOrgChecklistComponent,
+        DementiabilityStaffRecognitionComponent,
+        DementiabilityTeamMeetingComponent,
+        DementiabilityWowWithStaffComponent,
+        DementiabilityHomeAreaChecklistComponent,
+        DementiabilityStaffAssessmentComponent,
+        DementiabilityTeamAssessmentComponent,
+        ThisIsMeComponent,
+        ClinicalHistoryComponent,
+        CaregiverChecklistComponent,
+        CaregiverResponsibilityComponent,
+        MedicalHistoryVersionTwoComponent,
+        NurseReportSheetComponent,
+        IsbarHandoverComponent,
+        MedicalHistoryComponent,
+        OccupationalHandoverComponent,
+        PhysicalHandoverComponent
     ],
     bootstrap: [AppComponent],
     imports: [
@@ -219,7 +276,8 @@ import { SightReadingAssessmentComponent } from './pages/dementiability/part-one
         provideDatabase(() => getDatabase()),
         provideFunctions(() => getFunctions()),
         provideMessaging(() => getMessaging()),
-        provideStorage(() => getStorage())
+        provideStorage(() => getStorage()),
+        { provide: REGION, useValue: 'asia-east1' }
     ]
 })
 export class AppModule {}

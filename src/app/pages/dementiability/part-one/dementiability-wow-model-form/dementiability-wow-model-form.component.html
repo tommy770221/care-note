@@ -1,0 +1,80 @@
+<div class="container">
+    <h2>WOW 模型表單</h2>
+    <form [formGroup]="wowModelForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="name" class="form-label">姓名</label>
+        <input type="text" class="form-control" id="name" formControlName="name">
+      </div>
+      <div class="mb-3">
+        <label for="location" class="form-label">地點</label>
+        <input type="text" class="form-control" id="location" formControlName="location">
+      </div>
+      <div class="mb-3">
+        <label for="contact" class="form-label">聯絡方式</label>
+        <input type="text" class="form-control" id="contact" formControlName="contact">
+      </div>
+      <div class="mb-3">
+        <label for="date" class="form-label">日期</label>
+        <input type="date" class="form-control" id="date" formControlName="date">
+      </div>
+  
+      <div class="mb-3">
+        <label for="who" class="form-label">Who (你對這個人了解多少？)</label>
+        <textarea class="form-control" id="who" formControlName="who" rows="3"></textarea>
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">Observations (觀察)</label>
+        <div class="mb-3">
+          <label for="observationsWhat" class="form-label">What (發生了什麼事？你看到了什麼？)</label>
+          <textarea class="form-control" id="observationsWhat" formControlName="observationsWhat" rows="3"></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="observationsWhy" class="form-label">Why (為什麼會發生這種情況？觸發因素、習慣、慣例)</label>
+          <textarea class="form-control" id="observationsWhy" formControlName="observationsWhy" rows="3"></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="observationsWhen" class="form-label">When (這種情況何時發生？)</label>
+          <input type="text" class="form-control" id="observationsWhen" formControlName="observationsWhen">
+        </div>
+        <div class="mb-3">
+          <label for="observationsWhenNot" class="form-label">When Not (這種情況何時沒有發生？)</label>
+          <input type="text" class="form-control" id="observationsWhenNot" formControlName="observationsWhenNot">
+        </div>
+        <div class="mb-3">
+          <label for="unmetNeeds" class="form-label">Unmet Needs (哪些需求未得到滿足？無聊、孤獨、痛苦、迷失)</label>
+          <textarea class="form-control" id="unmetNeeds" formControlName="unmetNeeds" rows="3"></textarea>
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">What will you do? (你打算怎麼做？)</label>
+        <div class="mb-3">
+          <label for="whatWillYouDoCueing" class="form-label">Cueing (wayfinding, finding things)</label>
+          <input type="text" class="form-control" id="whatWillYouDoCueing" formControlName="whatWillYouDoCueing">
+        </div>
+        <div class="mb-3">
+          <label for="whatWillYouDoAgenda" class="form-label">Agenda</label>
+          <input type="text" class="form-control" id="whatWillYouDoAgenda" formControlName="whatWillYouDoAgenda">
+        </div>
+        <div class="mb-3">
+          <label for="whatWillYouDoRoles" class="form-label">Roles</label>
+          <input type="text" class="form-control" id="whatWillYouDoRoles" formControlName="whatWillYouDoRoles">
+        </div>
+        <div class="mb-3">
+          <label for="whatWillYouDoRoutines" class="form-label">Routines (in an agenda)</label>
+          <input type="text" class="form-control" id="whatWillYouDoRoutines" formControlName="whatWillYouDoRoutines">
+        </div>
+        <div class="mb-3">
+          <label for="whatWillYouDoSupport" class="form-label">Support for ADL’s (cueing)</label>
+          <input type="text" class="form-control" id="whatWillYouDoSupport" formControlName="whatWillYouDoSupport">
+        </div>
+        <div class="mb-3">
+          <label for="whatWillYouDoLeisure" class="form-label">Leisure activities (things to do)</label>
+          <input type="text" class="form-control" id="whatWillYouDoLeisure" formControlName="whatWillYouDoLeisure">
+        </div>
+      </div>
+  
+      <button type="submit" class="btn btn-primary">提交</button>
+    </form>
+  </div>

@@ -1,0 +1,38 @@
+<form [formGroup]="activityForm" (ngSubmit)="onSubmit()">
+    <h2>Active Programs</h2>
+    <div formArrayName="activePrograms">
+      <div *ngFor="let program of activePrograms.controls; let i = index">
+        <input [formControlName]="i" [value]="program.value" readonly>
+      </div>
+    </div>
+  
+    <h2>Cognitive/Intellectual Stimulation Programs</h2>
+    <div formArrayName="cognitivePrograms">
+      <div *ngFor="let program of cognitivePrograms.controls; let i = index">
+        <input [formControlName]="i" [value]="program.value" readonly>
+      </div>
+    </div>
+  
+    <h2>Leisure Activities</h2>
+    <div formArrayName="leisureActivities">
+      <div *ngFor="let activity of leisureActivities.controls; let i = index">
+        <input [formControlName]="i" [value]="activity.value" readonly>
+      </div>
+    </div>
+  
+    <h2>Chore Style Programs</h2>
+    <div formArrayName="chorePrograms">
+      <div *ngFor="let program of chorePrograms.controls; let i = index">
+        <input [formControlName]="i" [value]="program.value" readonly>
+      </div>
+    </div>
+  
+    <h2>Social Activities</h2>
+    <div formArrayName="socialActivities">
+      <div *ngFor="let activity of socialActivities.controls; let i = index">
+        <input [formControlName]="i" [value]="activity.value" readonly>
+      </div>
+    </div>
+  
+    <button type="submit">Submit</button>
+  </form>

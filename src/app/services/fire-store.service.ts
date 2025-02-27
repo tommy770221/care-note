@@ -32,5 +32,9 @@ export class FireStoreService {
                 console.log(error);
             });
     }
+
+    saveOne(url: string, data: any) {
+        this.angularFirestore.doc(url).set({...data})
+    }
 }
 

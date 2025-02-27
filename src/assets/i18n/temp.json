@@ -1,6 +1,24 @@
 {
-  "forgetpass": "忘記密碼",
-  "regist": "註冊新會員",
-  "button": "登入",
-  "session": "開啟您的照顧旅程"
+  "Family Medicine": "家庭醫學科",
+  "Internal Medicine": "內科",
+  "Surgery": "外科",
+  "Pediatrics": "小兒科",
+  "Obstetrics and Gynecology": "婦產科",
+  "Orthopedics": "骨科",
+  "Neurosurgery": "神經外科",
+  "Urology": "泌尿科",
+  "Otolaryngology": "耳鼻喉科",
+  "Ophthalmology": "眼科",
+  "Dermatology": "皮膚科",
+  "Neurology": "神經內科",
+  "Psychiatry": "精神科",
+  "Rehabilitation Medicine": "復健科",
+  "Clinical Pathology": "臨床病理科",
+  "Radiology": "放射診斷科",
+  "Radiation Oncology": "放射腫瘤科",
+  "Anatomic Pathology": "解剖病理科",
+  "Nuclear Medicine": "核子醫學科",
+  "Emergency Medicine": "急診醫學科",
+  "Pulmonology": "胸腔內科",
+  "Plastic Surgery": "整形外科"
 }

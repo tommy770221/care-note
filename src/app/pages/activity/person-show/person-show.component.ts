@@ -2,6 +2,7 @@ import {
     AfterViewChecked,
     AfterViewInit,
     Component,
+    ElementRef,
     OnInit,
     Renderer2
 } from '@angular/core';
@@ -35,6 +36,8 @@ import {Water} from '@/model/activity/water.model';
 import {Meal} from '@/model/activity/meal.model';
 import {Toilet} from '@/model/activity/toilet.model';
 import {forkJoin} from 'rxjs';
+import { FireFunctionService } from '@services/fire-function.service';
+import { Activity } from '@/model/activity/activity.model';
 
 @Component({
     selector: 'app-person-show',
@@ -64,7 +67,8 @@ export class PersonShowComponent
     protected readonly faPersonWalking = faPersonWalking;
     waterIn = '1500 ml';
     primaryDis = '';
-    activities: Array<Exercise | Water | Meal | Toilet> = [];
+    primaryDisChinese = '';
+    activities: Array<Exercise | Water | Meal | Toilet | Activity> = [];
 
     constructor(
         private appService: AppService,
@@ -74,7 +78,8 @@ export class PersonShowComponent
         private careTeamService: CareTeamService,
         private carePersonService: CarePersonService,
         private activityService: ActivityService,
-        private primaryDiseaseService: PrimaryDiseaseService
+        private primaryDiseaseService: PrimaryDiseaseService,
+        private fireFunctionService: FireFunctionService,
     ) {}
 
     ngAfterViewInit(): void {
@@ -130,8 +135,9 @@ export class PersonShowComponent
                                                         primaryDisease.translated[
                                                             localStorage.getItem(
                                                                 'lan'
-                                                            )
-                                                        ];
+                                                            )]
+                                                    this.primaryDisChinese=primaryDisease.translated['zh-TW'];        
+                                                        ;
                                                 });
                                         }
                                     }
@@ -235,6 +241,7 @@ export class PersonShowComponent
                             primaryDisease.translated[
                                 localStorage.getItem('lan')
                             ];
+                        this.primaryDisChinese=primaryDisease.translated['zh-TW'];     
                     });
             }
             this.showActivities();
@@ -247,6 +254,19 @@ export class PersonShowComponent
                 b.createDate.toDate().valueOf() -
                 a.createDate.toDate().valueOf()
             );
+        });
+    }
+
+    func(){
+        document.getElementById('AI-recommendation').disabled=true;
+       this.fireFunctionService.callFunction('helloWorld',"請給我"+this.primaryDisChinese+"的護理行動建議").then((resp)=>{
+            let activity=new Activity();
+            activity.message=resp.response;
+            activity.careGiverId=this.careGiver.id;
+            activity.carePersonId=this.carePerson.id;
+            this.activities.push(activity);
+            this.sort();
+            console.log(resp.response);
         });
     }
 }

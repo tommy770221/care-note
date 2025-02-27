@@ -1,0 +1,31 @@
+<h2>Staff Recognition and Rewards Brainstorming</h2>
+
+<p>Staff must be recognized for their good work...</p>
+
+<form [formGroup]="recognitionForm" (ngSubmit)="onSubmit()">
+  <div formArrayName="ideas">
+    <div *ngFor="let idea of ideas().controls; let i = index" [formGroupName]="i" class="idea-row">
+      <h3>Row #{{i + 1}}</h3>
+      <div class="form-group">
+        <label>Ideas for Recognition:</label>
+        <textarea formControlName="recognition" class="form-control" rows="3"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Ideas for Rewards:</label>
+        <textarea formControlName="reward" class="form-control" rows="3"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Other:</label>
+        <textarea formControlName="other" class="form-control" rows="3"></textarea>
+      </div>
+
+      <button type="button" (click)="removeIdea(i)" class="btn btn-danger">Remove Row</button>
+      <hr>
+    </div>
+  </div>
+
+  <button type="button" (click)="addIdea()" class="btn btn-secondary">Add Row</button>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

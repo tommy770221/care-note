@@ -1,0 +1,152 @@
+<h2>DementiAbility Meeting Agenda</h2>
+<h3>Sample</h3>
+
+<form [formGroup]="agendaForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label>Meeting Date:</label>
+    <input type="date" formControlName="meetingDate" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label>Members:</label>
+    <textarea formControlName="members" class="form-control" rows="2"></textarea>
+  </div>
+
+  <div formArrayName="items">
+    <div *ngFor="let item of items().controls; let i = index" [formGroupName]="i" class="agenda-item">
+
+     <h3>Item #{{i + 1}}</h3>
+
+      <div formGroupName="environmentSupportsWayfinding">
+            <h4>Environment Supports:</h4>
+            <div class="form-group">
+              <label>Item:</label>
+              <input type="text" formControlName="item" class="form-control" readonly>
+            </div>
+
+            <div class="form-group">
+              <label>Action Steps:</label>
+              <textarea formControlName="actionSteps" class="form-control" readonly></textarea>
+            </div>
+
+             <div class="form-group">
+              <label>To be completed by (name & date):</label>
+              <input type="text" formControlName="completedBy" class="form-control">
+            </div>
+      </div>
+
+         <div formGroupName="homeEnvironment">
+              <h4>Home Environment</h4>
+              <div class="form-group">
+               <label>Champion(s) for Dining room:</label>
+                <input type="text" formControlName="diningRoomChampion" class="form-control">
+              </div>
+
+               <div class="form-group">
+               <label>Champion(s) for living area:</label>
+                <input type="text" formControlName="livingAreaChampion" class="form-control">
+              </div>
+             <div class="form-group">
+                <label>Champion(s) for bedrooms:</label>
+                <input type="text" formControlName="bedroomsChampion" class="form-control">
+              </div>
+
+                 <div class="form-group">
+                  <label>Champion(s) for bathing areas:</label>
+                  <input type="text" formControlName="bathingAreasChampion" class="form-control">
+                </div>
+                 <div class="form-group">
+                <label>Champion(s) for toilet areas:</label>
+                <input type="text" formControlName="toiletAreasChampion" class="form-control">
+              </div>
+               <div class="form-group">
+                <label>Champion(s) for Front entrance:</label>
+                <input type="text" formControlName="frontEntranceChampion" class="form-control">
+              </div>
+              <div class="form-group">
+                <label>Champion(s) for refreshments on unit to have available throughout the day:</label>
+                <input type="text" formControlName="refreshmentsChampion" class="form-control">
+              </div>
+                <div class="form-group">
+                <label>Champion(s) for Other</label>
+                <input type="text" formControlName="otherChampion" class="form-control">
+              </div>
+
+                <h4>Create a plan: How many rooms will you work on at one time?</h4>
+              <div formGroupName="createPlanRooms">
+                 <div class="form-group">
+                    <label>Room #/Name:</label>
+                    <input type="text" formControlName="room1Name" class="form-control">
+                     <label>Action</label>
+                    <input type="text" formControlName="room1Action" class="form-control">
+                </div>
+
+                 <div class="form-group">
+                    <label>Room #/Name:</label>
+                    <input type="text" formControlName="room2Name" class="form-control">
+                     <label>Action</label>
+                    <input type="text" formControlName="room2Action" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label>Room #/Name:</label>
+                    <input type="text" formControlName="room3Name" class="form-control">
+                     <label>Action</label>
+                    <input type="text" formControlName="room3Action" class="form-control">
+                </div>
+                 <div class="form-group">
+                    <label>Room #/Name:</label>
+                    <input type="text" formControlName="room4Name" class="form-control">
+                    <label>Action</label>
+                    <input type="text" formControlName="room4Action" class="form-control">
+                </div>
+              </div>
+          </div>
+
+            <div formGroupName="wowForms">
+              <h4>WOW forms</h4>
+              <div class="form-group">
+                <label>Name</label>
+                <input type="text" formControlName="wowName" class="form-control">
+              </div>
+               <div class="form-group">
+                <label>Action</label>
+                <input type="text" formControlName="wowAction" class="form-control">
+              </div>
+                 <div class="form-group">
+                <label>Date</label>
+                <input type="date" formControlName="wowDate" class="form-control">
+              </div>
+
+                <div class="form-group">
+                <label>Who will do this?</label>
+                <input type="text" formControlName="wowWho" class="form-control">
+              </div>
+
+              <div class="form-group">
+                <label>Responsive Behaviours that need group discussion and brainstorming:</label>
+                <textarea formControlName="responsiveBehaviours" class="form-control"></textarea>
+              </div>
+
+                  <div class="form-group">
+                  <label>Falls (Note: since falls can be tied to responsive behaviours it is recommended that you falls committee be linked to the DementiAbility Committee. Consider task breakdown, memory cues, such as "Sit before putting on socks, pants and shoes").</label>
+                <textarea formControlName="falls" class="form-control"></textarea>
+              </div>
+
+              <div class="form-group">
+                  <label>Wounds:</label>
+                <textarea formControlName="wounds" class="form-control"></textarea>
+              </div>
+          </div>
+           <div class="form-group">
+                <label>Other Area: (7, 8, 9, 10):</label>
+                <textarea formControlName="otherArea" class="form-control"></textarea>
+              </div>
+
+            <button type="button" (click)="removeItem(i)" class="btn btn-danger">Remove Area</button>
+
+    </div>
+  </div>
+      <button type="button" (click)="addItem()" class="btn btn-secondary">Add Item</button>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -1,0 +1,63 @@
+<form [formGroup]="medicalForm" (ngSubmit)="onSubmit()">
+  <h3>G4e. 請問您是否有經醫師診斷，且目前 (6 個月內) 仍存在的疾病?</h3>
+  
+  <div class="checkbox-container">
+    <label>
+      <input type="checkbox" formControlName="hasCondition">
+      2. 是 【續答疾病史】 (若無請留空，跳答 G4f)
+    </label>
+  </div>
+
+  <div *ngIf="medicalForm.get('hasCondition')?.value" class="disease-records">
+    <div formArrayName="diseaseRecords">
+      <div *ngFor="let record of diseaseRecords.controls; let i = index" [formGroupName]="i" class="disease-record">
+        <div class="field">
+          <label>疾病名稱</label>
+          <select formControlName="selectedDisease">
+            <option value="">請選擇疾病</option>
+            <option *ngFor="let disease of diseases" [value]="disease.controlName">
+              {{ disease.id }}. {{ disease.name }}
+            </option>
+          </select>
+        </div>
+        <div class="field">
+          <label>目前正在治療</label>
+          <select formControlName="underTreatment">
+            <option value="">未選擇</option>
+            <option value="yes">是</option>
+            <option value="no">否</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>目前使用藥物</label>
+          <select formControlName="onMedication">
+            <option value="">未選擇</option>
+            <option value="yes">是</option>
+            <option value="no">否</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>疾病描述</label>
+          <input type="text" formControlName="diseaseDescription" placeholder="請輸入疾病描述">
+        </div>
+        <div class="field">
+          <label>藥物描述</label>
+          <input type="text" formControlName="medDescription" placeholder="請輸入藥物描述">
+        </div>
+        <button type="button" (click)="removeDiseaseRecord(i)" class="remove-btn">移除</button>
+      </div>
+    </div>
+
+    <div class="action-buttons">
+      <button type="button" (click)="addDiseaseRecord()">新增疾病記錄</button>
+    </div>
+
+    <div class="new-disease">
+      <label>新增疾病選項：</label>
+      <input type="text" [(ngModel)]="newDiseaseName" [ngModelOptions]="{standalone: true}" placeholder="輸入疾病名稱">
+      <button type="button" (click)="addNewDisease()">新增</button>
+    </div>
+  </div>
+
+  <button type="submit" class="submit-btn">提交</button>
+</form>

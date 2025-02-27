@@ -1,0 +1,442 @@
+<form [formGroup]="nurseReportForm" (ngSubmit)="onSubmit()">
+  <div class="form-container">
+    <!-- 患者背景 -->
+    <div class="section">
+      <h2>患者背景 (PATIENT BACKGROUND)</h2>
+      <div class="form-group">
+        <label for="name">姓名 (Name):</label>
+        <input type="text" id="name" formControlName="name">
+      </div>
+      <div class="form-group">
+        <label>性別 (Sex):</label>
+        <div>
+          <label><input type="radio" formControlName="sex" value="M"> 男 (M)</label>
+          <label><input type="radio" formControlName="sex" value="F"> 女 (F)</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="age">年齡 (Age):</label>
+        <input type="number" id="age" formControlName="age">
+      </div>
+      <div class="form-group">
+        <label for="roomNumber">房間號 (Room #):</label>
+        <input type="text" id="roomNumber" formControlName="roomNumber">
+      </div>
+      <div class="form-group">
+        <label>行動能力 (Mobility):</label>
+        <div>
+          <label><input type="radio" formControlName="mobility" value="Indep"> 獨立 (Indep)</label>
+          <label><input type="radio" formControlName="mobility" value="Assist"> 輔助 (Assist)</label>
+          <label><input type="radio" formControlName="mobility" value="Bedrest"> 臥床 (Bedrest)</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="admitDate">入院日期 (Admit Date):</label>
+        <input type="date" id="admitDate" formControlName="admitDate">
+      </div>
+      <div class="form-group">
+        <label for="allergies">過敏 (Allergies):</label>
+        <input type="text" id="allergies" formControlName="allergies">
+      </div>
+      <div class="form-group">
+        <label for="complaint">抱怨 (Complaint):</label>
+        <input type="text" id="complaint" formControlName="complaint">
+      </div>
+      <div class="form-group">
+        <label>情況 (Situation):</label>
+        <div>
+          <label><input type="radio" formControlName="situation" value="Full"> 完整 (Full)</label>
+          <label><input type="radio" formControlName="situation" value="Limited"> 有限 (Limited)</label>
+          <label><input type="radio" formControlName="situation" value="DNR"> DNR</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>預防措施 (Precaution):</label>
+        <div>
+          <label><input type="checkbox" formControlName="precautionNone"> 無 (None)</label>
+          <label><input type="checkbox" formControlName="precautionDroplet"> 跌倒 (Droplet)</label>
+          <label><input type="checkbox" formControlName="precautionSeizure"> 癲癇 (Seizure)</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- 醫療歷史 -->
+    <div class="section">
+      <h2>醫療歷史 (MEDICAL HISTORY)</h2>
+      <div class="form-group">
+        <label for="diagnosis">診斷 (Diagnosis):</label>
+        <input type="text" id="diagnosis" formControlName="diagnosis">
+      </div>
+      <div class="checkbox-group">
+        <label><input type="checkbox" formControlName="cad"> 冠心病 (CAD)</label>
+        <label><input type="checkbox" formControlName="bph"> 良性前列腺增生 (BPH)</label>
+        <label><input type="checkbox" formControlName="mi"> 心肌梗塞 (MI)</label>
+        <label><input type="checkbox" formControlName="cabg"> 急性呼吸衰竭 (CABG)</label>
+        <label><input type="checkbox" formControlName="afid"> 心房顫動 (AFID)</label>
+        <label><input type="checkbox" formControlName="anxiety"> 焦慮 (Anxiety)</label>
+        <label><input type="checkbox" formControlName="htn"> 高血壓 (HTN)</label>
+        <label><input type="checkbox" formControlName="hld"> 肝硬化 (HLD)</label>
+        <label><input type="checkbox" formControlName="stroke"> 中風 (Stroke)</label>
+        <label><input type="checkbox" formControlName="chf"> 心臟衰竭 (CHF)</label>
+        <label><input type="checkbox" formControlName="dld"> 低密度脂蛋白 (DLD)</label>
+        <label><input type="checkbox" formControlName="depression"> 抑鬱 (Depression)</label>
+        <label><input type="checkbox" formControlName="copd"> 慢性阻塞性肺病 (COPD)</label>
+        <label><input type="checkbox" formControlName="etoh"> 甲狀腺功能亢進 (ETOH)</label>
+        <label><input type="checkbox" formControlName="gerd"> 胃食道逆流 (GERD)</label>
+        <label><input type="checkbox" formControlName="ckd"> 慢性腎病 (CKD)</label>
+        <label><input type="checkbox" formControlName="pad"> 外周動脈疾病 (PAD)</label>
+      </div>
+    </div>
+
+    <!-- 生命徵象 -->
+    <div class="section">
+      <h2>生命徵象 (VITAL)</h2>
+      <div class="form-group">
+        <label for="temperature">體溫 (Temp):</label>
+        <input type="number" id="temperature" formControlName="temperature">
+      </div>
+      <div class="form-group">
+        <label for="bloodPressure">血壓 (BP):</label>
+        <input type="text" id="bloodPressure" formControlName="bloodPressure">
+      </div>
+      <div class="form-group">
+        <label for="heartRate">心率 (HR):</label>
+        <input type="number" id="heartRate" formControlName="heartRate">
+      </div>
+      <div class="form-group">
+        <label for="respiratoryRate">呼吸率 (RR):</label>
+        <input type="number" id="respiratoryRate" formControlName="respiratoryRate">
+      </div>
+      <div class="form-group">
+        <label for="oxygenSaturation">血氧飽和度 (SpO2):</label>
+        <input type="number" id="oxygenSaturation" formControlName="oxygenSaturation">
+      </div>
+    </div>
+
+    <!-- 神經 -->
+    <div class="section">
+      <h2>神經 (NEURO)</h2>
+      <div class="form-group">
+        <label>狀態 (Status):</label>
+        <div>
+          <label><input type="radio" formControlName="neuroStatus" value="Alert"> 警覺 (Alert)</label>
+          <label><input type="radio" formControlName="neuroStatus" value="Unconscious"> 清醒 (Unconscious)</label>
+          <label><input type="radio" formControlName="neuroStatus" value="Confused"> 混亂 (Confused)</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>力量/反射 (Power/Reflex):</label>
+        <div>
+          <label><input type="checkbox" formControlName="neuroPower"> 力量 (Power)</label>
+          <label><input type="checkbox" formControlName="neuroReflex"> 反射 (Reflex)</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- 血糖監測 -->
+    <div class="section">
+      <h2>血糖監測 (ACCU CHECK)</h2>
+      <div class="form-group">
+        <label for="accuCheckTime">時間 (Time):</label>
+        <input type="time" id="accuCheckTime" formControlName="accuCheckTime">
+      </div>
+      <div class="form-group">
+        <label for="bloodSugar">血糖 (BS):</label>
+        <input type="number" id="bloodSugar" formControlName="bloodSugar">
+      </div>
+      <div class="form-group">
+        <label>頻率 (Frequency):</label>
+        <div>
+          <label><input type="radio" formControlName="accuCheckFrequency" value="Hourly"> 每小時 (Hourly)</label>
+          <label><input type="radio" formControlName="accuCheckFrequency" value="Cover"> 覆蓋 (Cover)</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- 心臟 -->
+    <div class="section">
+      <h2>心臟 (CARDIAC)</h2>
+      <div class="form-group">
+        <label>狀態 (Status):</label>
+        <div>
+          <label><input type="checkbox" formControlName="cardiacPulses"> 脈搏 (Pulses)</label>
+          <label><input type="checkbox" formControlName="cardiacEdema"> 水腫 (Edema)</label>
+          <label><input type="checkbox" formControlName="cardiacBilateral"> 雙側 (Bilateral)</label>
+          <label><input type="checkbox" formControlName="cardiacSounds"> 心音 (Cardiac Sounds)</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- 呼吸 -->
+    <div class="section">
+      <h2>呼吸 (RESPIRATORY)</h2>
+      <div class="form-group">
+        <label>狀態 (Status):</label>
+        <div>
+          <label><input type="checkbox" formControlName="respiratoryPattern"> 模式 (Pattern)</label>
+          <label><input type="checkbox" formControlName="respiratoryChestExp"> 胸部檢查 (Chest Exp)</label>
+          <label><input type="checkbox" formControlName="respiratoryClear"> 清晰 (Clear)</label>
+          <label><input type="checkbox" formControlName="respiratoryDiminished"> 減弱 (Diminished)</label>
+          <label><input type="checkbox" formControlName="respiratoryCrackles"> 哮鳴 (Crackles)</label>
+          <label><input type="checkbox" formControlName="respiratoryBreathSounds"> 呼吸音 (Breath Sounds)</label>
+          <label><input type="checkbox" formControlName="respiratoryRoomAir"> 房間空氣 (Room Air)</label>
+          <label><input type="checkbox" formControlName="respiratoryCPAP"> CPAP</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- 實驗室檢查 -->
+    <div class="section">
+      <h2>實驗室檢查 (LABS)</h2>
+      <div class="form-group">
+        <label for="hgb">血紅蛋白 (HGB):</label>
+        <input type="number" id="hgb" formControlName="hgb">
+      </div>
+      <div class="form-group">
+        <label for="wbc">白血球 (WBC):</label>
+        <input type="number" id="wbc" formControlName="wbc">
+      </div>
+      <div class="form-group">
+        <label for="plt">血小板 (PLT):</label>
+        <input type="number" id="plt" formControlName="plt">
+      </div>
+      <div class="form-group">
+        <label for="pt">凝血酶原時間 (PT):</label>
+        <input type="number" id="pt" formControlName="pt">
+      </div>
+      <div class="form-group">
+        <label for="inr">國際標準化比值 (INR):</label>
+        <input type="number" id="inr" formControlName="inr">
+      </div>
+      <div class="form-group">
+        <label for="ptt">部分凝血活酶時間 (PTT):</label>
+        <input type="number" id="ptt" formControlName="ptt">
+      </div>
+      <div class="form-group">
+        <label for="bun">肌酸酐 (BUN):</label>
+        <input type="number" id="bun" formControlName="bun">
+      </div>
+      <div class="form-group">
+        <label for="troponin">肌鈣蛋白 (Troponin):</label>
+        <input type="number" id="troponin" formControlName="troponin">
+      </div>
+      <div class="form-group">
+        <label for="k">鉀 (K):</label>
+        <input type="number" id="k" formControlName="k">
+      </div>
+      <div class="form-group">
+        <label for="na">鈉 (Na):</label>
+        <input type="number" id="na" formControlName="na">
+      </div>
+      <div class="form-group">
+        <label for="cl">氯 (Cl):</label>
+        <input type="number" id="cl" formControlName="cl">
+      </div>
+      <div class="form-group">
+        <label for="co2">二氧化碳 (CO2):</label>
+        <input type="number" id="co2" formControlName="co2">
+      </div>
+      <div class="form-group">
+        <label for="glucose">葡萄糖 (Glucose):</label>
+        <input type="number" id="glucose" formControlName="glucose">
+      </div>
+      <div class="form-group">
+        <label for="ph">pH:</label>
+        <input type="number" id="ph" formControlName="ph">
+      </div>
+    </div>
+
+    <!-- 胃腸 -->
+    <div class="section">
+      <h2>胃腸 (GASTROINTESTINAL)</h2>
+      <div class="form-group">
+        <label>飲食 (Diet):</label>
+        <div>
+          <label><input type="radio" formControlName="diet" value="Normal"> 正常 (Normal)</label>
+          <label><input type="radio" formControlName="diet" value="NPO"> NPO</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>進食/狀態 (Intake/Status):</label>
+        <div>
+          <label><input type="checkbox" formControlName="intake"> 進食 (Intake)</label>
+          <label><input type="checkbox" formControlName="ostomy"> 造口 (Ostomy)</label>
+          <label><input type="checkbox" formControlName="tubeFeed"> 管飼 (Tube Feed)</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="lastBM">最後排便 (Last BM):</label>
+        <select id="lastBM" formControlName="lastBM">
+          <option value="Hypo">低 (Hypo)</option>
+          <option value="Normal">正常 (Normal)</option>
+          <option value="Hyper">高 (Hyper)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- 泌尿 -->
+    <div class="section">
+      <h2>泌尿 (GENITOURINARY)</h2>
+      <div class="form-group">
+        <label>輸出/狀態 (Output/Status):</label>
+        <div>
+          <label><input type="checkbox" formControlName="output"> 輸出 (Output)</label>
+          <label><input type="checkbox" formControlName="voiding"> 排尿 (Voiding)</label>
+          <label><input type="checkbox" formControlName="anuria"> 無尿 (Anuria)</label>
+          <label><input type="checkbox" formControlName="incontinence"> 失禁 (Incontinence)</label>
+          <label><input type="checkbox" formControlName="urethral"> 尿道導管 (Urethral)</label>
+          <label><input type="checkbox" formControlName="catheter"> 導尿管 (Catheter)</label>
+          <label><input type="checkbox" formControlName="bedsideComm"> 床邊便器 (Bedside Comm)</label>
+          <label><input type="checkbox" formControlName="bedpan"> 便盆 (Bedpan)</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- 皮膚/傷口 -->
+    <div class="section">
+      <h2>皮膚/傷口 (SKIN/WOUNDS)</h2>
+      <div class="form-group">
+        <label>狀態 (Status):</label>
+        <div>
+          <label><input type="radio" formControlName="skinStatus" value="Intact"> 完整 (Intact)</label>
+          <label><input type="radio" formControlName="skinStatus" value="Wound"> 傷口 (Wound)</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="skinLocation">位置 (Location):</label>
+        <input type="text" id="skinLocation" formControlName="skinLocation">
+      </div>
+      <div class="form-group">
+        <label for="skinSize">大小 (Size):</label>
+        <input type="text" id="skinSize" formControlName="skinSize">
+      </div>
+      <div class="form-group">
+        <label>床邊/敷料 (Bedstore/Dressing):</label>
+        <div>
+          <label><input type="checkbox" formControlName="bedstore"> 床邊 (Bedstore)</label>
+          <label><input type="checkbox" formControlName="dressing"> 敷料 (Dressing)</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="bedstoreLocation">位置 (Location):</label>
+        <input type="text" id="bedstoreLocation" formControlName="bedstoreLocation">
+      </div>
+      <div class="form-group">
+        <label for="bedstoreSize">大小 (Size):</label>
+        <input type="text" id="bedstoreSize" formControlName="bedstoreSize">
+      </div>
+    </div>
+
+    <!-- 點滴/液體 -->
+    <div class="section">
+      <h2>點滴/液體 (DRIPS/FLUIDS)</h2>
+      <div class="form-group">
+        <label for="dripsFluids">詳細資訊:</label>
+        <textarea id="dripsFluids" formControlName="dripsFluids"></textarea>
+      </div>
+    </div>
+
+    <!-- 靜脈注射部位 -->
+    <div class="section">
+      <h2>靜脈注射部位 (IV SITES)</h2>
+      <div class="form-group">
+        <label>類型 (Type):</label>
+        <div>
+          <label><input type="checkbox" formControlName="piv"> 外周靜脈 (PIV)</label>
+          <label><input type="checkbox" formControlName="piccc"> 中心靜脈導管 (PICCC)</label>
+          <label><input type="checkbox" formControlName="cvc"> 中心靜脈 (CVC)</label>
+          <label><input type="checkbox" formControlName="hd"> 血液透析 (HD)</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- 住院過程 -->
+    <div class="section">
+      <h2>住院過程 (HOSPITAL COURSE)</h2>
+      <div class="form-group">
+        <label for="hospitalCourse">詳細資訊:</label>
+        <textarea id="hospitalCourse" formControlName="hospitalCourse"></textarea>
+      </div>
+    </div>
+
+    <!-- 照護計劃 -->
+    <div class="section">
+      <h2>照護計劃 (PLAN OF CARE)</h2>
+      <div class="form-group">
+        <label for="planOfCare">詳細資訊:</label>
+        <textarea id="planOfCare" formControlName="planOfCare"></textarea>
+      </div>
+    </div>
+
+    <!-- 出院計劃 -->
+    <div class="section">
+      <h2>出院計劃 (DISCHARGE PLAN)</h2>
+      <div class="form-group">
+        <label for="dischargePlan">詳細資訊:</label>
+        <textarea id="dischargePlan" formControlName="dischargePlan"></textarea>
+      </div>
+    </div>
+
+    <!-- 筆記 -->
+    <div class="section">
+      <h2>筆記 (NOTES)</h2>
+      <div class="form-group">
+        <label for="notes">詳細資訊:</label>
+        <textarea id="notes" formControlName="notes"></textarea>
+      </div>
+    </div>
+
+    <!-- 諮詢 -->
+    <div class="section">
+      <h2>諮詢 (CONSULTS)</h2>
+      <div class="form-group">
+        <label>科別 (Specialty):</label>
+        <div>
+          <label><input type="checkbox" formControlName="gi"> 胃腸科 (GI)</label>
+          <label><input type="checkbox" formControlName="ptOt"> 物理治療 (PT/OT)</label>
+          <label><input type="checkbox" formControlName="psych"> 心理科 (Psych)</label>
+          <label><input type="checkbox" formControlName="neuro"> 神經科 (Neuro)</label>
+          <label><input type="checkbox" formControlName="ortho"> 骨科 (Ortho)</label>
+          <label><input type="checkbox" formControlName="onco"> 腫瘤科 (Onco)</label>
+          <label><input type="checkbox" formControlName="pulmo"> 呼吸科 (Pulmo)</label>
+          <label><input type="checkbox" formControlName="cardio"> 心臟科 (Cardio)</label>
+          <label><input type="checkbox" formControlName="surg"> 普通外科 (Surg)</label>
+          <label><input type="checkbox" formControlName="medi"> 內科 (Medi)</label>
+          <label><input type="checkbox" formControlName="urology"> 泌尿科 (Urology)</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- 用藥與待辦事項 -->
+    <div class="section">
+      <h2>用藥與待辦事項 (MEDICATION & TO DO)</h2>
+      <div class="form-group">
+        <label for="medicationTime">時間 (Time):</label>
+        <input type="time" id="medicationTime" formControlName="medicationTime">
+      </div>
+      <div class="form-group">
+        <label for="task">任務 (Task):</label>
+        <input type="text" id="task" formControlName="task">
+      </div>
+    </div>
+
+    <!-- 測試/程序 -->
+    <div class="section">
+      <h2>測試/程序 (Tests/Procedures)</h2>
+      <div class="form-group">
+        <label>項目 (Items):</label>
+        <div>
+          <label><input type="checkbox" formControlName="pacemaker"> 起搏器製造者 (Pacemaker)</label>
+          <label><input type="checkbox" formControlName="cath"> 心導管 (Cath)</label>
+          <label><input type="checkbox" formControlName="ekg"> 心電圖 (EKG)</label>
+          <label><input type="checkbox" formControlName="echo"> 超聲波 (Echo)</label>
+          <label><input type="checkbox" formControlName="xray"> X光 (X-ray)</label>
+          <label><input type="checkbox" formControlName="mri"> 磁共振 (MRI)</label>
+          <label><input type="checkbox" formControlName="ct"> 電腦斷層 (CT)</label>
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="nurseReportForm.invalid">提交</button>
+  </div>
+</form>

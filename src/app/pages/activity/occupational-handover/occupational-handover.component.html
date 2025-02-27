@@ -1,0 +1,131 @@
+<div class="container my-4">
+    <form [formGroup]="handoverForm" (ngSubmit)="onSubmit()">
+      <h2 class="text-center mb-4">職能治療交班紀錄</h2>
+  
+      <!-- 1. 基本資料 -->
+      <section formGroupName="basicInfo" class="mb-4">
+        <h3 class="border-bottom pb-2">1. 基本資料</h3>
+        <div class="row">
+          <div class="col-md-4 col-sm-6 mb-3">
+            <label for="name" class="form-label">姓名</label>
+            <input id="name" class="form-control" formControlName="name" placeholder="張先生">
+          </div>
+          <div class="col-md-4 col-sm-6 mb-3">
+            <label for="age" class="form-label">年齡</label>
+            <input id="age" type="number" class="form-control" formControlName="age" placeholder="65">
+          </div>
+          <div class="col-md-4 col-sm-6 mb-3">
+            <label for="gender" class="form-label">性別</label>
+            <input id="gender" class="form-control" formControlName="gender" placeholder="男">
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="condition" class="form-label">狀況</label>
+          <textarea id="condition" class="form-control" rows="2" formControlName="condition" placeholder="中風後右半身無力（從2025年1月15日開始）"></textarea>
+        </div>
+      </section>
+  
+      <!-- 2. 目前情況 -->
+      <section formGroupName="currentStatus" class="mb-4">
+        <h3 class="border-bottom pb-2">2. 目前情況</h3>
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label for="mental" class="form-label">頭腦</label>
+            <textarea id="mental" class="form-control" rows="2" formControlName="mental" placeholder="很清醒，知道自己在哪、今天是什麼日子"></textarea>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="speech" class="form-label">說話</label>
+            <textarea id="speech" class="form-control" rows="2" formControlName="speech" placeholder="講話清楚，但有時候會卡住想不起詞"></textarea>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="mood" class="form-label">心情</label>
+            <textarea id="mood" class="form-control" rows="2" formControlName="mood" placeholder="大部分時間穩定，但偶爾會擔心復健太慢"></textarea>
+          </div>
+        </div>
+      </section>
+  
+      <!-- 3. 身體狀況 -->
+      <section formGroupName="physicalCondition" class="mb-4">
+        <h3 class="border-bottom pb-2">3. 身體狀況</h3>
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label for="rightArm" class="form-label">右手臂</label>
+            <textarea id="rightArm" class="form-control" rows="2" formControlName="rightArm" placeholder="力氣很弱，只能稍微抬一點。左手正常"></textarea>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="rightLeg" class="form-label">右腳</label>
+            <textarea id="rightLeg" class="form-control" rows="2" formControlName="rightLeg" placeholder="比手臂好一點，能動但還是很吃力。左腳正常"></textarea>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="dailyLife" class="form-label">日常生活</label>
+            <textarea id="dailyLife" class="form-control" rows="2" formControlName="dailyLife" placeholder="吃飯和穿衣服需要幫一點，洗澡和上廁所需要全幫"></textarea>
+          </div>
+        </div>
+      </section>
+  
+      <!-- 4. 今天做了什麼 -->
+      <section formGroupName="todayActivities" class="mb-4">
+        <h3 class="border-bottom pb-2">4. 今天做了什麼</h3>
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label for="intervention" class="form-label">活動內容</label>
+            <textarea id="intervention" class="form-control" rows="2" formControlName="intervention" placeholder="幫他活動右手臂30分鐘，還用彈力帶練力氣，教他怎麼拿湯匙吃飯"></textarea>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="response" class="form-label">病人反應</label>
+            <textarea id="response" class="form-control" rows="2" formControlName="response" placeholder="他很配合，但練完右手會覺得累"></textarea>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="progress" class="form-label">進步</label>
+            <textarea id="progress" class="form-control" rows="2" formControlName="progress" placeholder="右手抬起來的高度比昨天多了一點點"></textarea>
+          </div>
+        </div>
+      </section>
+  
+      <!-- 5. 要注意的事 -->
+      <section class="mb-4">
+        <h3 class="border-bottom pb-2">5. 要注意的事</h3>
+        <textarea class="form-control" rows="3" formControlName="precautions" placeholder="動右手時小心一點，別讓關節受傷。&#10;他有時候血壓會偏低，站起來時要量一下血壓。&#10;盡量讓他用左手做事，別都靠左邊代替右邊"></textarea>
+      </section>
+  
+      <!-- 6. 治療計畫 -->
+      <section formGroupName="treatmentPlan" class="mb-4">
+        <h3 class="border-bottom pb-2">6. 治療計畫</h3>
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label for="shortTerm" class="form-label">最近1-2週目標</label>
+            <textarea id="shortTerm" class="form-control" rows="3" formControlName="shortTerm" placeholder="讓右手更有力一點，能抬高到肩膀附近。&#10;自己吃一半的飯（可以用粗握把湯匙幫忙）。&#10;從坐著站起來時有人扶一下就行"></textarea>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="midTerm" class="form-label">1-2個月目標</label>
+            <textarea id="midTerm" class="form-control" rows="3" formControlName="midTerm" placeholder="右手能自己穿上衣服（還不用扣扣子）。&#10;用助行器走10公尺。&#10;生活上七成的事能自己來"></textarea>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="longTerm" class="form-label">3-6個月目標</label>
+            <textarea id="longTerm" class="form-control" rows="3" formControlName="longTerm" placeholder="右手能寫字、扣扣子。&#10;生活九成自己搞定，不太需要別人幫。&#10;可以出去散步或做點簡單家事"></textarea>
+          </div>
+        </div>
+      </section>
+  
+      <!-- 7. 接下來要做的事 -->
+      <section formGroupName="nextSteps" class="mb-4">
+        <h3 class="border-bottom pb-2">7. 接下來要做的事</h3>
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label for="therapist" class="form-label">治療師要做</label>
+            <textarea id="therapist" class="form-control" rows="3" formControlName="therapist" placeholder="下次練站起來和平衡，每次15-20分鐘。&#10;給他一個握力球，每天握3次，每次10分鐘。&#10;看看要不要做個護腕固定他的手"></textarea>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="family" class="form-label">家裡人幫忙</label>
+            <textarea id="family" class="form-control" rows="3" formControlName="family" placeholder="每天讓他坐著練抬右手，10下做2次。&#10;家裡地板清乾淨，別讓他絆倒。&#10;鼓勵他擦桌子之類的小事，動一動比較好"></textarea>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="team" class="form-label">和其他人合作</label>
+            <textarea id="team" class="form-control" rows="3" formControlName="team" placeholder="跟練走路的老師確認腳的進度，一起幫他站好。&#10;如果他講話還是卡卡的，跟語言老師聊聊怎麼幫。&#10;血壓低的話，可能要請醫生調藥"></textarea>
+          </div>
+        </div>
+      </section>
+  
+      <button type="submit" class="btn btn-primary w-100">儲存紀錄</button>
+    </form>
+  </div>

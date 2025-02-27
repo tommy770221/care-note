@@ -1,0 +1,71 @@
+<div class="container mt-4">
+    <h2 class="text-center">住戶沐浴資訊</h2>
+    <form [formGroup]="careForm" (ngSubmit)="submitForm()">
+      <div class="mb-3">
+        <label class="form-label">🏠 住戶姓名</label>
+        <input type="text" class="form-control" formControlName="residentName" />
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">🔄 移動方式</label>
+        <input type="text" class="form-control" formControlName="transferMethod" />
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">👨‍⚕️ 需要的工作人員</label>
+        <input type="text" class="form-control" formControlName="staffRequired" />
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">⚠️ 可能的行為</label>
+        <textarea class="form-control" formControlName="behaviours"></textarea>
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">🎯 觸發因素 (正面/負面)</label>
+        <textarea class="form-control" formControlName="triggers"></textarea>
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">🎵 喜愛的音樂</label>
+        <input type="text" class="form-control" formControlName="preferredMusic" />
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">🦶 足部護理需求</label>
+        <input type="text" class="form-control" formControlName="footCare" />
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">💡 讓沐浴更愉快的建議</label>
+        <textarea class="form-control" formControlName="tips"></textarea>
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">🚿 沐浴偏好</label><br>
+        <input type="checkbox" formControlName="bathLikes" /> 喜歡泡澡
+        <input type="checkbox" formControlName="showerLikes" class="ms-3" /> 喜歡淋浴
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">🧼 自理能力</label><br>
+        <input type="checkbox" formControlName="canWashIndependently" /> 能夠獨立洗澡
+        <input type="checkbox" formControlName="canWashWithAssistance" class="ms-3" /> 需要協助洗澡
+        <input type="checkbox" formControlName="needsFullCare" class="ms-3" /> 需要全程照護
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">😊 喜歡的事項</label>
+        <textarea class="form-control" formControlName="likes"></textarea>
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">🙁 不喜歡的事項</label>
+        <textarea class="form-control" formControlName="dislikes"></textarea>
+      </div>
+  
+      <div class="text-center mt-4">
+        <button type="submit" class="btn btn-primary">提交表單</button>
+      </div>
+    </form>
+  </div>

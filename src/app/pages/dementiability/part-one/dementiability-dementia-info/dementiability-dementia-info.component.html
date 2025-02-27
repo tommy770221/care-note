@@ -1,0 +1,50 @@
+<div class="container">
+    <h2>失智症相關資訊表單</h2>
+  
+    <form [formGroup]="dementiaForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="fearsLossesTragicEvents" class="form-label">**恐懼、失落和悲劇事件**</label>
+        <textarea class="form-control" id="fearsLossesTragicEvents" formControlName="fearsLossesTragicEvents" rows="3"></textarea>
+        <div class="form-text">選擇活動時可能需要考慮這些資訊。目的是了解情況，但不一定要處理這些問題，除非您有資格這樣做。可以問：「有什麼您想讓我知道的嗎？」[1]。</div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="needs" class="form-label">**需求**</label>
+        <textarea class="form-control" id="needs" formControlName="needs" rows="3"></textarea>
+        <div class="form-text">描述這個人的需求，包括社交（例如：孤獨）、認知刺激、感官（觸摸和感覺）以及實際生活（有事情做）。填寫需求表，以了解是否需要解決無聊和孤獨的問題[1]。</div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="habitsRoutines" class="form-label">**習慣與日常**</label>
+        <textarea class="form-control" id="habitsRoutines" formControlName="habitsRoutines" rows="3"></textarea>
+        <div class="form-text">記錄這個人在被診斷出患有失智症之前是如何度過時間的，注意與日常和習慣相關的細節[1]。</div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="informationCollectedFrom" class="form-label">**資訊來源**</label>
+        <input type="text" class="form-control" id="informationCollectedFrom" formControlName="informationCollectedFrom">
+        <div class="form-text">客戶/居民、家庭成員、朋友、工作或志工同事、客戶檔案、其他[2]。</div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="additionalNotes" class="form-label">**其他註記**</label>
+        <textarea class="form-control" id="additionalNotes" formControlName="additionalNotes" rows="3"></textarea>
+      </div>
+  
+      <div class="mb-3">
+        <label for="formUpdatedDate" class="form-label">**表單更新日期**</label>
+        <input type="date" class="form-control" id="formUpdatedDate" formControlName="formUpdatedDate">
+      </div>
+  
+      <div class="mb-3">
+        <label for="formUpdatedBy" class="form-label">**更新人員**</label>
+        <input type="text" class="form-control" id="formUpdatedBy" formControlName="formUpdatedBy">
+      </div>
+  
+      <button type="submit" class="btn btn-primary">提交</button>
+    </form>
+  
+    <div>
+      <p><b>DementiAbility Methods</b>: 蒙特梭利方法[2]</p>
+    </div>
+  </div>

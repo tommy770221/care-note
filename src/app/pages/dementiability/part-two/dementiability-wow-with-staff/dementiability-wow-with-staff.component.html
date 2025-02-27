@@ -1,0 +1,56 @@
+<h2>Wow with staff</h2>
+
+<form [formGroup]="observationForm" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <label>Date:</label>
+    <input type="date" formControlName="date" class="form-control" required>
+  </div>
+
+  <div class="form-group">
+    <label>Shift:</label>
+    <input type="text" formControlName="shift" class="form-control" required>
+  </div>
+
+  <div class="form-group">
+    <label>Assessment of Each Unit: Unit/Home Area Name or Number:</label>
+    <input type="text" formControlName="unit" class="form-control" required>
+  </div>
+
+  <div formArrayName="observations">
+    <div *ngFor="let observation of observations().controls; let i = index" [formGroupName]="i" class="observation-row">
+      <h3>Observation #{{i + 1}}</h3>
+
+      <div class="form-group">
+        <label>Resident Name:</label>
+        <input type="text" formControlName="residentName" class="form-control" required>
+      </div>
+
+      <div class="form-group">
+        <label>Staff Involved:</label>
+        <input type="text" formControlName="staffInvolved" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label>Who:</label>
+        <input type="text" formControlName="who" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label>Observations (Connect to Who - consider triggers & when behaviours occur):</label>
+        <textarea formControlName="observationsText" class="form-control" rows="3"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>What are you going to do?:</label>
+        <textarea formControlName="whatToDo" class="form-control" rows="3"></textarea>
+      </div>
+
+      <button type="button" (click)="removeObservation(i)" class="btn btn-danger">Remove Observation</button>
+      <hr>
+    </div>
+  </div>
+
+  <button type="button" (click)="addObservation()" class="btn btn-secondary">Add Observation</button>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -1,0 +1,168 @@
+<h2>This is me</h2>
+
+<form [formGroup]="thisIsMeForm" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <label>Name I like to be called:</label>
+    <input type="text" formControlName="nameILikeToBeCalled" class="form-control">
+  </div>
+
+  <h3>This space is for you.</h3>
+  <p>You can attach a favourite photo here – of yourself, your family, a pet or a place you've visited.</p>
+
+  <h4>OR list four things that interest you:</h4>
+  <div formGroupName="favouriteThings">
+    <div class="form-group">
+      <label>1:</label>
+      <input type="text" formControlName="item1" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>2:</label>
+      <input type="text" formControlName="item2" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>3:</label>
+      <input type="text" formControlName="item3" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>4:</label>
+      <input type="text" formControlName="item4" class="form-control">
+    </div>
+  </div>
+
+  <h3>About me</h3>
+  <div formGroupName="aboutMe">
+    <div class="form-group">
+      <label>My full name:</label>
+      <input type="text" formControlName="fullName" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Where I live:</label>
+      <textarea formControlName="whereILive" class="form-control" rows="2"></textarea>
+    </div>
+    <div class="form-group">
+      <label>The people who know me best:</label>
+      <textarea formControlName="peopleWhoKnowMeBest" class="form-control" rows="2"></textarea>
+    </div>
+    <div class="form-group">
+      <label>I would like you to know:</label>
+      <textarea formControlName="iWouldLikeYouToKnow" class="form-control" rows="2"></textarea>
+    </div>
+    <div class="form-group">
+      <label>My personal history, family and friends:</label>
+      <textarea formControlName="personalHistory" class="form-control" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+      <label>My important items:</label>
+      <textarea formControlName="importantItems" class="form-control" rows="3"></textarea>
+    </div>
+  </div>
+
+  <h3>My background</h3>
+  <div formGroupName="myBackground">
+    <div class="form-group">
+      <label>My culture, faith and religious beliefs:</label>
+      <textarea formControlName="cultureFaithBeliefs" class="form-control" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+      <label>My hobbies and interests:</label>
+      <textarea formControlName="hobbiesInterests" class="form-control" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+      <label>My jobs and achievements:</label>
+      <textarea formControlName="jobsAchievements" class="form-control" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+      <label>Favourite places I have lived and visited:</label>
+      <textarea formControlName="favouritePlaces" class="form-control" rows="3"></textarea>
+    </div>
+  </div>
+
+  <h3>My habits and routines</h3>
+  <div formGroupName="myHabitsAndRoutines">
+    <div class="form-group">
+      <label>The following routines are important to me:</label>
+      <textarea formControlName="routinesImportantToMe" class="form-control" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+      <label>Things I like to do for myself:</label>
+      <textarea formControlName="thingsILikeToDoForMyself" class="form-control" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+      <label>Things I might want help with:</label>
+      <textarea formControlName="thingsIMightWantHelpWith" class="form-control" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+      <label>Things that may worry or upset me:</label>
+      <textarea formControlName="thingsThatMayWorryOrUpsetMe" class="form-control" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+      <label>What makes me feel better if I am anxious or upset:</label>
+      <textarea formControlName="whatMakesMeFeelBetter" class="form-control" rows="3"></textarea>
+    </div>
+  </div>
+
+  <h3>My communication and mobility</h3>
+  <div formGroupName="myCommunicationAndMobility">
+    <div class="form-group">
+      <label>My hearing and eyesight:</label>
+      <textarea formControlName="hearingEyesight" class="form-control" rows="2"></textarea>
+    </div>
+    <div class="form-group">
+      <label>How we can communicate:</label>
+      <textarea formControlName="howWeCanCommunicate" class="form-control" rows="2"></textarea>
+    </div>
+    <div class="form-group">
+      <label>My mobility:</label>
+      <textarea formControlName="myMobility" class="form-control" rows="2"></textarea>
+    </div>
+    <div class="form-group">
+      <label>Things that help me sleep:</label>
+      <textarea formControlName="thingsThatHelpMeSleep" class="form-control" rows="2"></textarea>
+    </div>
+    <div class="form-group">
+      <label>My personal care:</label>
+      <textarea formControlName="myPersonalCare" class="form-control" rows="2"></textarea>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>How I take my medication:</label>
+    <textarea formControlName="howITakeMyMedication" class="form-control" rows="3"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label>Eating and drinking:</label>
+    <textarea formControlName="eatingAndDrinking" class="form-control" rows="3"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label>Other notes about me:</label>
+    <textarea formControlName="otherNotesAboutMe" class="form-control" rows="3"></textarea>
+  </div>
+
+  <h3>Completion Information</h3>
+  <div class="form-group">
+    <label>Date completed:</label>
+    <input type="date" formControlName="dateCompleted" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label>Completed by:</label>
+    <input type="text" formControlName="completedBy" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label>With the help of:</label>
+    <input type="text" formControlName="withTheHelpOf" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <div class="form-check">
+      <input type="checkbox" formControlName="informationUsageAgreement" class="form-check-input">
+      <label class="form-check-label">I am happy for the information I have provided to be used by health and social care professionals to provide care and support.</label>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

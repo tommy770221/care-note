@@ -89,6 +89,7 @@ export class ActivityComponent implements OnInit, AfterViewChecked {
                 });
         } else {
             //其他activity
+            this.message = this.activity['message'];
         }
     }
 }

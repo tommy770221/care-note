@@ -1,0 +1,91 @@
+<form [formGroup]="isbarForm" (ngSubmit)="onSubmit()">
+    <h3 class="text-center">ISBAR 護理交班(一般人員)</h3>
+    <div class="form-container">
+      <!-- I - 身份 -->
+      <div class="section">
+        <h2>I - 身份 (我是誰、你在跟誰說)</h2>
+        <div class="form-group">
+          <label for="myName">我的姓名和關係:</label>
+          <input type="text" id="myName" formControlName="myName" placeholder="例如：我是小明的女兒張小美，我是他的主要照顧者。">
+        </div>
+        <div class="form-group">
+          <label for="receiverName">對方的姓名和關係:</label>
+          <input type="text" id="receiverName" formControlName="receiverName" placeholder="例如：我正在跟陳護理師說話，她是醫院日班的護理人員。">
+        </div>
+        <div class="form-group">
+          <label for="patientInfo">患者的名字和基本資訊:</label>
+          <input type="text" id="patientInfo" formControlName="patientInfo" placeholder="例如：這是我的父親李小明，65 歲，男性。">
+        </div>
+      </div>
+  
+      <!-- S - 情況 -->
+      <div class="section">
+        <h2>S - 情況 (現在情況怎樣)</h2>
+        <div class="form-group">
+          <label for="currentIssue">現在的問題或不舒服的地方:</label>
+          <input type="text" id="currentIssue" formControlName="currentIssue" placeholder="例如：爸爸今天早上 8 點開始胸部很痛，說痛得很厲害，還流了很多冷汗。">
+        </div>
+        <div class="form-group">
+          <label for="issueTime">問題發生的時間或原因:</label>
+          <input type="text" id="issueTime" formControlName="issueTime" placeholder="例如：問題是在早上 8 點突然開始的，我們不知道為什麼，但之前他有點累。">
+        </div>
+        <div class="form-group">
+          <label for="issueStability">現在感覺穩定還是緊急:</label>
+          <input type="text" id="issueStability" formControlName="issueStability" placeholder="例如：他現在心跳很快，臉色很差，感覺很緊急，需要立刻檢查。">
+        </div>
+      </div>
+  
+      <!-- B - 背景 -->
+      <div class="section">
+        <h2>B - 背景 (過去的健康情況)</h2>
+        <div class="form-group">
+          <label for="healthHistory">患者過去的健康問題:</label>
+          <input type="text" id="healthHistory" formControlName="healthHistory" placeholder="例如：爸爸有高血壓、心臟問題和糖尿病，之前做過心臟手術。">
+        </div>
+        <div class="form-group">
+          <label for="recentTreatment">最近的治療或藥物:</label>
+          <input type="text" id="recentTreatment" formControlName="recentTreatment" placeholder="例如：他現在每天吃降壓藥和降糖藥，昨天吃了心臟藥。">
+        </div>
+        <div class="form-group">
+          <label for="recentCheckup">最近的檢查或情況:</label>
+          <input type="text" id="recentCheckup" formControlName="recentCheckup" placeholder="例如：昨天醫生說他的心臟檢查有點問題，血檢顯示有點異常。">
+        </div>
+      </div>
+  
+      <!-- A - 評估 -->
+      <div class="section">
+        <h2>A - 評估 (我怎麼看這個問題)</h2>
+        <div class="form-group">
+          <label for="myObservation">我的觀察或想法:</label>
+          <input type="text" id="myObservation" formControlName="myObservation" placeholder="例如：我覺得爸爸的胸痛可能是心臟不舒服，因為他以前也有過類似情況。">
+        </div>
+        <div class="form-group">
+          <label for="possibleCause">可能的原因:</label>
+          <input type="text" id="possibleCause" formControlName="possibleCause" placeholder="例如：可能是因為他昨天太累了，或者藥物效果不好。">
+        </div>
+        <div class="form-group">
+          <label for="severity">是不是很嚴重:</label>
+          <input type="text" id="severity" formControlName="severity" placeholder="例如：我覺得很嚴重，因為他現在看起來很痛苦，血壓也很低。">
+        </div>
+      </div>
+  
+      <!-- R - 建議/要求 -->
+      <div class="section">
+        <h2>R - 建議/要求 (我需要什麼幫忙)</h2>
+        <div class="form-group">
+          <label for="recommendation">我希望怎麼做:</label>
+          <input type="text" id="recommendation" formControlName="recommendation" placeholder="例如：希望馬上叫醫生來檢查他的心臟，看看是不是心臟出問題。">
+        </div>
+        <div class="form-group">
+          <label for="assistanceNeeded">需要什麼協助或東西:</label>
+          <input type="text" id="assistanceNeeded" formControlName="assistanceNeeded" placeholder="例如：需要氧氣機幫他呼吸，或是請醫生帶來心臟藥。">
+        </div>
+        <div class="form-group">
+          <label for="followUp">後續需要注意什麼:</label>
+          <input type="text" id="followUp" formControlName="followUp" placeholder="例如：請每隔 15 分鐘看看他的情況，如果胸痛更嚴重馬上打電話給我或醫生。">
+        </div>
+      </div>
+  
+      <button type="submit">提交</button>
+    </div>
+  </form>

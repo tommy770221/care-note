@@ -9,14 +9,14 @@
       [rounded]="true"
     />
     <span class="username">
-            <a routerLink="/">{{ careGiver.name }} - {{careGiver.role|translate}}</a>
+            <a routerLink="/">{{ careGiver?.name }} - {{careGiver?.role|translate}}</a>
             <a routerLink="/" class="float-right btn-tool">
                 <i class="fas fa-times"></i>
             </a>
         </span>
     <span class="description">Shared publicly {{activity.createDate.toDate() |date:'yyyy-MM-dd HH:mm'}}</span>
   </div>
-  <p>
+  <p style="white-space: pre-line;">
     {{ message }}
   </p>
   <!--<form class="form-horizontal">

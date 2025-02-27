@@ -1,0 +1,128 @@
+/* 基本樣式 */
+.checkbox-container {
+  margin-bottom: 20px;
+}
+
+.disease-records {
+  margin-top: 20px;
+}
+
+.disease-record {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  background-color: #f9f9f9;
+}
+
+.field {
+  flex: 1 1 150px; /* 每個欄位最小寬度 200px，支持彈性增長 */
+  display: flex;
+  flex-direction: column;
+}
+
+.field label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+select, input[type="text"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.remove-btn {
+  background-color: #dc3545;
+  color: white;
+  align-self: flex-start;
+}
+
+.action-buttons {
+  margin: 15px 0;
+}
+
+.action-buttons button {
+  background-color: #007bff;
+  color: white;
+}
+
+.new-disease {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.new-disease input {
+  flex: 1;
+}
+
+.new-disease button {
+  background-color: #28a745;
+  color: white;
+}
+
+.submit-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  margin-top: 20px;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .disease-record {
+    flex-direction: column; /* 在小螢幕上改為垂直排列 */
+  }
+
+  .field {
+    flex: 1 1 100%; /* 每個欄位佔滿寬度 */
+  }
+
+  .remove-btn {
+    width: 100%; /* 移除按鈕佔滿寬度 */
+    margin-top: 10px;
+  }
+
+  .new-disease {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .new-disease input, .new-disease button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  select, input[type="text"] {
+    font-size: 14px; /* 小螢幕上減小字體 */
+  }
+
+  button {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+
+  .submit-btn {
+    width: 100%;
+  }
+}

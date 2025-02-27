@@ -1,0 +1,35 @@
+{
+  "name": "nursing_action_recommendations",
+  "strict": true,
+  "schema": {
+    "type": "object",
+    "properties": {
+      "patient_id": {
+        "type": "string",
+        "description": "Unique identifier for the patient."
+      },
+      "recommendations": {
+        "type": "array",
+        "description": "List of nursing action recommendations.",
+        "items": {
+          "type": "object",
+          "properties": {
+            "action": {
+              "type": "string",
+              "description": "Description of the nursing action to be taken."
+            }
+          },
+          "required": [
+            "action"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "patient_id",
+      "recommendations"
+    ],
+    "additionalProperties": false
+  }
+}
