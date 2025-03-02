@@ -71,6 +71,7 @@ import { IsbarHandoverComponent } from '@pages/activity/isbar-handover/isbar-han
 import { MedicalHistoryComponent } from '@pages/activity/medical-history/medical-history.component';
 import { PhysicalHandoverComponent } from '@pages/activity/physical-handover/physical-handover.component';
 import { OccupationalHandoverComponent } from '@pages/activity/occupational-handover/occupational-handover.component';
+import { RiskAssessmentComponent } from '@pages/care-plan/care-plan/risk-assessment/risk-assessment.component';
 
 const routes: Routes = [
     {
@@ -291,6 +292,10 @@ const routes: Routes = [
                     {
                       path: 'nurse-report/nurse-report-sheet',
                       component: NurseReportSheetComponent
+                    },
+                    {
+                      path: 'risk-assessment',
+                      component: RiskAssessmentComponent
                     }
                 ]
             },

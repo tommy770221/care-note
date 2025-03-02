@@ -1,0 +1,27 @@
+<form [formGroup]="riskAssessmentForm" (ngSubmit)="onSubmit()" class="p-4">
+    <div formArrayName="categories">
+      <div *ngFor="let category of categories.controls; let categoryIndex = index" class="mb-4">
+        <div [formGroupName]="categoryIndex" class="card">
+          <div class="card-header bg-primary text-white">
+            <h5>{{ category.get('name').value }}</h5>
+          </div>
+          <div class="card-body">
+            <div formArrayName="questions">
+              <div *ngFor="let question of getQuestions(categoryIndex).controls; let questionIndex = index" class="mb-3">
+                <div [formGroupName]="questionIndex" class="form-group">
+                  <label>{{ question.get('question').value }}</label>
+                  <select formControlName="riskLevel" class="form-control">
+                    <option value="低風險">低風險</option>
+                    <option value="中風險">中風險</option>
+                    <option value="高風險">高風險</option>
+                  </select>
+                  <textarea formControlName="preventionMeasures" class="form-control mt-2" placeholder="請輸入預防措施"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">提交表單</button>
+  </form>
