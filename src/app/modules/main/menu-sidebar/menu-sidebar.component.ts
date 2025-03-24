@@ -45,6 +45,11 @@ export const MENU = [
     path: ['/care-plan']
     },
     {
+        name: 'Dementiability',
+        iconClasses: 'fas fa-person-cane',
+        path: ['/dementiability']
+      },
+    {
       name: 'Kanban',
       iconClasses: 'fas fa-clipboard-list',
       path: ['/kanban']

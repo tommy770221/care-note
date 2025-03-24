@@ -133,6 +133,8 @@ import { MedicalHistoryComponent } from '@pages/activity/medical-history/medical
 import { OccupationalHandoverComponent } from './pages/activity/occupational-handover/occupational-handover.component';
 import { PhysicalHandoverComponent } from './pages/activity/physical-handover/physical-handover.component';
 import { RiskAssessmentComponent } from './pages/care-plan/care-plan/risk-assessment/risk-assessment.component';
+import { DementiabilityDashboardComponent } from './pages/dementiability/dementiability-dashboard/dementiability-dashboard.component';
+import { DementiabilityComponent } from './pages/dementiability/dementiability.component';
 
 //registerLocaleData(localeEn, 'en-EN');
 
@@ -220,7 +222,9 @@ import { RiskAssessmentComponent } from './pages/care-plan/care-plan/risk-assess
         MedicalHistoryComponent,
         OccupationalHandoverComponent,
         PhysicalHandoverComponent,
-        RiskAssessmentComponent
+        RiskAssessmentComponent,
+        DementiabilityDashboardComponent,
+        DementiabilityComponent,
     ],
     bootstrap: [AppComponent],
     imports: [

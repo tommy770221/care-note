@@ -53,6 +53,11 @@
                                      path: ['/']
                                   }"/>
       <app-menu-item [menuItem]="{
+                                      name: 'CarePlan.TITLE'|translate,
+                                      iconClasses: 'fas fa-book-reader',
+                                      path: ['/dementiability']
+                                  }"/>                            
+      <app-menu-item [menuItem]="{
                                      name: 'Record'|translate,
                                      iconClasses: 'fas fa-clipboard',
                                      path: ['/dashboard']
@@ -62,6 +67,7 @@
                                      iconClasses: 'fas fa-user-nurse',
                                      path: ['/care-plan']
                                   }"/>
+      
       <!--<app-menu-item [menuItem]="{
                                      name: 'Kanban'|translate,
                                      iconClasses: 'fas fa-list-check',
