@@ -38,6 +38,8 @@ import {Toilet} from '@/model/activity/toilet.model';
 import {forkJoin} from 'rxjs';
 import { FireFunctionService } from '@services/fire-function.service';
 import { Activity } from '@/model/activity/activity.model';
+import { QuerySnapshot } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
     selector: 'app-person-show',
@@ -68,7 +70,8 @@ export class PersonShowComponent
     waterIn = '1500 ml';
     primaryDis = '';
     primaryDisChinese = '';
-    activities: Array<Exercise | Water | Meal | Toilet | Activity> = [];
+    activities: Array<Activity> = [];
+    currentPage = 1;
 
     constructor(
         private appService: AppService,
@@ -80,6 +83,7 @@ export class PersonShowComponent
         private activityService: ActivityService,
         private primaryDiseaseService: PrimaryDiseaseService,
         private fireFunctionService: FireFunctionService,
+        private angularFirestore: AngularFirestore,
     ) {}
 
     ngAfterViewInit(): void {
@@ -178,46 +182,26 @@ export class PersonShowComponent
     }
 
     private showActivities() {
+        this.showActivitiesPage(1);
+    }
+
+    showActivitiesPage(page: number) {
+        this.currentPage=page;
         this.activities=[];
-        forkJoin({
-            meals: this.activityService.queryActivities(
-                '/activities/' + this.carePerson.id + '/meals/'
-            ),
-            exercises: this.activityService.queryActivities(
-                '/activities/' + this.carePerson.id + '/exercises/'
-            ),
-            waters: this.activityService.queryActivities(
-                '/activities/' + this.carePerson.id + '/waters/'
-            ),
-            toilets: this.activityService.queryActivities(
-                '/activities/' + this.carePerson.id + '/toilets/'
-            )
-        }).subscribe(({meals, exercises, waters, toilets}) => {
-            meals.docs.forEach((datum) => {
-                const meal = datum.data() as Meal;
-                //console.log(meal);
-                this.activities.push(meal);
+        this.activityService
+            .queryActivitiesOrderByRecordatePage(this.carePerson.id + '/activities',page)
+            .then((resp: QuerySnapshot<unknown>|any) => {
+                let snapshot = resp;
+                if(snapshot.docs){
+                    for(let i=0;i<snapshot.docs.length;i++){
+                        const activity = snapshot.docs[i].data() as Activity;
+                        this.activities.push(activity);
+                    }
+                }else{
+                    console.log(snapshot);
+                    this.toastr.error('Activities does not exist.');
+                }
             });
-
-            exercises.docs.forEach((datum) => {
-                const exercise = datum.data() as Exercise;
-                //console.log(exercise);
-                this.activities.push(exercise);
-            });
-
-            waters.docs.forEach((datum) => {
-                const water = datum.data() as Water;
-                //console.log(water);
-                this.activities.push(water);
-            });
-
-            toilets.docs.forEach((datum) => {
-                const toilet = datum.data() as Toilet;
-                //console.log(toilet);
-                this.activities.push(toilet);
-            });
-            this.sort();
-        });
     }
 
     showTab(str: string) {
@@ -258,8 +242,13 @@ export class PersonShowComponent
     }
 
     func(){
-        document.getElementById('AI-recommendation').disabled=true;
-       this.fireFunctionService.callFunction('helloWorld',"請給我"+this.primaryDisChinese+"的護理行動建議").then((resp)=>{
+       document.getElementById('AI-recommendation').disabled=true;
+       const uid= this.angularFirestore.createId();
+       this.fireFunctionService.callFunction('helloWorld',{message:"請給我"+this.primaryDisChinese+"的護理行動建議",
+                                                           careGiverId:this.careGiver.id,
+                                                           carePersonId:this.carePerson.id,
+                                                           uid:uid
+                                                        }).then((resp)=>{
             let activity=new Activity();
             activity.message=resp.response;
             activity.careGiverId=this.careGiver.id;

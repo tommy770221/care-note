@@ -1,17 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {ExerciseService} from "@services/firestore/activity/exercise.service";
-import {WaterService} from "@services/firestore/activity/water.service";
-import {ToiletService} from "@services/firestore/activity/toilet.service";
-import {MealService} from "@services/firestore/activity/meal.service";
-import {Exercise} from "@/model/activity/exercise.model";
-import {StoolColor, Toilet, UrineColor} from "@/model/activity/toilet.model";
-import {Water} from "@/model/activity/water.model";
-import {Meal, MealType} from "@/model/activity/meal.model";
+import {StoolColor, UrineColor,MealType, Activity} from "@/model/activity/activity.model";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {CarePersonService} from "@services/firestore/care-person.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
 import {Timestamp} from "@firebase/firestore";
+import { ActivityService } from '@services/firestore/activity/activity.service';
 
 @Component({
     selector: 'app-activity-add',
@@ -19,10 +13,10 @@ import {Timestamp} from "@firebase/firestore";
     styleUrl: './activity-add.component.scss'
 })
 export class ActivityAddComponent implements OnInit {
-    exercise: Exercise = new Exercise();
-    toilet:Toilet =new Toilet();
-    water:Water = new Water();
-    meal:Meal = new Meal();
+    activityExcercise:Activity=new Activity();
+    activityWater:Activity=new Activity();
+    activityMeal:Activity=new Activity();
+    activityToilet:Activity=new Activity();
     mealTypeEnum=Object.values(MealType);
     urineColor=Object.values(UrineColor);
     stoolColor=Object.values(StoolColor);
@@ -32,12 +26,9 @@ export class ActivityAddComponent implements OnInit {
 
 
     constructor(
-        private exerciseService: ExerciseService,
-        private waterService: WaterService,
-        private toiletService: ToiletService,
-        private mealService: MealService,
         private angularFirestore: AngularFirestore,
         private carePersonService: CarePersonService,
+        private activityService: ActivityService,
         private router: Router,
         private toastr: ToastrService,
         private route: ActivatedRoute,
@@ -51,34 +42,42 @@ export class ActivityAddComponent implements OnInit {
     }
 
     addModel(): void {
-      const uid= this.angularFirestore.createId();
-      if(this.exercise.howLong){
-        this.exercise.careGiverId=this.careGiverId;
-        this.exercise.carePersonId=this.carePersonId;
-        this.exercise.id = uid;
-        this.exercise.recordDate=Timestamp.fromDate(this.recordDate);
-        this.exerciseService.saveOne(this.carePersonId+"/exercises/"+uid,this.exercise);
+      
+      if(this.activityExcercise.excerciseHowLong){
+        this.activityExcercise.careGiverId=this.careGiverId;
+        this.activityExcercise.carePersonId=this.carePersonId;
+        const uid= this.angularFirestore.createId();
+        this.activityExcercise.id = uid;
+        this.activityExcercise.type="exercise";
+        this.activityExcercise.recordDate=Timestamp.fromDate(this.recordDate);
+        this.activityService.saveOne(this.carePersonId+"/activities/"+uid,this.activityExcercise);
       }
-      if(this.water.volume){
-        this.water.careGiverId=this.careGiverId;
-        this.water.carePersonId=this.carePersonId;
-        this.water.id=uid;
-        this.water.recordDate=Timestamp.fromDate(this.recordDate);
-        this.waterService.saveOne(this.carePersonId+"/waters/"+uid,this.water);
+      if(this.activityWater.waterVolume){
+        this.activityWater.careGiverId=this.careGiverId;
+        this.activityWater.carePersonId=this.carePersonId;
+        const uid= this.angularFirestore.createId();
+        this.activityWater.id=uid;
+        this.activityWater.type="water";
+        this.activityWater.recordDate=Timestamp.fromDate(this.recordDate);
+        this.activityService.saveOne(this.carePersonId+"/activities/"+uid,this.activityWater);
       }
-      if(this.meal.volume || this.meal.mealType){
-        this.meal.careGiverId=this.careGiverId;
-        this.meal.carePersonId=this.carePersonId;
-        this.meal.id=uid;
-        this.meal.recordDate=Timestamp.fromDate(this.recordDate);
-        this.mealService.saveOne(this.carePersonId+"/meals/"+uid,this.meal);
+      if(this.activityMeal.mealVolume || this.activityMeal.mealType){
+        this.activityMeal.careGiverId=this.careGiverId;
+        this.activityMeal.carePersonId=this.carePersonId;
+        const uid= this.angularFirestore.createId();
+        this.activityMeal.id=uid;
+        this.activityMeal.type="meal";
+        this.activityMeal.recordDate=Timestamp.fromDate(this.recordDate);
+        this.activityService.saveOne(this.carePersonId+"/activities/"+uid,this.activityMeal);
       }
-      if(this.toilet.stoolColor || this.toilet.stoolVolume || this.toilet.urineColor || this.toilet.urineVolume){
-        this.toilet.careGiverId=this.careGiverId;
-        this.toilet.carePersonId=this.carePersonId;
-        this.toilet.id=uid;
-        this.toilet.recordDate=Timestamp.fromDate(this.recordDate);
-        this.toiletService.saveOne(this.carePersonId+"/toilets/"+uid,this.toilet);
+      if(this.activityToilet.stoolColor || this.activityToilet.stoolVolume || this.activityToilet.urineColor || this.activityToilet.urineVolume){
+        this.activityToilet.careGiverId=this.careGiverId;
+        this.activityToilet.carePersonId=this.carePersonId;
+        const uid= this.angularFirestore.createId();
+        this.activityToilet.id=uid;
+        this.activityToilet.type="toilet";
+        this.activityToilet.recordDate=Timestamp.fromDate(this.recordDate);
+        this.activityService.saveOne(this.carePersonId+"/activities/"+uid,this.activityToilet);
       }
 
       this.toastr.success("save activities successfully.");

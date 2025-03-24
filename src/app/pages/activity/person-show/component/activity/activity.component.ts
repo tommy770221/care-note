@@ -15,7 +15,7 @@ import {CareGiverService} from "@services/firestore/care-giver.service";
 })
 export class ActivityComponent implements OnInit, AfterViewChecked {
     @Input()
-    activity: Exercise | Meal | Water | Toilet | Activity;
+    activity: Activity;
     message: string;
     careGiver:CareGiver=new CareGiver();
     protected readonly JSON = JSON;
@@ -35,7 +35,7 @@ export class ActivityComponent implements OnInit, AfterViewChecked {
         if (this.activity.type == 'exercise') {
             this.translateService
                 .get('Activity.SHOW.COMPONENT.activity.exercise', {
-                    howLong: this.activity['howLong']
+                    howLong: this.activity.excerciseHowLong
                 })
                 .subscribe((msg) => {
                     this.message = msg;
@@ -43,7 +43,7 @@ export class ActivityComponent implements OnInit, AfterViewChecked {
         } else if (this.activity.type == 'water') {
             this.translateService
                 .get('Activity.SHOW.COMPONENT.activity.water', {
-                    volume: this.activity['volume']
+                    volume: this.activity.waterVolume
                 })
                 .subscribe((msg) => {
                     this.message = msg;
@@ -51,9 +51,9 @@ export class ActivityComponent implements OnInit, AfterViewChecked {
         } else if (this.activity.type == 'meal') {
           let mealType;
           if (this.activity['mealType']) {
-            mealType=this.translateService.instant(this.activity['mealType'])
+            mealType=this.translateService.instant(this.activity.mealType)
           }
-          let volume=this.activity['volume']?this.activity['volume'] : 0
+          let volume=this.activity.mealVolume?this.activity.mealVolume : 0
             this.translateService
                 .get('Activity.SHOW.COMPONENT.activity.meal', {
                     mealType: mealType,
@@ -63,14 +63,14 @@ export class ActivityComponent implements OnInit, AfterViewChecked {
                     this.message = msg;
                 });
         } else if (this.activity.type == 'toilet') {
-            let urineVolume = this.activity['urineVolume']
-                ? this.activity['urineVolume']
+            let urineVolume = this.activity.urineVolume
+                ? this.activity.urineVolume
                 : 0;
-            let stoolVolume = this.activity['stoolVolume']
-                ? this.activity['stoolVolume']
+            let stoolVolume = this.activity.stoolVolume
+                ? this.activity.stoolVolume
                 : 0;
-            let stoolColor = this.activity['stoolColor']?this.activity['stoolColor']:'no';
-            let urineColor =this.activity['urineColor']?this.activity['urineColor']:'no';
+            let stoolColor = this.activity.stoolColor?this.activity.stoolColor:'no';
+            let urineColor =this.activity.urineColor?this.activity.urineColor:'no';
             if(stoolColor){
               stoolColor=this.translateService.instant(stoolColor);
             }
@@ -89,7 +89,7 @@ export class ActivityComponent implements OnInit, AfterViewChecked {
                 });
         } else {
             //其他activity
-            this.message = this.activity['message'];
+            this.message = this.activity.message;
         }
     }
 }

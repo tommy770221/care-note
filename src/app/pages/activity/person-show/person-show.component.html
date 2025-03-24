@@ -153,6 +153,29 @@
                 <div *ngFor="let act of activities">
                   <app-activity [activity]="act"></app-activity>
                 </div>
+                <ul class="pagination">
+                 <!--  <li class="paginate_button page-item previous" id="example2_previous">
+                    <button  class="page-link">Previous</button>
+                  </li> -->
+                  <li class="paginate_button page-item" id="example2_previous">
+                    <button (click)="showActivitiesPage(1)" class="page-link">1</button>
+                  </li>
+                  <li class="paginate_button page-item" id="example2_previous">
+                    <button (click)="showActivitiesPage(2)" class="page-link">2</button>
+                  </li>
+                  <li class="paginate_button page-item" id="example2_previous">
+                    <button (click)="showActivitiesPage(3)" class="page-link">3</button>
+                  </li>
+                  <li class="paginate_button page-item" id="example2_previous">
+                    <button (click)="showActivitiesPage(4)" class="page-link">4</button>
+                  </li>
+                  <li class="paginate_button page-item" id="example2_previous">
+                    <button (click)="showActivitiesPage(5)"  class="page-link">5</button>
+                  </li>
+                 <!--  <li class="paginate_button page-item next" id="example2_previous">
+                    <button  class="page-link">Next</button>
+                  </li> -->
+                </ul>
               </div>
               <div class="tab-pane" [ngClass]="{ 'active':activeTab==='timeline'}" id="timeline">
                 <app-timeline></app-timeline>

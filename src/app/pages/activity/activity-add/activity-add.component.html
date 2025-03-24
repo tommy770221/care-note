@@ -13,7 +13,7 @@
           <div class="form-group row">
             <label for="exercise" class="col-sm-2 col-form-label">{{ 'Activity.ADD.exercise'|translate }}</label>
             <div class="col-sm-10">
-              <input id="exercise" type="number" [(ngModel)]="exercise.howLong" [ngModelOptions]="{standalone: true}"
+              <input id="exercise" type="number" [(ngModel)]="activityExcercise.excerciseHowLong" [ngModelOptions]="{standalone: true}"
                      class="form-control"
                      placeholder="Enter ..."/>
             </div>
@@ -21,7 +21,7 @@
           <div class="form-group row">
             <label for="water" class="col-sm-2 col-form-label">{{ 'Activity.ADD.water'|translate }} </label>
             <div class="col-sm-10">
-              <input id="water" type="number" [(ngModel)]="water.volume" [ngModelOptions]="{standalone: true}"
+              <input id="water" type="number" [(ngModel)]="activityWater.waterVolume" [ngModelOptions]="{standalone: true}"
                      class="form-control"
                      placeholder="Enter ..."/>
             </div>
@@ -29,7 +29,7 @@
           <div class="form-group row">
             <label for="meal-type" class="col-sm-2 col-form-label">{{ 'Activity.ADD.meal-type'|translate }}</label>
             <div class="col-sm-4">
-              <select id="meal-type" [(ngModel)]="meal.mealType" [ngModelOptions]="{standalone: true}"
+              <select id="meal-type" [(ngModel)]="activityMeal.mealType" [ngModelOptions]="{standalone: true}"
                       class="form-control">
                 <option value=""></option>
                 <option *ngFor="let mealType of mealTypeEnum" [value]="mealType">{{ mealType|translate}}</option>
@@ -37,7 +37,7 @@
             </div>
             <label for="meal" class="col-sm-2 col-form-label">{{ 'Activity.ADD.meal-volume'|translate }} </label>
             <div class="col-sm-4">
-              <input id="meal" type="number" [(ngModel)]="meal.volume" [ngModelOptions]="{standalone: true}"
+              <input id="meal" type="number" [(ngModel)]="activityMeal.mealVolume" [ngModelOptions]="{standalone: true}"
                      class="form-control"
                      placeholder="Enter ..."/>
             </div>
@@ -45,7 +45,7 @@
           <div class="form-group row">
             <label for="toilet-urine-color" class="col-sm-2 col-form-label">{{ 'Activity.ADD.urine-color'|translate }} </label>
             <div class="col-sm-4">
-              <select id="toilet-urine-color" [(ngModel)]="toilet.urineColor" [ngModelOptions]="{standalone: true}"
+              <select id="toilet-urine-color" [(ngModel)]="activityToilet.urineColor" [ngModelOptions]="{standalone: true}"
                       class="form-control">
                 <option value=""></option>
                 <option *ngFor="let color of urineColor" [value]="color">{{ color|translate}}</option>
@@ -53,7 +53,7 @@
             </div>
             <label for="toilet-urine-volume" class="col-sm-2 col-form-label">{{ 'Activity.ADD.urine-volume'|translate }}</label>
             <div class="col-sm-4">
-              <input id="toilet-urine-volume" type="number" [(ngModel)]="toilet.urineVolume" [ngModelOptions]="{standalone: true}"
+              <input id="toilet-urine-volume" type="number" [(ngModel)]="activityToilet.urineVolume" [ngModelOptions]="{standalone: true}"
                      class="form-control"
                      placeholder="Enter ..."/>
             </div>
@@ -61,7 +61,7 @@
           <div class="form-group row">
             <label for="toilet-stool-color" class="col-sm-2 col-form-label">{{ 'Activity.ADD.stool-color'|translate }}</label>
             <div class="col-sm-4">
-              <select id="toilet-stool-color" [(ngModel)]="toilet.stoolColor" [ngModelOptions]="{standalone: true}"
+              <select id="toilet-stool-color" [(ngModel)]="activityToilet.stoolColor" [ngModelOptions]="{standalone: true}"
                       class="form-control">
                 <option value=""></option>
                 <option *ngFor="let color of stoolColor" [value]="color">{{ color|translate}}</option>
@@ -69,7 +69,7 @@
             </div>
             <label for="toilet-stool-volume" class="col-sm-2 col-form-label">{{ 'Activity.ADD.stool-volume'|translate }}</label>
             <div class="col-sm-4">
-              <input id="toilet-stool-volume" type="number" [(ngModel)]="toilet.stoolVolume" [ngModelOptions]="{standalone: true}"
+              <input id="toilet-stool-volume" type="number" [(ngModel)]="activityToilet.stoolVolume" [ngModelOptions]="{standalone: true}"
                      class="form-control"
                      placeholder="Enter ..."/>
             </div>
