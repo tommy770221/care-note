@@ -136,6 +136,7 @@ import { RiskAssessmentComponent } from './pages/care-plan/care-plan/risk-assess
 import { DementiabilityDashboardComponent } from './pages/dementiability/dementiability-dashboard/dementiability-dashboard.component';
 import { DementiabilityComponent } from './pages/dementiability/dementiability.component';
 import { AdvanceCarePlanComponent } from './pages/care-plan/advance-care-plan/advance-care-plan.component';
+import { VitalSignRecordComponent } from './pages/activity/vital-sign-record/vital-sign-record.component';
 
 //registerLocaleData(localeEn, 'en-EN');
 
@@ -227,6 +228,7 @@ import { AdvanceCarePlanComponent } from './pages/care-plan/advance-care-plan/ad
         DementiabilityDashboardComponent,
         DementiabilityComponent,
         AdvanceCarePlanComponent,
+        VitalSignRecordComponent,
     ],
     bootstrap: [AppComponent],
     imports: [

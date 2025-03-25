@@ -77,6 +77,7 @@ import { DementiabilityComponent } from '@pages/dementiability/dementiability.co
 import { AdvanceCarePlanComponent } from '@pages/care-plan/advance-care-plan/advance-care-plan.component';
 import { co } from '@fullcalendar/core/internal-common';
 import path from 'path';
+import { VitalSignRecordComponent } from '@pages/activity/vital-sign-record/vital-sign-record.component';
 
 const routes: Routes = [
     {
@@ -136,6 +137,10 @@ const routes: Routes = [
             {
               path: 'activity/carePerson/:carePersonId/careGiver/:careGiverId/edit',
               component: ActivityAddComponent
+            },
+            {
+              path: 'activity/vital/carePerson/:carePersonId/careGiver/:careGiverId/edit',
+              component: VitalSignRecordComponent
             },
             {
               path: 'dementiability',
@@ -254,7 +259,6 @@ const routes: Routes = [
                 },
               ]
             },
-            
             {
               path: 'medical-history/clinical-history',
               component:  ClinicalHistoryComponent

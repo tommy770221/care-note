@@ -1,0 +1,144 @@
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">生命徵象記錄</h2>
+    <form [formGroup]="vitalSignsForm">
+      <!-- 基本資訊 -->
+      <div class="card mb-4">
+        <div class="card-header">基本資訊</div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="patientName" class="form-label">病患姓名</label>
+              <input type="text" class="form-control" id="patientName" formControlName="patientName" [class.is-invalid]="formErrors('patientName')">
+              <div class="text-danger" *ngIf="formErrors('patientName')">請輸入病患姓名</div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="recordDate" class="form-label">記錄日期</label>
+              <input type="date" class="form-control" id="recordDate" formControlName="recordDate" [class.is-invalid]="formErrors('recordDate')">
+              <div class="text-danger" *ngIf="formErrors('recordDate')">請選擇記錄日期</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="caregiverName" class="form-label">照服員姓名</label>
+            <input type="text" class="form-control" id="caregiverName" formControlName="caregiverName" [class.is-invalid]="formErrors('caregiverName')">
+            <div class="text-danger" *ngIf="formErrors('caregiverName')">請輸入照服員姓名</div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- 生命徵象記錄 -->
+      <div class="card mb-4">
+        <div class="card-header">生命徵象記錄</div>
+        <div class="card-body">
+          <div formArrayName="vitalSignsRecords">
+            <div *ngFor="let record of vitalSignsRecords.controls; let i = index" [formGroupName]="i" class="mb-4 border p-3 rounded">
+              <div class="row">
+                <div class="col-md-3 mb-3">
+                  <label [for]="'time' + i" class="form-label">記錄時間</label>
+                  <input type="time" class="form-control" [id]="'time' + i" formControlName="time" [class.is-invalid]="formArrayErrors('vitalSignsRecords', i, 'time')">
+                  <div class="text-danger" *ngIf="formArrayErrors('vitalSignsRecords', i, 'time')">請輸入記錄時間</div>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label [for]="'temperature' + i" class="form-label">體溫 (°C)</label>
+                  <input type="number" step="0.1" class="form-control" [id]="'temperature' + i" formControlName="temperature" [class.is-invalid]="formArrayErrors('vitalSignsRecords', i, 'temperature')">
+                  <div class="text-danger" *ngIf="formArrayErrors('vitalSignsRecords', i, 'temperature')">請輸入有效體溫 (34-42°C)</div>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label [for]="'pulse' + i" class="form-label">脈搏 (次/分鐘)</label>
+                  <input type="number" class="form-control" [id]="'pulse' + i" formControlName="pulse" [class.is-invalid]="formArrayErrors('vitalSignsRecords', i, 'pulse')">
+                  <div class="text-danger" *ngIf="formArrayErrors('vitalSignsRecords', i, 'pulse')">請輸入有效脈搏 (30-200)</div>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label [for]="'respiration' + i" class="form-label">呼吸頻率 (次/分鐘)</label>
+                  <input type="number" class="form-control" [id]="'respiration' + i" formControlName="respiration" [class.is-invalid]="formArrayErrors('vitalSignsRecords', i, 'respiration')">
+                  <div class="text-danger" *ngIf="formArrayErrors('vitalSignsRecords', i, 'respiration')">請輸入有效呼吸頻率 (10-40)</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3 mb-3">
+                  <label [for]="'bloodPressureSystolic' + i" class="form-label">收縮壓 (mmHg)</label>
+                  <input type="number" class="form-control" [id]="'bloodPressureSystolic' + i" formControlName="bloodPressureSystolic" [class.is-invalid]="formArrayErrors('vitalSignsRecords', i, 'bloodPressureSystolic')">
+                  <div class="text-danger" *ngIf="formArrayErrors('vitalSignsRecords', i, 'bloodPressureSystolic')">請輸入有效收縮壓 (50-200)</div>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label [for]="'bloodPressureDiastolic' + i" class="form-label">舒張壓 (mmHg)</label>
+                  <input type="number" class="form-control" [id]="'bloodPressureDiastolic' + i" formControlName="bloodPressureDiastolic" [class.is-invalid]="formArrayErrors('vitalSignsRecords', i, 'bloodPressureDiastolic')">
+                  <div class="text-danger" *ngIf="formArrayErrors('vitalSignsRecords', i, 'bloodPressureDiastolic')">請輸入有效舒張壓 (30-120)</div>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label [for]="'bloodSugar' + i" class="form-label">血糖 (mg/d
+  
+  L)</label>
+                  <input type="number" class="form-control" [id]="'bloodSugar' + i" formControlName="bloodSugar" [class.is-invalid]="formArrayErrors('vitalSignsRecords', i, 'bloodSugar')">
+                  <div class="text-danger" *ngIf="formArrayErrors('vitalSignsRecords', i, 'bloodSugar')">請輸入有效血糖 (20-600)</div>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label [for]="'oxygenSaturation' + i" class="form-label">血氧 (%)</label>
+                  <input type="number" class="form-control" [id]="'oxygenSaturation' + i" formControlName="oxygenSaturation" [class.is-invalid]="formArrayErrors('vitalSignsRecords', i, 'oxygenSaturation')">
+                  <div class="text-danger" *ngIf="formArrayErrors('vitalSignsRecords', i, 'oxygenSaturation')">請輸入有效血氧 (70-100)</div>
+                </div>
+              </div>
+  
+              <!-- 服藥記錄 -->
+              <div class="mb-3">
+                <label class="form-label">服藥記錄</label>
+                <div formArrayName="medications">
+                  <div *ngFor="let med of getMedications(i).controls; let j = index" [formGroupName]="j" class="border p-2 mb-2 rounded">
+                    <div class="row">
+                      <div class="col-md-3 mb-2">
+                        <label [for]="'medName' + i + j" class="form-label">藥物名稱</label>
+                        <input type="text" class="form-control" [id]="'medName' + i + j" formControlName="name" [class.is-invalid]="formArrayErrors('vitalSignsRecords.' + i + '.medications', j, 'name')">
+                        <div class="text-danger" *ngIf="formArrayErrors('vitalSignsRecords.' + i + '.medications', j, 'name')">請輸入藥物名稱</div>
+                      </div>
+                      <div class="col-md-2 mb-2">
+                        <label [for]="'medDosage' + i + j" class="form-label">劑量</label>
+                        <input type="text" class="form-control" [id]="'medDosage' + i + j" formControlName="dosage" [class.is-invalid]="formArrayErrors('vitalSignsRecords.' + i + '.medications', j, 'dosage')">
+                        <div class="text-danger" *ngIf="formArrayErrors('vitalSignsRecords.' + i + '.medications', j, 'dosage')">請輸入劑量</div>
+                      </div>
+                      <div class="col-md-3 mb-2">
+                        <label [for]="'medTime' + i + j" class="form-label">服用時間</label>
+                        <input type="time" class="form-control" [id]="'medTime' + i + j" formControlName="time" [class.is-invalid]="formArrayErrors('vitalSignsRecords.' + i + '.medications', j, 'time')">
+                        <div class="text-danger" *ngIf="formArrayErrors('vitalSignsRecords.' + i + '.medications', j, 'time')">請輸入服用時間</div>
+                      </div>
+                      <div class="col-md-2 mb-2">
+                        <label [for]="'medMethod' + i + j" class="form-label">服用方式</label>
+                        <select class="form-select" [id]="'medMethod' + i + j" formControlName="method">
+                          <option value="">選擇方式</option>
+                          <option value="oral">口服</option>
+                          <option value="injection">注射</option>
+                          <option value="topical">外用</option>
+                        </select>
+                      </div>
+                      <div class="col-md-2 d-flex align-items-end">
+                        <button type="button" class="btn btn-danger w-100" (click)="removeMedication(i, j)" [disabled]="getMedications(i).length <= 1">移除</button>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <label [for]="'medNotes' + i + j" class="form-label">備註</label>
+                        <textarea class="form-control" [id]="'medNotes' + i + j" formControlName="notes"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-secondary mt-2" (click)="addMedication(i)">新增服藥記錄</button>
+                </div>
+              </div>
+  
+              <!-- 備註 -->
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label [for]="'notes' + i" class="form-label">生命徵象備註</label>
+                  <textarea class="form-control" [id]="'notes' + i" formControlName="notes"></textarea>
+                </div>
+              </div>
+  
+              <button type="button" class="btn btn-danger" (click)="removeVitalSign(i)" [disabled]="vitalSignsRecords.length <= 1">移除此記錄</button>
+            </div>
+          </div>
+          <button type="button" class="btn btn-secondary mt-3" (click)="addVitalSign()">新增生命徵象記錄</button>
+        </div>
+      </div>
+  
+      <button type="submit" (click)="onSubmit()" class="btn btn-primary w-100" [disabled]="vitalSignsForm.invalid">提交記錄</button>
+      <button class="btn btn-primary w-100" (click)="queryVitalSigns()" [disabled]="vitalSignsForm.invalid">查詢記錄</button>
+    </form>
+  </div>

@@ -36,7 +36,7 @@
             </h3>
             <p class="text-lg text-center">{{ carePerson?.id }} {{ 'Activity.SHOW.idJoin' | translate }}</p>
             <p class="text-lg text-center">{{ 'Activity.SHOW.disease'|translate }} : {{ primaryDis }}</p>
-            <button class="btn btn-primary btn-block" id="AI-recommendation" (click)="func()">護理建議</button>
+            <button class="btn btn-primary btn-block" id="AI-recommendation" (click)="func()">ChatGPT護理建議(請評估自身情況)</button>
             <div class="row">
               <div
                 class="col-md-4 text-lg text-center border">{{ 'Activity.SHOW.height' |translate }} {{ carePerson?.height }}
@@ -105,7 +105,7 @@
         <app-small-box
           [title]="'Activity.SHOW.vital' |translate"
           [text]="'150'"
-          [navigateTo]="'#'"
+          [navigateTo]="'activity/vital/carePerson/'+carePerson.id+'/careGiver/'+careGiver.id+'/edit'"
           [variant]="'secondary'"
           [icon]="{content: faHeartbeat}"
           [buttonInfo]="'Activity.SHOW.record'|translate"
