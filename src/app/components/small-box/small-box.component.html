@@ -1,4 +1,4 @@
-<div class="inner">
+<div class="inner" (click)="handleLinkAction()">
     <h4>{{ title }}</h4>
     <h5>{{ text }}</h5>
 </div>
@@ -9,8 +9,8 @@
         <span class="mr-2">More info</span>
         <fa-icon icon="arrow-circle-right"></fa-icon>
     </a> -->
-<a class="small-box-footer" [routerLink]="navigateTo"
-    ><span class="mr-2">{{ buttonInfo }}</span><i class="fa fa-arrow-circle-right"></i
+<a class="small-box-footer" (click)="handleLinkAction()">
+    <span class="mr-2">{{ buttonInfo }}</span><i class="fa fa-arrow-circle-right"></i
 ></a>
 <app-overlay-loading
     *ngIf="loading"

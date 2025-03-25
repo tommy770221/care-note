@@ -1,4 +1,5 @@
 import {Component, HostBinding, Input, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
 import {VARIANT_TYPES} from '@components/info-box/info-box.component';
 import {IconDefinition} from '@fortawesome/angular-fontawesome';
 
@@ -17,11 +18,17 @@ export class SmallBoxComponent implements OnInit {
     @HostBinding('class') class;
     @Input() buttonInfo: string;
 
+    constructor(private router: Router) {}
+
     ngOnInit(): void {
         this.class = `small-box bg-${this.variant}`;
     }
 
     public getLoadingPropType(): 'light' | 'dark' {
         return typeof this.loading === 'string' ? this.loading : 'light';
+    }
+
+    public handleLinkAction() {
+        this.router.navigate([this.navigateTo]);
     }
 }
