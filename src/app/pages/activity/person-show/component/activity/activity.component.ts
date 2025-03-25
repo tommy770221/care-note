@@ -7,6 +7,8 @@ import {Activity} from '@/model/activity/activity.model';
 import {TranslateService} from '@ngx-translate/core';
 import {CareGiver} from "@/model/care-giver.model";
 import {CareGiverService} from "@services/firestore/care-giver.service";
+import { PostMsgService } from '@services/firestore/translation/post-msg.service';
+import { PostMsg } from '@/model/translation/post-msg.model';
 
 @Component({
     selector: 'app-activity',
@@ -21,7 +23,8 @@ export class ActivityComponent implements OnInit, AfterViewChecked {
     protected readonly JSON = JSON;
 
     constructor(private translateService: TranslateService,
-                private careGiverService: CareGiverService,) {}
+                private careGiverService: CareGiverService,
+                private postMsgService: PostMsgService) {}
 
     ngAfterViewChecked(): void {
         //console.log(this.message);
@@ -87,7 +90,18 @@ export class ActivityComponent implements OnInit, AfterViewChecked {
                 .subscribe((msg) => {
                     this.message = msg;
                 });
-        } else {
+        } else if(this.activity.type == 'postMsg'){
+            this.postMsgService.queryOne(this.activity.id).subscribe(response => {
+                if(response){
+                    let postMsg = response.data() as PostMsg;
+                    if(postMsg.translated){
+                        this.message = postMsg.translated[localStorage.getItem('lan')];
+                    }else{
+                        this.message = this.activity.message;
+                    }
+                }
+            })
+        }else {
             //其他activity
             this.message = this.activity.message;
         }

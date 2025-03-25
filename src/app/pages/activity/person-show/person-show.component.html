@@ -143,10 +143,10 @@
                   <div class="input-group input-group-sm mb-0">
                     <input
                       class="form-control form-control-sm"
-                      placeholder="Message"
+                      placeholder="Message" [(ngModel)]="postMsg" [ngModelOptions]="{standalone: true}"
                     />
                     <div class="input-group-append">
-                      <button type="submit" class="btn btn-danger">Send</button>
+                      <button type="submit" (click)="saveMsg()" class="btn btn-danger">Send</button>
                     </div>
                   </div>
                 </form>

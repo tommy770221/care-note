@@ -1,0 +1,162 @@
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">預立照顧計畫</h2>
+    <form [formGroup]="carePlanForm" (ngSubmit)="onSubmit()">
+      <!-- 1. 個人基本資料 -->
+      <div class="card mb-4">
+        <div class="card-header">個人基本資料</div>
+        <div class="card-body">
+          <div class="mb-3">
+            <label for="name" class="form-label">姓名</label>
+            <input type="text" class="form-control" id="name" formControlName="name" [class.is-invalid]="formErrors('name')">
+            <div class="text-danger" *ngIf="formErrors('name')">請輸入姓名</div>
+          </div>
+          <div class="mb-3">
+            <label for="birthDate" class="form-label">出生日期</label>
+            <input type="date" class="form-control" id="birthDate" formControlName="birthDate" [class.is-invalid]="formErrors('birthDate')">
+            <div class="text-danger" *ngIf="formErrors('birthDate')">請選擇出生日期</div>
+          </div>
+          <div class="mb-3">
+            <label for="contact" class="form-label">聯絡方式</label>
+            <input type="text" class="form-control" id="contact" formControlName="contact" [class.is-invalid]="formErrors('contact')">
+            <div class="text-danger" *ngIf="formErrors('contact')">請輸入10位數字的電話號碼</div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">緊急聯絡人</label>
+            <div formArrayName="emergencyContacts">
+              <div *ngFor="let ec of emergencyContacts.controls; let i = index" class="input-group mb-2" [formGroupName]="i">
+                <input type="text" class="form-control" formControlName="name" placeholder="姓名" [class.is-invalid]="formArrayErrors('emergencyContacts', i, 'name')">
+                <input type="text" class="form-control" formControlName="phone" placeholder="電話" [class.is-invalid]="formArrayErrors('emergencyContacts', i, 'phone')">
+                <button type="button" class="btn btn-danger" (click)="removeEmergencyContact(i)" [disabled]="emergencyContacts.length <= 1">移除</button>
+              </div>
+            </div>
+            <button type="button" class="btn btn-secondary" (click)="addEmergencyContact()">新增緊急聯絡人</button>
+          </div>
+        </div>
+      </div>
+  
+      <!-- 2. 醫療決策代理人 -->
+      <div class="card mb-4">
+        <div class="card-header">醫療決策代理人</div>
+        <div class="card-body">
+          <div formArrayName="agents">
+            <div *ngFor="let agent of agents.controls; let i = index" [formGroupName]="i" class="mb-3">
+              <h5>{{ i === 0 ? '指定代理人' : '備選代理人' }}</h5>
+              <div class="mb-2">
+                <label [for]="'agentName' + i" class="form-label">姓名</label>
+                <input type="text" class="form-control" [id]="'agentName' + i" formControlName="name" [class.is-invalid]="formArrayErrors('agents', i, 'name')">
+                <div class="text-danger" *ngIf="formArrayErrors('agents', i, 'name')">請輸入姓名</div>
+              </div>
+              <div class="mb-2">
+                <label [for]="'agentRelation' + i" class="form-label">關係</label>
+                <input type="text" class="form-control" [id]="'agentRelation' + i" formControlName="relation" [class.is-invalid]="formArrayErrors('agents', i, 'relation')">
+                <div class="text-danger" *ngIf="formArrayErrors('agents', i, 'relation')">請輸入關係</div>
+              </div>
+              <div class="mb-2">
+                <label [for]="'agentContact' + i" class="form-label">聯絡方式</label>
+                <input type="text" class="form-control" [id]="'agentContact' + i" formControlName="contact" [class.is-invalid]="formArrayErrors('agents', i, 'contact')">
+                <div class="text-danger" *ngIf="formArrayErrors('agents', i, 'contact')">請輸入聯絡方式</div>
+              </div>
+              <button *ngIf="i > 0" type="button" class="btn btn-danger" (click)="removeAgent(i)">移除代理人</button>
+            </div>
+          </div>
+          <button type="button" class="btn btn-secondary" (click)="addAgent()">新增備選代理人</button>
+        </div>
+      </div>
+  
+      <!-- 3. 醫療與照顧偏好 -->
+      <div class="card mb-4">
+        <div class="card-header">醫療與照顧偏好</div>
+        <div class="card-body">
+          <div class="mb-3">
+            <label class="form-label">生命維持治療</label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" id="lifeSupportYes" value="yes" formControlName="lifeSupport">
+              <label class="form-check-label" for="lifeSupportYes">是，我希望盡可能延長生命</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" id="lifeSupportNo" value="no" formControlName="lifeSupport">
+              <label class="form-check-label" for="lifeSupportNo">否，我希望以舒適為優先</label>
+            </div>
+            <div class="text-danger" *ngIf="formErrors('lifeSupport')">請選擇生命維持治療偏好</div>
+          </div>
+          <div class="mb-3">
+            <label for="painManagement" class="form-label">疼痛管理</label>
+            <select class="form-select" id="painManagement" formControlName="painManagement" [class.is-invalid]="formErrors('painManagement')">
+              <option value="">請選擇</option>
+              <option value="reducePain">盡可能減輕疼痛</option>
+              <option value="stayAlert">保持清醒</option>
+            </select>
+            <div class="text-danger" *ngIf="formErrors('painManagement')">請選擇疼痛管理方式</div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- 4. 身體方面的喜好 -->
+      <div class="card mb-4">
+        <div class="card-header">身體方面的喜好</div>
+        <div class="card-body" formGroupName="physicalPreferences">
+          <div class="mb-3">
+            <label for="diet" class="form-label">飲食偏好</label>
+            <input type="text" class="form-control" id="diet" formControlName="diet">
+          </div>
+          <div class="mb-3">
+            <label for="hygiene" class="form-label">清潔偏好</label>
+            <input type="text" class="form-control" id="hygiene" formControlName="hygiene">
+          </div>
+          <div class="mb-3">
+            <label for="comfort" class="form-label">舒適需求</label>
+            <textarea class="form-control" id="comfort" formControlName="comfort"></textarea>
+          </div>
+        </div>
+      </div>
+  
+      <!-- 5. 情緒和社會方面的照顧計畫 -->
+      <div class="card mb-4">
+        <div class="card-header">情緒和社會方面的照顧計畫</div>
+        <div class="card-body" formGroupName="emotionalSocial">
+          <div class="mb-3">
+            <label for="emotionalSupport" class="form-label">情緒支持</label>
+            <textarea class="form-control" id="emotionalSupport" formControlName="emotionalSupport"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="socialInteraction" class="form-label">社會互動</label>
+            <textarea class="form-control" id="socialInteraction" formControlName="socialInteraction"></textarea>
+          </div>
+        </div>
+      </div>
+  
+      <!-- 6. 靈性需求 -->
+      <div class="card mb-4">
+        <div class="card-header">靈性需求</div>
+        <div class="card-body" formGroupName="spiritualNeeds">
+          <div class="mb-3">
+            <label for="faithRituals" class="form-label">信仰與儀式</label>
+            <textarea class="form-control" id="faithRituals" formControlName="faithRituals"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="peace" class="form-label">心靈平靜</label>
+            <textarea class="form-control" id="peace" formControlName="peace"></textarea>
+          </div>
+        </div>
+      </div>
+  
+      <!-- 7. 臨終照顧地點 -->
+      <div class="card mb-4">
+        <div class="card-header">臨終照顧地點</div>
+        <div class="card-body">
+          <div class="mb-3">
+            <label class="form-label">偏好地點</label>
+            <select class="form-select" formControlName="location" [class.is-invalid]="formErrors('location')">
+              <option value="">請選擇</option>
+              <option value="home">家中</option>
+              <option value="hospital">醫院</option>
+              <option value="hospice">安寧療護機構</option>
+            </select>
+            <div class="text-danger" *ngIf="formErrors('location')">請選擇臨終照顧地點</div>
+          </div>
+        </div>
+      </div>
+  
+      <button type="submit" class="btn btn-primary w-100" [disabled]="carePlanForm.invalid">提交計畫</button>
+    </form>
+  </div>

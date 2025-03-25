@@ -1,0 +1,25 @@
+.card {
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  .input-group .btn-danger {
+    margin-left: 5px;
+  }
+  
+  .text-danger {
+    font-size: 0.875em;
+  }
+  
+  .is-invalid {
+    border-color: #dc3545;
+  }

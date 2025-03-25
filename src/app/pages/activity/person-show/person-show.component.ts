@@ -38,8 +38,10 @@ import {Toilet} from '@/model/activity/toilet.model';
 import {forkJoin} from 'rxjs';
 import { FireFunctionService } from '@services/fire-function.service';
 import { Activity } from '@/model/activity/activity.model';
-import { QuerySnapshot } from '@angular/fire/firestore';
+import { QuerySnapshot, Timestamp } from '@angular/fire/firestore';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { PostMsg } from '@/model/translation/post-msg.model';
+import { PostMsgService } from '@services/firestore/translation/post-msg.service';
 
 @Component({
     selector: 'app-person-show',
@@ -72,6 +74,7 @@ export class PersonShowComponent
     primaryDisChinese = '';
     activities: Array<Activity> = [];
     currentPage = 1;
+    postMsg = '';
 
     constructor(
         private appService: AppService,
@@ -84,6 +87,7 @@ export class PersonShowComponent
         private primaryDiseaseService: PrimaryDiseaseService,
         private fireFunctionService: FireFunctionService,
         private angularFirestore: AngularFirestore,
+        private postMsgService: PostMsgService,
     ) {}
 
     ngAfterViewInit(): void {
@@ -257,5 +261,24 @@ export class PersonShowComponent
             this.sort();
             console.log(resp.response);
         });
+    }
+
+    saveMsg(){
+        const uid= this.angularFirestore.createId();
+        let postMsg=new PostMsg();
+        postMsg.id=uid;
+        postMsg.message=this.postMsg;
+        postMsg.type='postMsg';
+        this.postMsgService.saveOne(uid,postMsg);
+        let activity=new Activity();
+        activity.id=uid;
+        activity.message=this.postMsg;
+        activity.careGiverId=this.careGiver.id;
+        activity.carePersonId=this.carePerson.id;
+        activity.type='postMsg';
+        activity.recordDate=Timestamp.now();
+        this.activityService.saveOne(this.carePerson.id+"/activities/"+uid,activity);
+        this.activities.push(activity);
+        this.sort();
     }
 }

@@ -74,6 +74,9 @@ import { OccupationalHandoverComponent } from '@pages/activity/occupational-hand
 import { RiskAssessmentComponent } from '@pages/care-plan/care-plan/risk-assessment/risk-assessment.component';
 import { DementiabilityDashboardComponent } from '@pages/dementiability/dementiability-dashboard/dementiability-dashboard.component';
 import { DementiabilityComponent } from '@pages/dementiability/dementiability.component';
+import { AdvanceCarePlanComponent } from '@pages/care-plan/advance-care-plan/advance-care-plan.component';
+import { co } from '@fullcalendar/core/internal-common';
+import path from 'path';
 
 const routes: Routes = [
     {
@@ -307,6 +310,10 @@ const routes: Routes = [
                     {
                       path: 'risk-assessment',
                       component: RiskAssessmentComponent
+                    },
+                    {
+                      path: 'advance-care-plan',
+                      component: AdvanceCarePlanComponent
                     }
                 ]
             },
@@ -320,7 +327,13 @@ const routes: Routes = [
             },
             {
                 path: '',
-                component: PersonShowComponent
+                component: DementiabilityComponent,
+                children: [
+                  {
+                    path: '',
+                    component: DementiabilityDashboardComponent
+                  }
+                ]
             }
         ]
     },

@@ -135,6 +135,7 @@ import { PhysicalHandoverComponent } from './pages/activity/physical-handover/ph
 import { RiskAssessmentComponent } from './pages/care-plan/care-plan/risk-assessment/risk-assessment.component';
 import { DementiabilityDashboardComponent } from './pages/dementiability/dementiability-dashboard/dementiability-dashboard.component';
 import { DementiabilityComponent } from './pages/dementiability/dementiability.component';
+import { AdvanceCarePlanComponent } from './pages/care-plan/advance-care-plan/advance-care-plan.component';
 
 //registerLocaleData(localeEn, 'en-EN');
 
@@ -225,6 +226,7 @@ import { DementiabilityComponent } from './pages/dementiability/dementiability.c
         RiskAssessmentComponent,
         DementiabilityDashboardComponent,
         DementiabilityComponent,
+        AdvanceCarePlanComponent,
     ],
     bootstrap: [AppComponent],
     imports: [
