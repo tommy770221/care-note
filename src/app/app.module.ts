@@ -137,6 +137,9 @@ import { DementiabilityDashboardComponent } from './pages/dementiability/dementi
 import { DementiabilityComponent } from './pages/dementiability/dementiability.component';
 import { AdvanceCarePlanComponent } from './pages/care-plan/advance-care-plan/advance-care-plan.component';
 import { VitalSignRecordComponent } from './pages/activity/vital-sign-record/vital-sign-record.component';
+import { BradenFormComponent } from './pages/medical-form/braden-form/braden-form.component';
+import { MedicalFormDashboardComponent } from './pages/medical-form/medical-form-dashboard/medical-form-dashboard.component';
+import { MedicalFormComponent } from './pages/medical-form/medical-form.component';
 
 //registerLocaleData(localeEn, 'en-EN');
 
@@ -229,6 +232,9 @@ import { VitalSignRecordComponent } from './pages/activity/vital-sign-record/vit
         DementiabilityComponent,
         AdvanceCarePlanComponent,
         VitalSignRecordComponent,
+        BradenFormComponent,
+        MedicalFormDashboardComponent,
+        MedicalFormComponent,
     ],
     bootstrap: [AppComponent],
     imports: [

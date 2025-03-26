@@ -78,6 +78,9 @@ import { AdvanceCarePlanComponent } from '@pages/care-plan/advance-care-plan/adv
 import { co } from '@fullcalendar/core/internal-common';
 import path from 'path';
 import { VitalSignRecordComponent } from '@pages/activity/vital-sign-record/vital-sign-record.component';
+import { MedicalFormDashboardComponent } from '@pages/medical-form/medical-form-dashboard/medical-form-dashboard.component';
+import { MedicalFormComponent } from '@pages/medical-form/medical-form.component';
+import { BradenFormComponent } from '@pages/medical-form/braden-form/braden-form.component';
 
 const routes: Routes = [
     {
@@ -218,7 +221,7 @@ const routes: Routes = [
                   
                 },
                 {
-                  path: 'dementiability/part-two/dementiability-unit-checklist',
+                  path: 'part-two/dementiability-unit-checklist',
                   component:  DementiabilityUnitChecklistComponent
                   
                 },
@@ -260,9 +263,22 @@ const routes: Routes = [
               ]
             },
             {
+              path: 'medical-form',
+              component: MedicalFormComponent,
+              children: [
+                {
+                  path: '',
+                  component:  MedicalFormDashboardComponent    
+                },
+                {
+                  path: 'braden-form',
+                  component:  BradenFormComponent
+                },
+              ]
+            },
+            {
               path: 'medical-history/clinical-history',
               component:  ClinicalHistoryComponent
-                  
             },
             {
                 path: 'blank',

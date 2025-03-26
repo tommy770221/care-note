@@ -1,0 +1,217 @@
+<form [formGroup]="bradenForm" (ngSubmit)="onSubmit()">
+    <div class="card">
+      <div class="card-header bg-primary text-white">
+        <h4>Braden 量表 (壓力性損傷) 預測量表</h4>
+      </div>
+      <div class="card-body">
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <label for="patientName" class="form-label">病人姓名：</label>
+            <input type="text" class="form-control" id="patientName" formControlName="patientName">
+          </div>
+          <div class="col-md-3">
+            <label for="assessorName" class="form-label">評估者姓名：</label>
+            <input type="text" class="form-control" id="assessorName" formControlName="assessorName">
+          </div>
+          <div class="col-md-3">
+            <label for="admissionDate" class="form-label">入院日期：</label>
+            <input type="date" class="form-control" id="admissionDate" formControlName="admissionDate">
+          </div>
+          <div class="col-md-3">
+            <label for="evaluationDate" class="form-label">評估日期：</label>
+            <input type="date" class="form-control" id="evaluationDate" formControlName="evaluationDate">
+          </div>
+        </div>
+  
+        <div class="mb-3">
+          <label class="form-label">**知覺感受** (對於壓力相關的舒適或疼痛刺激反應的能力)</label>
+          <div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" formControlName="perception" value="1" id="percep1">
+              <label class="form-check-label" for="percep1">
+                **1. 完全受限** (1)對於疼痛刺激無反應（呻吟、煩躁不安或退縮反應），或(2)由於使用麻醉劑或鎮靜劑而知覺受限
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" formControlName="perception" value="2" id="percep2">
+              <label class="form-check-label" for="percep2">
+                **2. 非常受限** (1)對於疼痛刺激僅能以呻吟或躁動不安表示或(2)全身有二分之一以上的肢體無法知覺到不適或疼痛刺激
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" formControlName="percep3" value="3" id="percep3">
+              <label class="form-check-label" for="percep3">
+                **3. 輕微受限** (1)對於口語指令有反應，但總是無法在感到不適時溝通（說出或以肢體挪動表示）或(2)一半的肢體無法知覺到不適或疼痛刺激
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" formControlName="percep4" value="4" id="percep4">
+              <label class="form-check-label" for="percep4">
+                **4. 無受限** (1)對於口語指令有反應，對於不適與疼痛刺激之知覺正常
+              </label>
+            </div>
+          </div>
+        </div>
+  
+        <div class="mb-3">
+          <label class="form-label">**潮濕** (皮膚暴露在潮濕環境的程度)</label>
+          <div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" formControlName="moisture" value="1" id="moist1">
+              <label class="form-check-label" for="moist1">
+                **1. 持續潮濕** 皮膚經常一直處於潮濕狀態，每次移動個案時，床單下的皮膚都是潮濕的
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" formControlName="moisture" value="2" id="moist2">
+              <label class="form-check-label" for="moist2">
+                **2. 經常潮濕** 皮膚經常是潮濕的，每班至少須更換床單 1 次
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" formControlName="moist3" value="3" id="moist3">
+              <label class="form-check-label" for="moist3">
+                **3. 偶爾潮濕** 皮膚每天須經常更換 1 次床單
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" formControlName="moist4" value="4" id="moist4">
+              <label class="form-check-label" for="moist4">
+                **4. 很少潮濕** 皮膚通常是乾燥的，依照常規更換床單即可
+              </label>
+            </div>
+          </div>
+        </div>
+  
+        <div class="mb-3">
+          <label class="form-label">**活動** (身體活動的程度)</label>
+          <div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" formControlName="activity" value="1" id="act1">
+              <label class="form-check-label" for="act1">
+                **1. 完全臥床** 活動範圍被限制在床上
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" formControlName="activity" value="2" id="act2">
+              <label class="form-check-label" for="act2">
+                **2. 坐於椅子** 無法自行站立或行走能力嚴重受限，無法承受自身的體重，及/或須協助才能坐進椅子或輪椅
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" formControlName="activity" value="3" id="act3">
+              <label class="form-check-label" for="act3">
+                **3. 偶爾行走** 個案每日的大多數時間是在床上或椅子上，但在白天偶爾可在協助下，或不須協助自行走動，行走距離很短
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" formControlName="activity" value="4" id="act4">
+              <label class="form-check-label" for="act4">
+                **4. 時常行走** 每天至少走出病房 2 次，在病房內每 2 小時至少會走動
+              </label>
+            </div>
+          </div>
+        </div>
+  
+        <div class="mb-3">
+          <label class="form-label">**可動性** (改變及控制身體姿勢的能力)</label>
+          <div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" formControlName="mobility" value="1" id="mobil1">
+              <label class="form-check-label" for="mobil1">
+                **1. 完全無法移動** 無法做任何的移動，即身體或肢體位置皆無法調整，即使是輕微的調整
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" formControlName="mobility" value="2" id="mobil2">
+              <label class="form-check-label" for="mobil2">
+                **2. 非常受限** 僅能做輕微的身體姿勢或肢體位置調整，但無法隨意或作經常或大幅度的調整
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" formControlName="mobil3" value="3" id="mobil3">
+              <label class="form-check-label" for="mobil3">
+                **3. 輕微受限** 能隨意做些微小的身體或肢體位置的調整
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" formControlName="mobility" value="4" id="mobil4">
+              <label class="form-check-label" for="mobil4">
+                **4. 未受限** 能隨意且頻繁地改變身體及肢體作大幅度的調整
+              </label>
+            </div>
+          </div>
+        </div>
+  
+        <div class="card mt-3">
+          <div class="card-header bg-info text-white">
+            <h4>營養 (通常的營養型態)</h4>
+          </div>
+          <div class="card-body">
+            <div class="mb-3">
+              <label class="form-label">**營養** (通常的營養型態)</label>
+              <div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" formControlName="nutrition" value="1" id="nutri1">
+                  <label class="form-check-label" for="nutri1">
+                    **1. 非常差** (1)很少吃完送來的正餐，或很少吃超過送來食物的 1/3。每天吃兩份或以下的蛋白質（肉或奶製品）。水分攝取差。並未食用液態營養補充品或(2)由管灌或輸液補充，持續五天以上：禁食、清流質飲食
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" formControlName="nutrition" value="2" id="nutri2">
+                  <label class="form-check-label" for="nutri2">
+                    **2. 可能不足** (1)很少吃完送來的正餐，一般而言，只能吃完送來食物的 1/2。每天吃 3 份蛋白質（肉或奶製品）。偶爾食用液態營養補充品或(2)所攝取的液態食物或管灌未達到理想需要量
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" formControlName="nutrition" value="3" id="nutri3">
+                  <label class="form-check-label" for="nutri3">
+                    **3. 足夠** (1)能吃超過大部分送來正餐的 1/2。每天吃 4 份蛋白質（肉或乳製品）。偶爾不吃正餐，但若食用營養補充品，通常會食用或(2)接受的管灌或 TPN 療法，可能符合大部分的營養需求
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" formControlName="nutrition" value="4" id="nutri4">
+                  <label class="form-check-label" for="nutri4">
+                    **4. 非常好** (1)每頓正餐都吃掉大半，從不拒絕用餐。通常食用 4 份或以上的肉與乳製品。三餐間點心，偶爾吃點心，不須要營養補充品
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="card mt-3">
+          <div class="card-header bg-warning text-white">
+            <h4>活動力和張力</h4>
+          </div>
+          <div class="card-body">
+            <div class="mb-3">
+              <label class="form-label">**活動力和張力**</label>
+              <div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" formControlName="activityAndStrain" value="1" id="as1">
+                  <label class="form-check-label" for="as1">
+                    **1. 有問題** 須要極度大的協助，才能移動身體，且無法將身體完全抬起。在床上或椅子上時常會向下滑。須極大的協助以時常調整姿勢。限制或疼痛不適，使僅能承受皮膚持續受到壓迫
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" formControlName="activityAndStrain" value="2" id="as2">
+                  <label class="form-check-label" for="as2">
+                    **2. 潛在的問題** 有輕微活動，但須些許協助。在移動過程中，皮膚可能在床單、椅子、約束帶等設備上出現一些的滑動。大多數時候，能在床上或椅子上維持相當好的姿勢，但偶爾會滑下來
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" formControlName="activityAndStrain" value="3" id="as3">
+                  <label class="form-check-label" for="as3">
+                    **3. 無明顯的問題** 能獨立在床上或椅子上移動，有時可能可以自己完全抬起。能在床上或椅子上維持良好的姿勢
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <button type="submit" class="btn btn-primary">提交評估</button>
+      </div>
+    </div>
+  </form>

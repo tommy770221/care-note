@@ -1,0 +1,19 @@
+<div>
+    <app-content-header [title]="'dashboardTitle' | translate" ></app-content-header>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 col-6">
+                    <app-small-box
+                        [title]="'bradon壓瘡評估量表'"
+                        [text]="'150'"
+                        [navigateTo]="'/medical-form/braden-form'"
+                        [variant]="'info'"
+                        [icon]="{content: faCartShopping}"
+                    ></app-small-box>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
