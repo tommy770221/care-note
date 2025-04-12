@@ -1,0 +1,158 @@
+<div class="container">
+    <h1>老年藥品整合清單</h1>
+    <form [formGroup]="medicationForm" (ngSubmit)="onSubmit">
+      <div class="card mb-3">
+        <div class="card-header">
+          病患基本資訊
+        </div>
+        <div class="card-body">
+          <div formGroupName="patientInfo">
+            <div class="row mb-3">
+              <div class="col-md-4">
+                <label for="姓名" class="form-label">姓名</label>
+                <input type="text" class="form-control" id="姓名" formControlName="姓名">
+              </div>
+              <div class="col-md-4">
+                <label for="病歷號" class="form-label">病歷號</label>
+                <input type="text" class="form-control" id="病歷號" formControlName="病歷號">
+              </div>
+              <div class="col-md-4">
+                <label for="出生年月日" class="form-label">出生年月日 (YYY/MM/DD)</label>
+                <input type="text" class="form-control" id="出生年月日" formControlName="出生年月日">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-2">
+                <label for="性別" class="form-label">性別</label>
+                <input type="text" class="form-control" id="性別" formControlName="性別">
+              </div>
+              <div class="col-md-2">
+                <label for="身高" class="form-label">身高</label>
+                <input type="text" class="form-control" id="身高" formControlName="身高">
+              </div>
+              <div class="col-md-2">
+                <label for="體重" class="form-label">體重</label>
+                <input type="text" class="form-control" id="體重" formControlName="體重">
+              </div>
+              <div class="col-md-6">
+                <label for="藥物過敏史" class="form-label">藥物過敏史 (請詳細記錄)</label>
+                <input type="text" class="form-control" id="藥物過敏史" formControlName="藥物過敏史">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-3">
+                <label for="腎功能SCr" class="form-label">腎功能(SCr)</label>
+                <input type="text" class="form-control" id="腎功能SCr" formControlName="腎功能SCr">
+              </div>
+              <div class="col-md-3">
+                <label for="CC" class="form-label">CC=(140-年齡) * 體重 / (72 * SCr) * (女性需乘0.85)</label>
+                <input type="text" class="form-control" id="CC" formControlName="CC" readonly>
+              </div>
+              <div class="col-md-3">
+                <label for="肝功能ChildPugh" class="form-label">肝功能(Child-Pugh)</label>
+                <input type="text" class="form-control" id="肝功能ChildPugh" formControlName="肝功能ChildPugh">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="共病症" class="form-label">共病症</label>
+                <input type="text" class="form-control" id="共病症" formControlName="共病症">
+              </div>
+              <div class="col-md-6">
+                <label for="本次住院主要原因" class="form-label">本次住院主要原因</label>
+                <input type="text" class="form-control" id="本次住院主要原因" formControlName="本次住院主要原因">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="本次住院診斷" class="form-label">本次住院診斷</label>
+                <input type="text" class="form-control" id="本次住院診斷" formControlName="本次住院診斷">
+              </div>
+              <div class="col-md-6">
+                <label for="其他" class="form-label">其他</label>
+                <input type="text" class="form-control" id="其他" formControlName="其他">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div formArrayName="medications">
+        <div *ngFor="let medication of medications.controls; let i = index" [formGroupName]="i" class="card mb-3">
+          <div class="card-header">
+            藥品資訊 #{{ i + 1 }}
+          </div>
+          <div class="card-body">
+            <div class="row mb-3">
+              <div class="col-md-4">
+                <label for="藥物名稱{{ i }}" class="form-label">藥物名稱 (商品名/學名/ATC碼)</label>
+                <input type="text" class="form-control" id="藥物名稱{{ i }}" formControlName="藥物名稱">
+              </div>
+              <div class="col-md-2">
+                <label for="劑量{{ i }}" class="form-label">劑量</label>
+                <input type="text" class="form-control" id="劑量{{ i }}" formControlName="劑量">
+              </div>
+              <div class="col-md-3">
+                <label for="頻率給藥途徑{{ i }}" class="form-label">頻率/給藥途徑</label>
+                <input type="text" class="form-control" id="頻率給藥途徑{{ i }}" formControlName="頻率給藥途徑">
+              </div>
+              <div class="col-md-1">
+                <label for="單位{{ i }}" class="form-label">單位</label>
+                <input type="text" class="form-control" id="單位{{ i }}" formControlName="單位">
+              </div>
+              <div class="col-md-2 d-flex align-items-end">
+                <button type="button" class="btn btn-danger" (click)="removeMedication(i)">移除</button>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="適應症醫療效用{{ i }}" class="form-label">適應症/醫療效用</label>
+                <input type="text" class="form-control" id="適應症醫療效用{{ i }}" formControlName="適應症醫療效用">
+              </div>
+              <div class="col-md-6">
+                <label for="特殊注意事項{{ i }}" class="form-label">特殊注意事項</label>
+                <input type="text" class="form-control" id="特殊注意事項{{ i }}" formControlName="特殊注意事項">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-3">
+                <label for="臨床症狀{{ i }}" class="form-label">臨床症狀</label>
+                <input type="text" class="form-control" id="臨床症狀{{ i }}" formControlName="臨床症狀">
+              </div>
+              <div class="col-md-3">
+                <label for="檢驗數值{{ i }}" class="form-label">檢驗數值</label>
+                <input type="text" class="form-control" id="檢驗數值{{ i }}" formControlName="檢驗數值">
+              </div>
+              <div class="col-md-3">
+                <label for="開立科別醫師{{ i }}" class="form-label">開立科別/醫師</label>
+                <input type="text" class="form-control" id="開立科別醫師{{ i }}" formControlName="開立科別醫師">
+              </div>
+              <div class="col-md-3">
+                <label for="停用時間原因{{ i }}" class="form-label">停用時間/原因</label>
+                <input type="text" class="form-control" id="停用時間原因{{ i }}" formControlName="停用時間原因">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-4">
+                <label for="開立原因{{ i }}" class="form-label">開立原因</label>
+                <input type="text" class="form-control" id="開立原因{{ i }}" formControlName="開立原因">
+              </div>
+              <div class="col-md-4">
+                <label for="常見副作用{{ i }}" class="form-label">常見副作用</label>
+                <input type="text" class="form-control" id="常見副作用{{ i }}" formControlName="常見副作用">
+              </div>
+              <div class="col-md-4">
+                <label for="服藥日期{{ i }}" class="form-label">服藥日期</label>
+                <input type="date" class="form-control" id="服藥日期{{ i }}" formControlName="服藥日期">
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary mb-3" (click)="addMedication()">新增藥品</button>
+      </div>
+  
+      <button type="submit" class="btn btn-success">提交</button>
+    </form>
+  </div>
+  <p>參考資料</p>
+  <p>翁林仲、劉建良、楊君宜等(2021). 失智症整合照護手冊：以人為本的失智症專業融合照護 [The HANDBOOK OF DEMENTIA CARE]. 台北: 雙葉.</p>

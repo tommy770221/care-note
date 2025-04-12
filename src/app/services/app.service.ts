@@ -12,6 +12,8 @@ import {delay, forkJoin, Observable} from "rxjs";
 import {CareGiverService} from "@services/firestore/care-giver.service";
 import {CareGiver} from "@/model/care-giver.model";
 import {Timestamp} from "@firebase/firestore";
+import { CarePerson } from '@/model/care-person.model';
+import { CareTeam } from '@/model/care-team.model';
 
 const provider = new GoogleAuthProvider();
 
@@ -20,6 +22,12 @@ const provider = new GoogleAuthProvider();
 })
 export class AppService {
     public user?: User | null = null;
+    private careGiver: CareGiver = new CareGiver();
+    private carePerson: CarePerson= new CarePerson();
+    private carePersonList: Map<string, CarePerson> = new Map(); // Changed from array to Map
+    private careGiverList: CareGiver[] = [];
+    private careTeamList: Map<string, CareTeam> = new Map(); // Changed from array to Map
+    private careTeam: CareTeam = new CareTeam();
 
     constructor(
         private router: Router,
@@ -40,6 +48,46 @@ export class AppService {
                 this.user = undefined;
             }
         );
+    }
+
+    // Example method to add a CareTeam to the Map
+    addCareTeam(id: string, careTeam: CareTeam) {
+        this.careTeamList.set(id, careTeam);
+    }
+
+    // Example method to get a CareTeam by ID
+    getCareTeam(id: string): CareTeam | undefined {
+        return this.careTeamList.get(id);
+    }
+
+    // Example method to remove a CareTeam by ID
+    removeCareTeam(id: string) {
+        this.careTeamList.delete(id);
+    }
+
+    // Example method to list all CareTeams
+    listCareTeams(): CareTeam[] {
+        return Array.from(this.careTeamList.values());
+    }
+
+    // Example method to add a CarePerson to the Map
+    addCarePerson(id: string, carePerson: CarePerson) {
+        this.carePersonList.set(id, carePerson);
+    }
+
+    // Example method to get a CarePerson by ID
+    getCarePerson(id: string): CarePerson | undefined {
+        return this.carePersonList.get(id);
+    }
+
+    // Example method to remove a CarePerson by ID
+    removeCarePerson(id: string) {
+        this.carePersonList.delete(id);
+    }
+
+    // Example method to list all CarePersons
+    listCarePersons(): CarePerson[] {
+        return Array.from(this.carePersonList.values());
     }
 
     //todo i18n

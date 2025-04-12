@@ -81,6 +81,7 @@ import { VitalSignRecordComponent } from '@pages/activity/vital-sign-record/vita
 import { MedicalFormDashboardComponent } from '@pages/medical-form/medical-form-dashboard/medical-form-dashboard.component';
 import { MedicalFormComponent } from '@pages/medical-form/medical-form.component';
 import { BradenFormComponent } from '@pages/medical-form/braden-form/braden-form.component';
+import { ElderlyMedicationFormComponent } from '@pages/care-plan/care-plan/elderly-medication-form/elderly-medication-form.component';
 
 const routes: Routes = [
     {
@@ -334,6 +335,10 @@ const routes: Routes = [
                     {
                       path: 'advance-care-plan',
                       component: AdvanceCarePlanComponent
+                    },
+                    {
+                      path: 'elderly-medication-form',
+                      component: ElderlyMedicationFormComponent
                     }
                 ]
             },
