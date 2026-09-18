@@ -61,7 +61,7 @@
       <div class="col-sm-4">
         <app-small-box
           [title]="'Activity.SHOW.eat'|translate"
-          [text]="'1500 cal'"
+          [text]="dailyMeal + ' cal'"
           [navigateTo]="'/activity/carePerson/'+carePerson.id+'/careGiver/'+careGiver.id+'/edit'"
           [variant]="'info'"
           [icon]="{content: faBowlRice}"
@@ -81,7 +81,7 @@
       <div class="col-sm-4">
         <app-small-box
           [title]="'Activity.SHOW.toilet' |translate"
-          [text]="'2次'"
+          [text]="dailyToiletCount + '次'"
           [navigateTo]="'activity/carePerson/'+carePerson.id+'/careGiver/'+careGiver.id+'/edit'"
           [variant]="'info'"
           [icon]="{content: faRestroom}"
@@ -94,7 +94,7 @@
       <div class="col-sm-4">
         <app-small-box
           [title]="'Activity.SHOW.exercise' |translate"
-          [text]="'40分鐘'"
+          [text]="dailyExercise + '分鐘'"
           [navigateTo]="'activity/carePerson/'+carePerson.id+'/careGiver/'+careGiver.id+'/edit'"
           [variant]="'info'"
           [icon]="{content: faPersonWalking}"

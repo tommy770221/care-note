@@ -69,7 +69,10 @@ export class PersonShowComponent
     protected readonly faBowlRice = faBowlRice;
     protected readonly faRestroom = faRestroom;
     protected readonly faPersonWalking = faPersonWalking;
-    waterIn = '1500 ml';
+    waterIn = '0 ml';
+    dailyMeal = 0;
+    dailyToiletCount = 0;
+    dailyExercise = 0;
     primaryDis = '';
     primaryDisChinese = '';
     activities: Array<Activity> = [];
@@ -126,6 +129,7 @@ export class PersonShowComponent
                                             resp.data() as CarePerson;
                                         //console.log(this.carePerson.id);
                                       this.showActivities();
+                                      this.fetchTodaySummary();
 
                                         if (
                                             this.carePerson
@@ -233,6 +237,39 @@ export class PersonShowComponent
                     });
             }
             this.showActivities();
+            this.fetchTodaySummary();
+        });
+    }
+
+    fetchTodaySummary() {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        const tomorrow = new Date(today);
+        tomorrow.setDate(tomorrow.getDate() + 1);
+
+        const startTimestamp = Timestamp.fromDate(today);
+        const endTimestamp = Timestamp.fromDate(tomorrow);
+
+        this.angularFirestore.collection('activities/' + this.carePerson.id + '/activities', ref => 
+            ref.where('recordDate', '>=', startTimestamp).where('recordDate', '<', endTimestamp)
+        ).get().subscribe(snapshot => {
+            let mealVolume = 0;
+            let waterVolume = 0;
+            let toiletCount = 0;
+            let exerciseMinutes = 0;
+
+            snapshot.docs.forEach(doc => {
+                const activity = doc.data() as Activity;
+                if (activity.type === 'meal') mealVolume += Number(activity.mealVolume || 0);
+                if (activity.type === 'water') waterVolume += Number(activity.waterVolume || 0);
+                if (activity.type === 'toilet') toiletCount += 1;
+                if (activity.type === 'exercise') exerciseMinutes += Number(activity.excerciseHowLong || 0);
+            });
+
+            this.dailyMeal = mealVolume;
+            this.waterIn = waterVolume + ' ml';
+            this.dailyToiletCount = toiletCount;
+            this.dailyExercise = exerciseMinutes;
         });
     }
 
