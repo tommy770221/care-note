@@ -352,13 +352,7 @@ const routes: Routes = [
             },
             {
                 path: '',
-                component: DementiabilityComponent,
-                children: [
-                  {
-                    path: '',
-                    component: DementiabilityDashboardComponent
-                  }
-                ]
+                component: PersonShowComponent,
             }
         ]
     },
