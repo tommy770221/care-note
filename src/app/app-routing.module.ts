@@ -82,6 +82,7 @@ import { MedicalFormDashboardComponent } from '@pages/medical-form/medical-form-
 import { MedicalFormComponent } from '@pages/medical-form/medical-form.component';
 import { BradenFormComponent } from '@pages/medical-form/braden-form/braden-form.component';
 import { ElderlyMedicationFormComponent } from '@pages/care-plan/care-plan/elderly-medication-form/elderly-medication-form.component';
+import { VitalSignQueryComponent } from '@pages/activity/vital-sign-query/vital-sign-query.component';
 
 const routes: Routes = [
     {
@@ -145,6 +146,10 @@ const routes: Routes = [
             {
               path: 'activity/vital/carePerson/:carePersonId/careGiver/:careGiverId/edit',
               component: VitalSignRecordComponent
+            },
+            {
+              path: 'activity/vital/carePerson/:carePersonId/query',
+              component: VitalSignQueryComponent
             },
             {
               path: 'dementiability',

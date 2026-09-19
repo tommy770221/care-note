@@ -1,66 +1,40 @@
 import { VitalSignsForm } from '@/model/activity/vital-signs-form.model';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-vital-sign-record',
   templateUrl: './vital-sign-record.component.html',
   styleUrl: './vital-sign-record.component.scss'
 })
-export class VitalSignRecordComponent {
+export class VitalSignRecordComponent implements OnInit {
   vitalSignsForm: FormGroup;
+  carePersonId: string = '';
+  careGiverId: string = '';
 
-  constructor(private fb: FormBuilder,private angularFirestore: AngularFirestore) {
+  constructor(
+    private fb: FormBuilder,
+    private angularFirestore: AngularFirestore,
+    private route: ActivatedRoute,
+    private router: Router,
+  ) {
     this.vitalSignsForm = this.fb.group({
       patientName: ['', Validators.required],
       recordDate: ['', Validators.required],
       caregiverName: ['', Validators.required],
       vitalSignsRecords: this.fb.array([this.createVitalSignRecord()], Validators.required)
     });
-    this.angularFirestore.collection('vitalSigns').get().subscribe((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        console.log(doc.id, ' => ', doc.data());
-        const vitalSigns = doc.data() as VitalSignsForm;
-        console.log('病患姓名:', vitalSigns.patientName);
-        console.log('記錄日期:', vitalSigns.recordDate);
-        console.log('照護者姓名:', vitalSigns.caregiverName);
-        vitalSigns.vitalSignsRecords.forEach((record, index) => {
-          if(index>0){
-            this.addVitalSign();
-          }
-          console.log(`生命徵象記錄 ${index + 1}:`);
-          console.log('時間:', record.time);
-          console.log('體溫:', record.temperature);
-          console.log('脈搏:', record.pulse);
-          console.log('呼吸:', record.respiration);
-          console.log('收縮壓:', record.bloodPressureSystolic);
-          console.log('舒張壓:', record.bloodPressureDiastolic);
-          console.log('血糖:', record.bloodSugar);
-          console.log('血氧:', record.oxygenSaturation);
-          record.medications.forEach((med, medIndex) => {
-            if(medIndex>0){
-              this.addMedication(index);
-            }
-            console.log(`藥物 ${medIndex + 1}:`);
-            console.log('藥名:', med.name);
-            console.log('劑量:', med.dosage);
-            console.log('時間:', med.time);
-            console.log('方式:', med.method);
-            console.log('備註:', med.notes);
-          });
-          console.log('備註:', record.notes);
-        });
-        this.vitalSignsForm.patchValue(vitalSigns);
-      });
-    });
+    
   }
 
   ngOnInit() {
-    const savedRecords = localStorage.getItem('vitalSignsRecords');
-    if (savedRecords) {
-      this.vitalSignsForm.patchValue(JSON.parse(savedRecords));
-    }
+    this.route.params.subscribe(params => {
+      this.carePersonId = params['carePersonId'];
+      this.careGiverId = params['careGiverId'];
+    });
+
   }
 
   // Getter for vitalSignsRecords FormArray
@@ -132,43 +106,18 @@ export class VitalSignRecordComponent {
 
   onSubmit() {
     if (this.vitalSignsForm.valid) {
-      console.log('提交的生命徵象記錄:', this.vitalSignsForm.value);
-      this.angularFirestore.collection('vitalSigns').add(this.vitalSignsForm.value);
-      localStorage.setItem('vitalSignsRecords', JSON.stringify(this.vitalSignsForm.value));
-      alert('記錄已提交並儲存至本地！請檢查控制台以查看詳細資料。');
+      const formData = this.vitalSignsForm.value;
+      formData.carePersonId = this.carePersonId;
+      formData.careGiverId = this.careGiverId;
+      
+      console.log('提交的生命徵象記錄:', formData);
+      this.angularFirestore.collection('vitalSigns').add(formData);
+      this.router.navigate(['/activity/vital/carePerson/'+this.carePersonId+'/query']);
+      
     }
   }
 
   queryVitalSigns() {
-    this.angularFirestore.collection('vitalSigns').get().subscribe((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        console.log(doc.id, ' => ', doc.data());
-        const vitalSigns = doc.data() as VitalSignsForm;
-        this.vitalSignsForm.patchValue(vitalSigns);
-        console.log('病患姓名:', vitalSigns.patientName);
-        console.log('記錄日期:', vitalSigns.recordDate);
-        console.log('照護者姓名:', vitalSigns.caregiverName);
-        vitalSigns.vitalSignsRecords.forEach((record, index) => {
-          console.log(`生命徵象記錄 ${index + 1}:`);
-          console.log('時間:', record.time);
-          console.log('體溫:', record.temperature);
-          console.log('脈搏:', record.pulse);
-          console.log('呼吸:', record.respiration);
-          console.log('收縮壓:', record.bloodPressureSystolic);
-          console.log('舒張壓:', record.bloodPressureDiastolic);
-          console.log('血糖:', record.bloodSugar);
-          console.log('血氧:', record.oxygenSaturation);
-          record.medications.forEach((med, medIndex) => {
-            console.log(`藥物 ${medIndex + 1}:`);
-            console.log('藥名:', med.name);
-            console.log('劑量:', med.dosage);
-            console.log('時間:', med.time);
-            console.log('方式:', med.method);
-            console.log('備註:', med.notes);
-          });
-          console.log('備註:', record.notes);
-        });
-      });
-    });
+   this.router.navigate(['/activity/vital/carePerson/'+this.carePersonId+'/query']);
   }
 }

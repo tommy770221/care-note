@@ -8,7 +8,14 @@
   "storage": {
     "rules": "storage.rules"
   },
+"hosting": {
+  "ignore": [
+    "**/.*",
+    "**/node_modules/**"
+  ],
+  "public": "dist/adminlte/browser"
 
+},
 
   "emulators": {
     "auth": {

@@ -23,5 +23,7 @@ export interface Medication {
     patientName: string;
     recordDate: string;
     caregiverName: string;
+    carePersonId?: string;
+    careGiverId?: string;
     vitalSignsRecords: VitalSignRecord[];
   }

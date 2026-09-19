@@ -141,6 +141,7 @@ import { BradenFormComponent } from './pages/medical-form/braden-form/braden-for
 import { MedicalFormDashboardComponent } from './pages/medical-form/medical-form-dashboard/medical-form-dashboard.component';
 import { MedicalFormComponent } from './pages/medical-form/medical-form.component';
 import { ElderlyMedicationFormComponent } from './pages/care-plan/care-plan/elderly-medication-form/elderly-medication-form.component';
+import { VitalSignQueryComponent } from './pages/activity/vital-sign-query/vital-sign-query.component';
 
 //registerLocaleData(localeEn, 'en-EN');
 
@@ -237,6 +238,7 @@ import { ElderlyMedicationFormComponent } from './pages/care-plan/care-plan/elde
         MedicalFormDashboardComponent,
         MedicalFormComponent,
         ElderlyMedicationFormComponent,
+        VitalSignQueryComponent,
     ],
     bootstrap: [AppComponent],
     imports: [

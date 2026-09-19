@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "admin-lte-3"
-  }
+    "staging": "care-note-673a9"
+  },
+  "targets": {},
+  "etags": {}
 }
